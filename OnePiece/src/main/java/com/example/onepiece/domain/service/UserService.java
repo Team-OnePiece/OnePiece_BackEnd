@@ -1,6 +1,6 @@
 package com.example.onepiece.domain.service;
 
-import com.example.onepiece.domain.controller.dto.request.UserAddRequest;
+import com.example.onepiece.domain.controller.dto.request.UserSignUpRequest;
 import com.example.onepiece.domain.entity.User;
 import com.example.onepiece.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void addUser(UserAddRequest request){
+    public void signUpUser(UserSignUpRequest request){
         String userId = request.getUserId();
         Optional<User> user = userRepository.findByUserId(userId);
         if(user.isEmpty()){
