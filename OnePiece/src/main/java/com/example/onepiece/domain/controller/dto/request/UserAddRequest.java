@@ -13,6 +13,8 @@ public class UserAddRequest {
 
     private String nickname;
 
+    private String profile;
+
     private Integer classNumber;
 
     private Integer studentNumber;

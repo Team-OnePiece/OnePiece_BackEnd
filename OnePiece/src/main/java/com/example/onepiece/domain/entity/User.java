@@ -20,13 +20,17 @@ public class User {
     private Long id;
 
     @NotNull
+    @Column(name = "userId")
     private String userId;
 
     @NotNull
+    @Column(name = "password")
     private String userPassword;
 
     @NotNull
     private String nickname;
+
+    private String profile;
 
     @NotNull
     @Min(1) @Max(3)
@@ -37,10 +41,11 @@ public class User {
     private Integer studentNumber;
 
     @Builder
-    public User(String userId, String userPassword, String nickname, Integer classNumber, Integer studentNumber){
+    public User(String userId, String userPassword, String nickname, String profile ,Integer classNumber, Integer studentNumber){
         this.userId = userId;
         this.userPassword = userPassword;
         this.nickname = nickname;
+        this.profile = profile;
         this.classNumber = classNumber;
         this.studentNumber = studentNumber;
     }

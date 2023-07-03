@@ -25,6 +25,7 @@ public class UserService {
                             .userId(request.getUserId())
                             .userPassword(request.getUserPassword())
                             .nickname(request.getNickname())
+                            .profile(request.getProfile())
                             .classNumber(request.getClassNumber())
                             .studentNumber(request.getStudentNumber())
                             .build());
