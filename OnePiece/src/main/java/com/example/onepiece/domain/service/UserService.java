@@ -1,4 +1,4 @@
-package com.example.onepiece.service;
+package com.example.onepiece.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

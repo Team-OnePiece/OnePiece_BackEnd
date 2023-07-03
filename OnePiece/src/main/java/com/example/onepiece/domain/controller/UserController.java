@@ -1,4 +1,4 @@
-package com.example.onepiece.controller;
+package com.example.onepiece.domain.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
