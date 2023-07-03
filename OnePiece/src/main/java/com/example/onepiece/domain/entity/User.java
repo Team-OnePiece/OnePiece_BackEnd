@@ -5,10 +5,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -19,14 +19,21 @@ public class User {
     @Id
     private Long id;
 
+    @NotNull
     private String userId;
 
+    @NotNull
     private String userPassword;
 
+    @NotNull
     private String nickname;
 
+    @NotNull
+    @Min(1) @Max(3)
     private Integer classNumber;
 
+    @NotNull
+    @Min(1) @Max(16)
     private Integer studentNumber;
 
     @Builder
