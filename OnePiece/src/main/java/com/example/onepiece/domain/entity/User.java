@@ -24,5 +24,7 @@ public class User {
 
     private String nickname;
 
-    private String classNumber;
+    private Integer classNumber;
+
+    private Integer studentNumber;
 }
