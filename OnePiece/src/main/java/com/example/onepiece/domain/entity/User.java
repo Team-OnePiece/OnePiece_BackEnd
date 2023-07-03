@@ -30,6 +30,7 @@ public class User {
     @NotNull
     private String nickname;
 
+    @Column(name = "profile_image")
     private String profile;
 
     @NotNull
