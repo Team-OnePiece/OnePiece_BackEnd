@@ -6,9 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -19,25 +17,26 @@ public class User {
     @Id
     private Long id;
 
-    @NotNull
-    @Column(name = "userId")
+
+    @NotBlank(message = "아이디는 필수 입력 값 입니다")
     private String userId;
 
-    @NotNull
-    @Column(name = "password")
+    @NotBlank(message = "비밀번호는 필수 입력 값 입니다")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}", message = "비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
     private String userPassword;
 
-    @NotNull
+    @NotBlank
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}", message = "비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
     private String nickname;
 
     @Column(name = "profile_image")
     private String profile;
 
-    @NotNull
+    @NotBlank
     @Min(1) @Max(3)
     private Integer classNumber;
 
-    @NotNull
+    @NotBlank
     @Min(1) @Max(16)
     private Integer studentNumber;
 
