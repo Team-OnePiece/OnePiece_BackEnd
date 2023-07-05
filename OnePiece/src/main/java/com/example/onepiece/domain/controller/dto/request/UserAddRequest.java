@@ -2,6 +2,7 @@ package com.example.onepiece.domain.controller.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
 import javax.validation.constraints.*;
@@ -26,15 +27,15 @@ public class UserAddRequest {
     private String profile;
 
     @NotNull
-    @Min(1) @Max(3)
+    @Length(min = 1, max = 3)
     private Integer schoolNumber;
 
     @NotNull
-    @Min(1) @Max(4)
+    @Length(min = 1, max = 4)
     private Integer classNumber;
 
     @NotNull
-    @Min(1) @Max(20)
+    @Length(min = 1, max = 18)
     private Integer studentNumber;
 
 }
