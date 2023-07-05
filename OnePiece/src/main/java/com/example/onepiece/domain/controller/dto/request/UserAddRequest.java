@@ -27,15 +27,15 @@ public class UserAddRequest {
     private String profile;
 
     @NotNull
-    @Length(min = 1, max = 3)
+    @Min(1) @Max(3)
     private Integer schoolNumber;
 
     @NotNull
-    @Length(min = 1, max = 4)
+    @Min(1) @Max(4)
     private Integer classNumber;
 
     @NotNull
-    @Length(min = 1, max = 18)
+    @Min(1) @Max(18)
     private Integer studentNumber;
 
 }
