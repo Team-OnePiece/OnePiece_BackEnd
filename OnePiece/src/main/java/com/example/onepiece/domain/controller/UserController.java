@@ -28,5 +28,8 @@ public class UserController {
        return duplicate.idDuplicate(request);
     }
 
-  
+    @GetMapping("/nicknameDuplicate")
+    public void userNicknameDuplicate(@RequestBody @Valid UserDuplicateNicknameRequest request){
+        duplicate.nicknameDuplicate(request);
+    }
 }
