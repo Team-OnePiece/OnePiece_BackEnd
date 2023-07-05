@@ -20,7 +20,7 @@ public class UserFacade {
                 .orElseThrow(() -> new IllegalArgumentException("계정이 없습니다"));
     }
 
-    public void existsByUserId(String userId){
+    public boolean existsByUserId(String userId){
     if(userRepository.existsByUserId(userId)){
             throw new  IllegalArgumentException("이미 사용하는 아이디 입니다");
         }
@@ -29,7 +29,7 @@ public class UserFacade {
         }
     }
 
-    public void existsByNickname(String nickname){
+    public boolean existsByNickname(String nickname){
         if (userRepository.existsByNickname(nickname)){
             throw new IllegalArgumentException("이미 사용하고 있는 별명 입니다");
         }
