@@ -1,7 +1,7 @@
 package com.example.onepiece.domain.service;
 
+import com.example.onepiece.domain.controller.dto.request.UserDuplicateNicknameRequest;
 import com.example.onepiece.domain.controller.dto.request.UserDuplicateUserIdRequest;
-import com.example.onepiece.domain.repository.UserRepository;
 import com.example.onepiece.domain.service.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,5 +16,7 @@ public class Duplicate {
         userFacade.existsByUserId(request.getUserId());
     }
 
-
+    public void nicknameDuplicate(UserDuplicateNicknameRequest request){
+        userFacade.existsByNickname(request.getNickname());
+    }
 }
