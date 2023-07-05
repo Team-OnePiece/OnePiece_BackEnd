@@ -26,16 +26,19 @@ public class User {
 
     private String profile;
 
+    private Integer schoolNumber;
+
     private Integer classNumber;
 
     private Integer studentNumber;
 
     @Builder
-    public User(String userId, String userPassword, String nickname, String profile ,Integer classNumber, Integer studentNumber){
+    public User(String userId, String userPassword, String nickname, String profile ,Integer schoolNumber ,Integer classNumber, Integer studentNumber){
         this.userId = userId;
         this.userPassword = userPassword;
         this.nickname = nickname;
         this.profile = profile;
+        this.schoolNumber = schoolNumber;
         this.classNumber = classNumber;
         this.studentNumber = studentNumber;
     }

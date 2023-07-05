@@ -26,6 +26,9 @@ public class UserAddRequest {
     private String profile;
 
     @NotNull
+    private Integer schoolNumber;
+
+    @NotNull
     @Min(1) @Max(3)
     private Integer classNumber;
 
