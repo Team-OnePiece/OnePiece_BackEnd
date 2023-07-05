@@ -12,11 +12,11 @@ public class Duplicate {
 
     private final UserFacade userFacade;
 
-    public void idDuplicate(UserDuplicateUserIdRequest request){
-        userFacade.existsByUserId(request.getUserId());
+    public Boolean idDuplicate(UserDuplicateUserIdRequest request){
+        return userFacade.existsByUserId(request.getUserId());
     }
 
-    public void nicknameDuplicate(UserDuplicateNicknameRequest request){
-        userFacade.existsByNickname(request.getNickname());
+    public Boolean nicknameDuplicate(UserDuplicateNicknameRequest request){
+       return userFacade.existsByNickname(request.getNickname());
     }
 }
