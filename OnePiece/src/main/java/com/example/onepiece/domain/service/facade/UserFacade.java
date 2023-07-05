@@ -23,7 +23,8 @@ public class UserFacade {
     public boolean existsByUserId(String userId){
     if(userRepository.existsByUserId(userId)){
             throw new  IllegalArgumentException("이미 사용하는 아이디 입니다");
-        }else return true;
+        }
+    else return true;
     }
 
     public boolean existsByNickname(String nickname){
