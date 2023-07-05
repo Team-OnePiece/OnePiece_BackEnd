@@ -11,6 +11,7 @@ import javax.validation.constraints.*;
 public class UserAddRequest {
 
     @NotBlank
+    @Pattern(regexp = "^[a-zA-Z0-9]{1,20}$", message = "아이디는 1~20자 영문 대 소문자, 숫자 사용하세요")
     private String userId;
 
     @NotBlank
