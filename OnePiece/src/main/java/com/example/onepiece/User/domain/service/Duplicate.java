@@ -1,8 +1,8 @@
-package com.example.onepiece.domain.service;
+package com.example.onepiece.User.domain.service;
 
-import com.example.onepiece.domain.controller.dto.request.UserDuplicateNicknameRequest;
-import com.example.onepiece.domain.controller.dto.request.UserDuplicateUserIdRequest;
-import com.example.onepiece.domain.service.facade.UserFacade;
+import com.example.onepiece.User.domain.controller.dto.request.UserDuplicateNicknameRequest;
+import com.example.onepiece.User.domain.controller.dto.request.UserDuplicateUserIdRequest;
+import com.example.onepiece.User.domain.service.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
