@@ -3,9 +3,10 @@ package com.example.onepiece.global.security.error.entity;
 import com.example.onepiece.global.security.error.ErrorCode;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 
-@Data
+@Getter
 @Builder
 public class ErrorResponseEntity {
 
