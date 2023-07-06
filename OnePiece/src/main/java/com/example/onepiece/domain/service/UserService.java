@@ -21,8 +21,8 @@ public class UserService {
         userRepository.save(
                 User.builder()
                         .userId(request.getUserId())
-                        .userPassword(request.getUserPassword())
-                        .nickname(passwordEncoder.encode(request.getNickname()))
+                        .userPassword(passwordEncoder.encode(request.getUserPassword()))
+                        .nickname(request.getNickname())
                         .classNumber(request.getClassNumber())
                         .studentNumber(request.getStudentNumber())
                         .profile(request.getProfile())
