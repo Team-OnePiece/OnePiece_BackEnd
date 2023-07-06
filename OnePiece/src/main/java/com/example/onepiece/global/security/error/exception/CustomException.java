@@ -4,8 +4,8 @@ import com.example.onepiece.global.security.error.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public class CustomException extends RuntimeException{
-    ErrorCode errorCode;
+   private ErrorCode errorCode;
 }
