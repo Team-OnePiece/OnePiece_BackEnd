@@ -9,9 +9,7 @@ public enum ErrorCode {
 
     USER_NOT_FOUND(404, "User Not Found"),
     USER_ALREADY_EXISTS(409, "User Already Exists"),
-    NICKNAME_ALREADY_EXISTS(409, "Nickname Already Exists"),
-
-    SIGNUP_NEXT(201,"");
+    NICKNAME_ALREADY_EXISTS(409, "Nickname Already Exists");
 
     private final Integer httpStatus;
     private final String message;
