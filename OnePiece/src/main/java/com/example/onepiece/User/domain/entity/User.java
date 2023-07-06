@@ -1,4 +1,4 @@
-package com.example.onepiece.domain.entity;
+package com.example.onepiece.User.domain.entity;
 
 import lombok.AccessLevel;
 import lombok.Builder;

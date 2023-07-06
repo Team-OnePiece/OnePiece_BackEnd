@@ -1,10 +1,10 @@
-package com.example.onepiece.domain.controller;
+package com.example.onepiece.User.domain.controller;
 
-import com.example.onepiece.domain.controller.dto.request.UserAddRequest;
-import com.example.onepiece.domain.controller.dto.request.UserDuplicateNicknameRequest;
-import com.example.onepiece.domain.controller.dto.request.UserDuplicateUserIdRequest;
-import com.example.onepiece.domain.service.Duplicate;
-import com.example.onepiece.domain.service.UserService;
+import com.example.onepiece.User.domain.controller.dto.request.UserAddRequest;
+import com.example.onepiece.User.domain.controller.dto.request.UserDuplicateNicknameRequest;
+import com.example.onepiece.User.domain.controller.dto.request.UserDuplicateUserIdRequest;
+import com.example.onepiece.User.domain.service.UserService;
+import com.example.onepiece.User.domain.service.Duplicate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
