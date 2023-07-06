@@ -2,13 +2,12 @@ package com.example.onepiece.User.domain.controller.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
 import javax.validation.constraints.*;
 
-@NoArgsConstructor
 @Getter
+@NoArgsConstructor
 public class UserAddRequest {
 
     @NotBlank
