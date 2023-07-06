@@ -3,8 +3,8 @@ package com.example.onepiece.global.security.error;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public enum ErrorCode {
 
     USER_NOT_FOUND(404, "User Not Found"),
