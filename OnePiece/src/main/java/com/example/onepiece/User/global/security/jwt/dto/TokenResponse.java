@@ -8,4 +8,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public class TokenResponse {
 
+    private String accountId;
+
+    private String refreshToken;
+
+    private Long refreshTokenTime;
+
 }
