@@ -14,7 +14,6 @@ public class AuthDetails implements UserDetails {
 
     private final User user;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -49,5 +48,4 @@ public class AuthDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 }
