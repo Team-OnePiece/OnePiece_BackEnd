@@ -1,6 +1,6 @@
 package com.example.onepiece.User.domain.service;
 
-import com.example.onepiece.User.domain.controller.dto.request.UserAddRequest;
+import com.example.onepiece.User.domain.controller.dto.request.UserSignUpRequest;
 import com.example.onepiece.User.domain.entity.User;
 import com.example.onepiece.User.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,13 +16,14 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public void signUpUser(UserAddRequest request) {
+    public void signUpUser(UserSignUpRequest request) {
 
         userRepository.save(
                 User.builder()
                         .userId(request.getUserId())
-                        .userPassword(request.getUserPassword())
-                        .nickname(passwordEncoder.encode(request.getNickname()))
+                        .userPassword(passwordEncoder.encode(request.getUserPassword()))
+                        .nickname(request.getNickname())
+                        .schoolNumber(request.getSchoolNumber())
                         .classNumber(request.getClassNumber())
                         .studentNumber(request.getStudentNumber())
                         .profile(request.getProfile())
