@@ -1,6 +1,6 @@
 package com.example.onepiece.User.domain.controller;
 
-import com.example.onepiece.User.domain.controller.dto.request.UserAddRequest;
+import com.example.onepiece.User.domain.controller.dto.request.UserSignUpRequest;
 import com.example.onepiece.User.domain.controller.dto.request.UserDuplicateNicknameRequest;
 import com.example.onepiece.User.domain.controller.dto.request.UserDuplicateUserIdRequest;
 import com.example.onepiece.User.domain.service.UserService;
@@ -23,7 +23,7 @@ public class UserController {
 
     @Operation(summary = "User회원가입")
     @PostMapping
-    public void userSignUp(@RequestBody @Valid UserAddRequest request){
+    public void userSignUp(@RequestBody @Valid UserSignUpRequest request){
         userService.signUpUser(request);
     }
 
@@ -35,7 +35,7 @@ public class UserController {
 
     @Operation(summary = "Nickname중복확인")
     @GetMapping("/nicknameDuplicate")
-    public void userNicknameDuplicate(@RequestBody @Valid UserDuplicateNicknameRequest request){
-        duplicate.nicknameDuplicate(request);
+    public boolean userNicknameDuplicate(@RequestBody @Valid UserDuplicateNicknameRequest request){
+       return duplicate.nicknameDuplicate(request);
     }
 }
