@@ -23,10 +23,7 @@ public class UserService {
                         .userId(request.getUserId())
                         .userPassword(passwordEncoder.encode(request.getUserPassword()))
                         .nickname(request.getNickname())
-<<<<<<< HEAD
-=======
                         .schoolNumber(request.getSchoolNumber())
->>>>>>> refactoring
                         .classNumber(request.getClassNumber())
                         .studentNumber(request.getStudentNumber())
                         .profile(request.getProfile())
