@@ -1,0 +1,14 @@
+package com.example.User.domain.repository;
+
+import com.example.User.domain.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findUserByUserId(String userId);
+
+    boolean existsByUserId(String userId);
+
+    boolean existsByNickname(String nickname);
+}
