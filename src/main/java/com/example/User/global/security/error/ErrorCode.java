@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum ErrorCode {
 
     USER_NOT_FOUND(404, "User Not Found"),
-    USER_ALREADY_EXISTS(409, "User Already Exists"),
+    USERId_ALREADY_EXISTS(409, "UserId Already Exists"),
     NICKNAME_ALREADY_EXISTS(409, "Nickname Already Exists"),
 
     INTERNAL_SERVER_ERROR(500, "");

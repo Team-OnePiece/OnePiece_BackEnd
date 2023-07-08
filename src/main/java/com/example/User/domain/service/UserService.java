@@ -1,8 +1,12 @@
 package com.example.User.domain.service;
 
+import com.example.User.domain.controller.dto.request.UserDuplicateNicknameRequest;
+import com.example.User.domain.controller.dto.request.UserDuplicateUserIdRequest;
 import com.example.User.domain.controller.dto.request.UserSignUpRequest;
 import com.example.User.domain.repository.UserRepository;
 import com.example.User.domain.entity.User;
+import com.example.User.global.security.error.ErrorCode;
+import com.example.User.global.security.error.exception.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,4 +34,15 @@ public class UserService {
                         .build());
     }
 
+    public void checkIdDuplicate(UserDuplicateUserIdRequest request){
+        if(userRepository.existsByUserId(request.getUserId())){
+            throw new CustomException(ErrorCode.USERId_ALREADY_EXISTS);
+        }
+    }
+
+    public void checkNicknameDuplicate(UserDuplicateNicknameRequest request){
+        if (userRepository.existsByNickname(request.getNickname())){
+            throw new CustomException(ErrorCode.NICKNAME_ALREADY_EXISTS);
+        }
+    }
 }

@@ -4,7 +4,6 @@ import com.example.User.domain.controller.dto.request.UserDuplicateUserIdRequest
 import com.example.User.domain.controller.dto.request.UserSignUpRequest;
 import com.example.User.domain.controller.dto.request.UserDuplicateNicknameRequest;
 import com.example.User.domain.service.UserService;
-import com.example.User.domain.service.Duplicate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,6 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
-    private final Duplicate duplicate;
 
     @Operation(summary = "User회원가입")
     @PostMapping

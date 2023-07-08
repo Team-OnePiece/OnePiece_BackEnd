@@ -14,24 +14,10 @@ public class UserFacade {
 
     private final UserRepository userRepository;
 
-    public User currentUser(){
+    public User getCurrentUser(){
         String userId = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.findUserByUserId(userId)
+        return userRepository.findByUserId(userId)
                 .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
-    }
-
-    public boolean existsByUserId(String userId){
-    if(userRepository.existsByUserId(userId)){
-            throw new CustomException(ErrorCode.USER_ALREADY_EXISTS);
-        }
-    else return true;
-    }
-
-    public boolean existsByNickname(String nickname){
-        if (userRepository.existsByNickname(nickname)){
-            throw new CustomException(ErrorCode.NICKNAME_ALREADY_EXISTS);
-        }
-        else return true;
     }
 }
 
