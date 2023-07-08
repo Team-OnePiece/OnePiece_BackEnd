@@ -27,10 +27,13 @@ public class User {
 
     private String profile;
 
+    @Column(nullable = false, length = 3)
     private Integer schoolNumber;
 
+    @Column(nullable = false, length = 4)
     private Integer classNumber;
 
+    @Column(nullable = false, length = 18)
     private Integer studentNumber;
 
     @Builder
