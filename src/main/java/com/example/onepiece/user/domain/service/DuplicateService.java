@@ -3,8 +3,8 @@ package com.example.onepiece.user.domain.service;
 import com.example.onepiece.user.domain.controller.dto.request.IdDuplicateRequest;
 import com.example.onepiece.user.domain.controller.dto.request.NicknameDuplicateRequest;
 import com.example.onepiece.user.domain.repository.UserRepository;
-import com.example.onepiece.user.global.security.error.ErrorCode;
-import com.example.onepiece.user.global.security.error.exception.CustomException;
+import com.example.onepiece.user.global.error.ErrorCode;
+import com.example.onepiece.user.global.error.exception.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

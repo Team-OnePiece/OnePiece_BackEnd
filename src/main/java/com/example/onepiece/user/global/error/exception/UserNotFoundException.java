@@ -1,6 +1,6 @@
-package com.example.onepiece.user.global.security.error.exception;
+package com.example.onepiece.user.global.error.exception;
 
-import com.example.onepiece.user.global.security.error.ErrorCode;
+import com.example.onepiece.user.global.error.ErrorCode;
 
 public class UserNotFoundException extends CustomException{
 
