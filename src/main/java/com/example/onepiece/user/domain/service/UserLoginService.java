@@ -26,7 +26,6 @@ public class UserLoginService {
         if(!passwordEncoder.matches(request.getUserPassword(), user.getUserPassword())){
             throw new CustomException(ErrorCode.PASSWORD_MISS_MATCH);
         }
-        
         return jwtProvider.getToken(user);
     }
 }
