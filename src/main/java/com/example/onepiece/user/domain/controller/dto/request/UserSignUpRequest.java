@@ -11,15 +11,15 @@ import javax.validation.constraints.*;
 public class UserSignUpRequest {
 
     @NotBlank
-    @Pattern(regexp = "^[a-zA-Z0-9]{1,20}$", message = "아이디는 1~20자 영문 대 소문자, 숫자 사용하세요")
+    @Pattern(regexp = "^[a-zA-Z0-9]{７,20}$", message = "아이디는 ７~20자 영문 대 소문자, 숫자 사용하세요")
     private String userId;
 
     @NotBlank
-    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{1,16}", message = "비밀번호는 1~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{7,20}", message = "비밀번호는 7~20자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
     private String userPassword;
 
     @NotBlank
-    @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-zA-Z]{2,9}$", message = "닉네임은 특수문자, 숫자를 제외한 2~9자 한글 영문 대 소문자 사용하세요.")
+    @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-zA-Z]{2,8}$", message = "닉네임은 특수문자, 숫자를 제외한 2~9자 한글 영문 대 소문자 사용하세요.")
     private String nickname;
 
     @Column(name = "profile_image")
