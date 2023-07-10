@@ -6,7 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 
 @SpringBootApplication
-@ConfigurationPropertiesScan
 public class OnePieceApplication {
 
     public static void main(String[] args) {
