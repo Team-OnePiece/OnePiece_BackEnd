@@ -17,7 +17,6 @@ public class UserFacade {
     public User getCurrentUser(){
         String userId = SecurityContextHolder.getContext().getAuthentication().getName();
         return getUserByUserId(userId);
-
     }
 
     public User getUserByUserId(String userId){
