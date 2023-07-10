@@ -2,9 +2,12 @@ package com.example.onepiece.user.domain.controller;
 
 import com.example.onepiece.user.domain.controller.dto.request.IdDuplicateRequest;
 import com.example.onepiece.user.domain.controller.dto.request.NicknameDuplicateRequest;
+import com.example.onepiece.user.domain.controller.dto.request.UserLoginRequest;
 import com.example.onepiece.user.domain.controller.dto.request.UserSignUpRequest;
 import com.example.onepiece.user.domain.service.DuplicateService;
+import com.example.onepiece.user.domain.service.UserLoginService;
 import com.example.onepiece.user.domain.service.UserSignUpService;
+import com.example.onepiece.user.global.security.Jwt.dto.TokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +23,7 @@ public class UserController {
 
     private final UserSignUpService userSignUpService;
     private final DuplicateService duplicateService;
+    private final UserLoginService userLoginService;
 
     @Operation(summary = "회원가입")
     @PostMapping("/signup")
@@ -39,4 +43,9 @@ public class UserController {
         duplicateService.checkNicknameDuplicate(request);
     }
 
+    @Operation(summary = "로그인")
+    @PostMapping("/login")
+    public TokenResponse login(@RequestBody UserLoginRequest request){
+        return userLoginService.userLogin(request);
+    }
 }
