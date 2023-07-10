@@ -44,10 +44,12 @@ public class JwtProvider {
         return new TokenResponse(accessToken, accessTokenTime);
     }
     public String generateAccessToken(String userId) {
+
         return generateToken(userId, "access", accessTokenTime);
     }
 
     private String generateToken(String userId, String type, Long exp) {
+
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS256, key.getBytes())
                 .setSubject(userId)
@@ -58,11 +60,14 @@ public class JwtProvider {
     }
 
     public String resolveToken(HttpServletRequest request) {
+
         String bearer = request.getHeader(HEADER);
+
         return parseToken(bearer);
     }
 
     public Authentication authentication(String token) {
+
         UserDetails userDetails = authDetailsService
                 .loadUserByUsername(getTokenSubject(token));
 
@@ -70,6 +75,7 @@ public class JwtProvider {
     }
 
     public String parseToken(String bearerToken) {
+        
         if (bearerToken != null && bearerToken.startsWith(PREFIX))
             return bearerToken.replace(PREFIX, "");
 
@@ -87,6 +93,7 @@ public class JwtProvider {
     }
 
     private String getTokenSubject(String token) {
+
         return getTokenBody(token).getSubject();
     }
 

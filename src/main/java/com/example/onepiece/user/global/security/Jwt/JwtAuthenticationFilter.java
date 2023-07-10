@@ -21,7 +21,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         // request 에서 token 취함.
         String bearer = jwtProvider.resolveToken(request);
 
-        if(bearer != null){
+        if (bearer != null) {
 
             // 토큰이 유효하면 토큰으로부터 유저 정보를 가져옴
             Authentication authentication = jwtProvider.authentication(bearer);
