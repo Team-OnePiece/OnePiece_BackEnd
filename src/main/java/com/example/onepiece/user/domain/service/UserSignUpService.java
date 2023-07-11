@@ -15,6 +15,7 @@ public class UserSignUpService {
     private final PasswordEncoder passwordEncoder;
 
     public void userSignUp(UserSignUpRequest request) {
+
         userRepository.save(
                 User.builder()
                         .userId(request.getUserId())
