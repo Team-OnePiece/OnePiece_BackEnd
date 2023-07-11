@@ -37,7 +37,7 @@ public class User {
     private Integer studentNumber;
 
     @Builder
-    public User(String userId, String userPassword, String nickname, String profile ,Integer schoolNumber ,Integer classNumber, Integer studentNumber){
+    public User(String userId, String userPassword, String nickname, String profile, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.nickname = nickname;

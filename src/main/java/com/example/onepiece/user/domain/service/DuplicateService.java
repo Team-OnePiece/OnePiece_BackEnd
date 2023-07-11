@@ -14,14 +14,14 @@ public class DuplicateService {
 
     private final UserRepository userRepository;
 
-    public void checkNicknameDuplicate(NicknameDuplicateRequest request){
-        if (userRepository.existsByNickname(request.getNickname())){
+    public void checkNicknameDuplicate(NicknameDuplicateRequest request) {
+        if (userRepository.existsByNickname(request.getNickname())) {
             throw new CustomException(ErrorCode.NICKNAME_ALREADY_EXISTS);
         }
     }
 
-    public void checkUserIdDuplicate(IdDuplicateRequest request){
-        if (userRepository.existsByUserId(request.getUserId())){
+    public void checkUserIdDuplicate(IdDuplicateRequest request) {
+        if (userRepository.existsByUserId(request.getUserId())) {
             throw new CustomException(ErrorCode.USERID_ALREADY_EXISTS);
         }
     }

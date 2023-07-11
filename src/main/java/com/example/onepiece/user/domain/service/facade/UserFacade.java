@@ -14,12 +14,12 @@ public class UserFacade {
 
     private final UserRepository userRepository;
 
-    public User getCurrentUser(){
+    public User getCurrentUser() {
         String userId = SecurityContextHolder.getContext().getAuthentication().getName();
         return getUserByUserId(userId);
     }
 
-    public User getUserByUserId(String userId){
+    public User getUserByUserId(String userId) {
         return userRepository.findByUserId(userId)
                 .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
     }

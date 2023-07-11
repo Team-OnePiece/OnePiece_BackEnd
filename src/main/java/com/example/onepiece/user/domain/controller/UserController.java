@@ -27,25 +27,25 @@ public class UserController {
 
     @Operation(summary = "회원가입")
     @PostMapping("/signup")
-    public void signUp(@RequestBody @Valid UserSignUpRequest request){
+    public void signUp(@RequestBody @Valid UserSignUpRequest request) {
         userSignUpService.userSignUp(request);
     }
 
     @Operation(summary = "아이디 중복확인")
     @GetMapping("/idDuplicate")
-    public void userIdDuplicate(@RequestBody IdDuplicateRequest request){
+    public void userIdDuplicate(@RequestBody IdDuplicateRequest request) {
         duplicateService.checkUserIdDuplicate(request);
     }
 
     @Operation(summary = "별명 중복확인")
     @GetMapping("/nicknameDuplicate")
-    public void nicknameDuplicate(@RequestBody NicknameDuplicateRequest request){
+    public void nicknameDuplicate(@RequestBody NicknameDuplicateRequest request) {
         duplicateService.checkNicknameDuplicate(request);
     }
 
     @Operation(summary = "로그인")
     @PostMapping("/login")
-    public TokenResponse login(@RequestBody UserLoginRequest request){
+    public TokenResponse login(@RequestBody UserLoginRequest request) {
         return userLoginService.userLogin(request);
     }
 }

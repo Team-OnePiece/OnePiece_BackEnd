@@ -4,27 +4,14 @@ spring:
     url: jdbc:mysql://localhost:3306/onepiece?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: rlaehrud9919@
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      show_sql: true
 
-    jwt:
-      key: asdkhfqwioehraskjldbfklasbdfiuasdufweyhrjkahskldfhasduhfkljasdbhnfkjbaslkdfbuabsdufhiouhyweuiorhkljasdhflkusadhfkjbasdlkfbuashfkasbdlkfjh
-      live:
-        atk: 3600000
-        rtk: 604800000
 
-    jpa:
-      hibernate:
-        ddl-auto: create
-      show-sql: true
-
-  cloud:
-    aws:
-      credentials:
-        accessKey: AKIAWUTT3RNCWRQ5ZASA
-        secretKey: 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
-      s3:
-        bucket: td-project-bucket
-        dir: image
-      region:
-        static: ap-northeast-2
-      stack:
-        auto: false
+  jwt:
+    key: asdkhfqwioehraskjldbfklasbdfiuasdufweyhrjkahskldfhasduhfkljasdbhnfkjbaslkdf
+    live:
+      accessToken: 3600000000000000000000000000000000
