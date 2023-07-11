@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 public class UserSignUpRequest {
 
     @NotBlank
-    @Pattern(regexp = "^[a-zA-Z0-9]{７,20}$", message = "아이디는 ７~20자 영문 대 소문자, 숫자 사용하세요")
+    @Pattern(regexp = "^[a-zA-Z0-9]{7,20}$", message = "아이디는 ７~20자 영문 대 소문자, 숫자 사용하세요")
     private String userId;
 
     @NotBlank
