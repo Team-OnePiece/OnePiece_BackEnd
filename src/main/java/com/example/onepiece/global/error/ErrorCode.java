@@ -13,7 +13,7 @@ public enum ErrorCode {
     PASSWORD_MISS_MATCH(400, "Password Miss Match"),
 
     JWT_EXPIRED(401, "Jwt Expired"),
-    JWT_INVALID(401, "Jwt Invalid"),
+    JWT_INVALID(401, "Jwt Invalid");
 
     private final Integer httpStatus;
     private final String message;
