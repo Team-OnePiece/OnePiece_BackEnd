@@ -15,8 +15,6 @@ public enum ErrorCode {
     JWT_EXPIRED(401, "Jwt Expired"),
     JWT_INVALID(401, "Jwt Invalid"),
 
-    INTERNAL_SERVER_ERROR(500, "");
-
     private final Integer httpStatus;
     private final String message;
 }
