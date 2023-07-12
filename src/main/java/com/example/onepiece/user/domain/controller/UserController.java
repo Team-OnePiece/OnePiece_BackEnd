@@ -32,13 +32,13 @@ public class UserController {
     }
 
     @Operation(summary = "아이디 중복확인")
-    @GetMapping("/idDuplicate")
+    @GetMapping("/id/Duplicate")
     public void userIdDuplicate(@RequestBody IdDuplicateRequest request) {
         duplicateService.checkUserIdDuplicate(request);
     }
 
     @Operation(summary = "별명 중복확인")
-    @GetMapping("/nicknameDuplicate")
+    @GetMapping("/nickname/Duplicate")
     public void nicknameDuplicate(@RequestBody NicknameDuplicateRequest request) {
         duplicateService.checkNicknameDuplicate(request);
     }
