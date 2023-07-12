@@ -2,8 +2,8 @@ package com.example.onepiece.user.domain.service.facade;
 
 import com.example.onepiece.user.domain.entity.User;
 import com.example.onepiece.user.domain.repository.UserRepository;
-import com.example.onepiece.user.global.error.ErrorCode;
-import com.example.onepiece.user.global.error.exception.CustomException;
+import com.example.onepiece.user.global.security.error.ErrorCode;
+import com.example.onepiece.user.global.security.error.exception.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
