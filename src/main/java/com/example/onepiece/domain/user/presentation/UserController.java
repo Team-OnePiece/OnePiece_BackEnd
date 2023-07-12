@@ -1,12 +1,7 @@
 package com.example.onepiece.domain.user.presentation;
 
-import com.example.onepiece.domain.user.service.DuplicateService;
-import com.example.onepiece.domain.user.presentation.dto.request.IdDuplicateRequest;
-import com.example.onepiece.domain.user.presentation.dto.request.NicknameDuplicateRequest;
-import com.example.onepiece.domain.user.presentation.dto.request.UserLoginRequest;
-import com.example.onepiece.domain.user.presentation.dto.request.UserSignUpRequest;
-import com.example.onepiece.domain.user.service.UserLoginService;
-import com.example.onepiece.domain.user.service.UserSignUpService;
+import com.example.onepiece.domain.user.presentation.dto.request.*;
+import com.example.onepiece.domain.user.service.*;
 import com.example.onepiece.global.security.Jwt.dto.TokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
