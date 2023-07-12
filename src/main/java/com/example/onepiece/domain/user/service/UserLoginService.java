@@ -3,7 +3,7 @@ package com.example.onepiece.domain.user.service;
 import com.example.onepiece.domain.user.presentation.dto.request.UserLoginRequest;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
-import com.example.onepiece.global.error.exception.PasswordMissMatchException;
+import com.example.onepiece.domain.user.exception.PasswordMissMatchException;
 import com.example.onepiece.global.security.Jwt.JwtProvider;
 import com.example.onepiece.global.security.Jwt.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;

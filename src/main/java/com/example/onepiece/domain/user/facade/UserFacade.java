@@ -2,8 +2,7 @@ package com.example.onepiece.domain.user.facade;
 
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.domain.repository.UserRepository;
-import com.example.onepiece.global.error.ErrorCode;
-import com.example.onepiece.global.error.exception.CustomException;
+import com.example.onepiece.domain.user.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -21,6 +20,6 @@ public class UserFacade {
 
     public User getUserByUserId(String userId) {
         return userRepository.findByUserId(userId)
-                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 }

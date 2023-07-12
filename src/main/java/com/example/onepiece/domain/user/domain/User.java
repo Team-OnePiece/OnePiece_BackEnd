@@ -33,7 +33,7 @@ public class User {
     @Column(nullable = false, length = 4)
     private Integer classNumber;
 
-    @Column(nullable = false, length = 18)
+    @Column(nullable = false, length = 16)
     private Integer studentNumber;
 
     @Builder
