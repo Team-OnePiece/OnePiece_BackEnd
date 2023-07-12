@@ -1,7 +1,7 @@
-package com.example.onepiece.user.global.security.error.handler;
+package com.example.onepiece.user.global.error.handler;
 
-import com.example.onepiece.user.global.security.error.entity.ErrorResponseEntity;
-import com.example.onepiece.user.global.security.error.exception.CustomException;
+import com.example.onepiece.user.global.error.exception.CustomException;
+import com.example.onepiece.user.global.error.entity.ErrorResponseEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

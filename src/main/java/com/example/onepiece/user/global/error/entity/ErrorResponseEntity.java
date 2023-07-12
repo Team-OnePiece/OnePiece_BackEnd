@@ -1,10 +1,9 @@
-package com.example.onepiece.user.global.security.error.entity;
+package com.example.onepiece.user.global.error.entity;
 
-import com.example.onepiece.user.global.security.error.ErrorCode;
+import com.example.onepiece.user.global.error.ErrorCode;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.support.SQLErrorCodes;
 
 @Getter
 @Builder

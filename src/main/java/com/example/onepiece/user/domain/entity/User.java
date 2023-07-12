@@ -22,15 +22,18 @@ public class User {
     @Column(nullable = false, length = 60)
     private String userPassword;
 
-    @Column(nullable = false, length = 4)
+    @Column(nullable = false, length = 9)
     private String nickname;
 
     private String profile;
 
+    @Column(nullable = false, length = 3)
     private Integer schoolNumber;
 
+    @Column(nullable = false, length = 4)
     private Integer classNumber;
 
+    @Column(nullable = false, length = 18)
     private Integer studentNumber;
 
     @Builder
