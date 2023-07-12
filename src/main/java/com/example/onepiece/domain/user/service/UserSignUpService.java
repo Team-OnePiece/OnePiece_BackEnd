@@ -1,8 +1,8 @@
 package com.example.onepiece.domain.user.service;
 
-import com.example.onepiece.domain.user.controller.dto.request.UserSignUpRequest;
-import com.example.onepiece.domain.user.entity.User;
-import com.example.onepiece.domain.user.repository.UserRepository;
+import com.example.onepiece.domain.user.presentation.dto.request.UserSignUpRequest;
+import com.example.onepiece.domain.user.domain.User;
+import com.example.onepiece.domain.user.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

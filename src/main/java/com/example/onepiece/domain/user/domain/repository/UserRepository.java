@@ -1,6 +1,6 @@
-package com.example.onepiece.domain.user.repository;
+package com.example.onepiece.domain.user.domain.repository;
 
-import com.example.onepiece.domain.user.entity.User;
+import com.example.onepiece.domain.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,6 +1,6 @@
-package com.example.onepiece.global.security.auth;
+package com.example.onepiece.global.security.principle;
 
-import com.example.onepiece.domain.user.entity.User;
+import com.example.onepiece.domain.user.domain.User;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

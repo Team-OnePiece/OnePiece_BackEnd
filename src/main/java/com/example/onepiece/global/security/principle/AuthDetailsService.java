@@ -1,8 +1,8 @@
-package com.example.onepiece.global.security.auth;
+package com.example.onepiece.global.security.principle;
 
-import com.example.onepiece.domain.user.entity.User;
-import com.example.onepiece.domain.user.repository.UserRepository;
-import com.example.onepiece.global.security.error.exception.UserNotFoundException;
+import com.example.onepiece.domain.user.domain.User;
+import com.example.onepiece.domain.user.domain.repository.UserRepository;
+import com.example.onepiece.global.error.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

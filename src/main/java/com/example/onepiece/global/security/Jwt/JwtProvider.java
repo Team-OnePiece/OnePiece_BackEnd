@@ -1,8 +1,8 @@
 package com.example.onepiece.global.security.Jwt;
 
-import com.example.onepiece.domain.user.entity.User;
-import com.example.onepiece.global.security.auth.AuthDetailsService;
-import com.example.onepiece.global.security.error.exception.ExpiredTokenException;
+import com.example.onepiece.domain.user.domain.User;
+import com.example.onepiece.global.security.principle.AuthDetailsService;
+import com.example.onepiece.global.error.exception.ExpiredTokenException;
 import com.example.onepiece.global.security.Jwt.dto.TokenResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
