@@ -1,5 +1,7 @@
 package com.example.onepiece.domain.user.service;
 
+import com.example.onepiece.domain.user.exception.NicknameAlreadyExistsException;
+import com.example.onepiece.domain.user.exception.UserIdAlreadyExistsException;
 import com.example.onepiece.domain.user.presentation.dto.request.IdDuplicateRequest;
 import com.example.onepiece.domain.user.presentation.dto.request.NicknameDuplicateRequest;
 import com.example.onepiece.domain.user.domain.repository.UserRepository;
@@ -16,13 +18,13 @@ public class DuplicateService {
 
     public void checkNicknameDuplicate(NicknameDuplicateRequest request) {
         if (userRepository.existsByNickname(request.getNickname())) {
-            throw new CustomException(ErrorCode.NICKNAME_ALREADY_EXISTS);
+            throw NicknameAlreadyExistsException.EXCEPTION;
         }
     }
 
     public void checkUserIdDuplicate(IdDuplicateRequest request) {
         if (userRepository.existsByUserId(request.getUserId())) {
-            throw new CustomException(ErrorCode.USERID_ALREADY_EXISTS);
+            throw UserIdAlreadyExistsException.EXCEPTION;
         }
     }
 }
