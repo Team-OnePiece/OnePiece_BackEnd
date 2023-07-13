@@ -1,6 +1,7 @@
 package com.example.onepiece.domain.user.presentation;
 
 import com.example.onepiece.domain.user.presentation.dto.request.*;
+import com.example.onepiece.domain.user.presentation.dto.response.UserInfoResponse;
 import com.example.onepiece.domain.user.service.*;
 import com.example.onepiece.global.security.Jwt.dto.TokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,6 +20,7 @@ public class UserController {
     private final UserSignUpService userSignUpService;
     private final DuplicateService duplicateService;
     private final UserLoginService userLoginService;
+    private final UserInfoService userInfoService;
 
     @Operation(summary = "회원가입")
     @PostMapping("/signup")
@@ -42,5 +44,11 @@ public class UserController {
     @PostMapping("/login")
     public TokenResponse login(@RequestBody UserLoginRequest request) {
         return userLoginService.userLogin(request);
+    }
+
+    @Operation(summary = "내 정보")
+    @GetMapping("/info")
+    public UserInfoResponse info(){
+        return userInfoService.userInfo();
     }
 }
