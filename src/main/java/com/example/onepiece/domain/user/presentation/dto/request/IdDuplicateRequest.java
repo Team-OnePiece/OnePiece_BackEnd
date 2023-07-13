@@ -1,4 +1,4 @@
-package com.example.onepiece.user.domain.controller.dto.request;
+package com.example.onepiece.domain.user.presentation.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
