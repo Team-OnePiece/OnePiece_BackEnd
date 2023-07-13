@@ -13,3 +13,4 @@ public class UserInfoResponse {
         this.nickname = nickname;
     }
 }
+
