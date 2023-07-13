@@ -18,6 +18,7 @@ public class UserInfoService {
     private final UserRepository userRepository;
 
     public UserInfoResponse userInfo(){
+        
         User currentUser = userFacade.getCurrentUser();
         Optional<User>user = userRepository.findByUserId(currentUser.getUserId());
 
