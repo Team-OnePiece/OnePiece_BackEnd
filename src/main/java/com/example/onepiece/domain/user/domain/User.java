@@ -22,7 +22,7 @@ public class User {
     @Column(nullable = false, length = 9)
     private String nickname;
 
-    private String profile;
+    private String profileImage;
 
     @Column(nullable = false, length = 3)
     private Integer schoolNumber;
@@ -33,17 +33,16 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer studentNumber;
 
-    public void update(String nickname, String profile){
+    public void update(String nickname, String profileImage){
         this.nickname = nickname;
-        this.profile = profile;
+        this.profileImage = profileImage;
     }
 
     @Builder
-    public User(String userId, String userPassword, String nickname, String profile, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
+    public User(String userId, String userPassword, String nickname, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.nickname = nickname;
-        this.profile = profile;
         this.schoolNumber = schoolNumber;
         this.classNumber = classNumber;
         this.studentNumber = studentNumber;
