@@ -55,7 +55,7 @@ public class UserController {
 
     @Operation(summary = "별명 수정")
     @PutMapping("/modify")
-    public void modify(UserModifyRequest request){
+    public void modify(@RequestBody @Valid UserModifyRequest request){
         userModifyService.userModify(request);
     }
 }
