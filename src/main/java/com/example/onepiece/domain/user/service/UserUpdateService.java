@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserUpdateService {
 
     private final UserFacade userFacade;
-    private final UserRepository userRepository;
 
     @Transactional
     public void userProfileUpdate(UserUpdateRequest request) {
@@ -21,7 +20,5 @@ public class UserUpdateService {
         User user = userFacade.getCurrentUser();
 
         user.update(request.getNickname(), request.getProfileImage());
-
-        userRepository.save(user);
     }
 }
