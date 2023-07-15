@@ -36,7 +36,7 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer studentNumber;
 
-    public void modify(String nickname){
+    public void update(String nickname){
         this.nickname = nickname;
     }
 
