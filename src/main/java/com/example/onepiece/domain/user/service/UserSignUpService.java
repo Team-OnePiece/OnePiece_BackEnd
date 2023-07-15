@@ -21,6 +21,7 @@ public class UserSignUpService {
                         .userId(request.getUserId())
                         .userPassword(passwordEncoder.encode(request.getUserPassword()))
                         .nickname(request.getNickname())
+                        .profileImage(request.getProfileImage())
                         .schoolNumber(request.getSchoolNumber())
                         .classNumber(request.getClassNumber())
                         .studentNumber(request.getStudentNumber())
