@@ -16,11 +16,12 @@ public class UserUpdateService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void userUpdate(UserUpdateRequest request){
+    public void userUpdate(UserUpdateRequest request) {
 
         User user = userFacade.getCurrentUser();
 
-        user.update(request.getNickname());
+        user.update(request.getNickname(), request.getProfile());
+
         userRepository.save(user);
     }
 }

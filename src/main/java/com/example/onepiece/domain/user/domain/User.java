@@ -1,9 +1,6 @@
 package com.example.onepiece.domain.user.domain;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -36,8 +33,9 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer studentNumber;
 
-    public void update(String nickname){
+    public void update(String nickname, String profile){
         this.nickname = nickname;
+        this.profile = profile;
     }
 
     @Builder
