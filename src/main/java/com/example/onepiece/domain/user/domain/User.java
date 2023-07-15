@@ -18,7 +18,7 @@ public class User {
     private String userId;
 
     @Column(nullable = false, length = 60)
-    private String userPassword;
+    private String password;
 
     @Column(nullable = false, length = 9)
     private String nickname;
@@ -35,9 +35,9 @@ public class User {
     private Integer studentNumber;
 
     @Builder
-    public User(String userId, String userPassword, String nickname, String profileImage, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
+    public User(String userId, String password, String nickname, String profileImage, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
         this.userId = userId;
-        this.userPassword = userPassword;
+        this.password = password;
         this.nickname = nickname;
         this.profileImage = profileImage;
         this.schoolNumber = schoolNumber;

@@ -19,7 +19,7 @@ public class UserSignUpService {
         userRepository.save(
                 User.builder()
                         .userId(request.getUserId())
-                        .userPassword(passwordEncoder.encode(request.getUserPassword()))
+                        .password(passwordEncoder.encode(request.getPassword()))
                         .nickname(request.getNickname())
                         .profileImage(request.getProfileImage())
                         .schoolNumber(request.getSchoolNumber())

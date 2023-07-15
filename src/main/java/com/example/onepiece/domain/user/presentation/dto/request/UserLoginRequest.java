@@ -9,5 +9,5 @@ public class UserLoginRequest {
 
     private String userId;
 
-    private String userPassword;
+    private String password;
 }
