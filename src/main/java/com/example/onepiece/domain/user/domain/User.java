@@ -36,6 +36,10 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer studentNumber;
 
+    public void modify(String nickname){
+        this.nickname = nickname;
+    }
+
     @Builder
     public User(String userId, String userPassword, String nickname, String profile, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
         this.userId = userId;
