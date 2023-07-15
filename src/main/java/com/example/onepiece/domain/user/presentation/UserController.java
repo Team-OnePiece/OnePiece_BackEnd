@@ -21,7 +21,7 @@ public class UserController {
     private final DuplicateService duplicateService;
     private final UserLoginService userLoginService;
     private final UserInfoService userInfoService;
-    private final UserModifyService userModifyService;
+    private final UserUpdateService userUpdateService;
 
     @Operation(summary = "회원가입")
     @PostMapping("/signup")
@@ -55,7 +55,7 @@ public class UserController {
 
     @Operation(summary = "별명 수정")
     @PutMapping("/modify")
-    public void modify(@RequestBody @Valid UserModifyRequest request){
-        userModifyService.userModify(request);
+    public void update(@RequestBody @Valid UserUpdateRequest request){
+        userUpdateService.userUpdate(request);
     }
 }
