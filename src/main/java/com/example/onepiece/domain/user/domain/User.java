@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class User {
@@ -33,16 +34,12 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer studentNumber;
 
-    public void profileUpdate(String nickname, String profileImage){
-        this.nickname = nickname;
-        this.profileImage = profileImage;
-    }
-
     @Builder
-    public User(String userId, String userPassword, String nickname, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
+    public User(String userId, String userPassword, String nickname, String profileImage, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.nickname = nickname;
+        this.profileImage = profileImage;
         this.schoolNumber = schoolNumber;
         this.classNumber = classNumber;
         this.studentNumber = studentNumber;
