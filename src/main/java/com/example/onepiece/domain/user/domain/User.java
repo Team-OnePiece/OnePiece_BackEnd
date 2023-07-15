@@ -33,7 +33,7 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer studentNumber;
 
-    public void update(String nickname, String profileImage){
+    public void profileUpdate(String nickname, String profileImage){
         this.nickname = nickname;
         this.profileImage = profileImage;
     }
