@@ -48,21 +48,21 @@ public class JwtProvider {
 
     // 주어진 사용자에 대한 토큰을 생성하여 TokenResponse 객체로 반환
     public TokenResponse getToken(User user) {
-        String accessToken = generateAccessToken(user.getUserId());
+        String accessToken = generateAccessToken(user.getAccountId());
 
         return new TokenResponse(accessToken, accessTokenTime);
     }
 
     // 주어진 사용자 ID로 액세스 토큰을 생성
-    public String generateAccessToken(String userId) {
-        return generateToken(userId, "access", accessTokenTime);
+    public String generateAccessToken(String accountId) {
+        return generateToken(accountId, "access", accessTokenTime);
     }
 
     // 주어진 사용자 ID, 타입, 만료 시간으로 토큰을 생성
-    private String generateToken(String userId, String type, Long exp) {
+    private String generateToken(String accountId, String type, Long exp) {
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS256, key.getBytes())
-                .setSubject(userId)
+                .setSubject(accountId)
                 .claim("type", type)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + exp * 1000))

@@ -3,7 +3,6 @@ package com.example.onepiece.domain.user.presentation.dto.request;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.validation.constraints.*;
 
 @Getter
@@ -12,7 +11,7 @@ public class UserSignUpRequest {
 
     @NotBlank
     @Pattern(regexp = "^[a-zA-Z0-9]{7,20}$", message = "아이디는 ７~20자 영문 대 소문자, 숫자 사용하세요")
-    private String userId;
+    private String accountId;
 
     @NotBlank
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{7,20}", message = "비밀번호는 7~20자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
@@ -26,7 +25,7 @@ public class UserSignUpRequest {
 
     @NotNull
     @Min(1) @Max(3)
-    private Integer schoolNumber;
+    private Integer grade;
 
     @NotNull
     @Min(1) @Max(4)
@@ -34,6 +33,6 @@ public class UserSignUpRequest {
 
     @NotNull
     @Min(1) @Max(18)
-    private Integer studentNumber;
+    private Integer number;
 
 }

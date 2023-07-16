@@ -23,7 +23,7 @@ public class DuplicateService {
     }
 
     public void checkUserIdDuplicate(IdDuplicateRequest request) {
-        if (userRepository.existsByUserId(request.getUserId())) {
+        if (userRepository.existsByUserId(request.getAccountId())) {
             throw UserIdAlreadyExistsException.EXCEPTION;
         }
     }

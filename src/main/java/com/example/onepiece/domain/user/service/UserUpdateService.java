@@ -1,7 +1,6 @@
 package com.example.onepiece.domain.user.service;
 
 import com.example.onepiece.domain.user.domain.User;
-import com.example.onepiece.domain.user.domain.repository.UserRepository;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.domain.user.presentation.dto.request.UserUpdateRequest;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +18,8 @@ public class UserUpdateService {
 
         User user = userFacade.getCurrentUser();
 
-        if (request.getNickname() != null){
-            user.setNickname(request.getNickname());
-        }
-
-        if (request.getProfileImage() != null){
-            user.setProfileImage(request.getProfileImage());
-        }
+        user.update(
+                request.getNickname(), request.getProfileImage()
+        );
     }
 }

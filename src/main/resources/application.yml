@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${url}
-    username: ${username}
-    password: ${password}
+    url: jdbc:mysql://localhost:3306/onepiece?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: rlaehrud9919@
   jpa:
     hibernate:
       ddl-auto: update
@@ -12,6 +12,6 @@ spring:
 
 
   jwt:
-    key: ${Jwt_key}
+    key: asdfasdjflkasdasdfasfhdfgsd
     live:
-      accessToken: ${AccessToken_time}
+      accessToken: 360000000000
