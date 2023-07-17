@@ -19,7 +19,7 @@ public class UserFacade {
     }
 
     public User getUserByUserId(String accountId) {
-        return userRepository.findByUserId(accountId)
+        return userRepository.findByAccountId(accountId)
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 }
