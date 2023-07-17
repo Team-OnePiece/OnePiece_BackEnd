@@ -18,7 +18,7 @@ public class UserUpdateService {
 
         User user = userFacade.getCurrentUser();
 
-        user.update(
+        user.profileUpdate(
                 request.getNickname(), request.getProfileImage()
         );
     }

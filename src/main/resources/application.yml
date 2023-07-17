@@ -11,6 +11,6 @@ spring:
       show_sql: true
 
   jwt:
-    key: ${Jwt_key}
+    key: ${JWT_KEY}
     live:
-      accessToken: ${AccessToken_time}
+      accessToken: ${ACCESSTOKEN_TIME}

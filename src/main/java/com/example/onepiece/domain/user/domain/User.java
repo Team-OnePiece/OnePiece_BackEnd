@@ -44,7 +44,7 @@ public class User {
         this.number = number;
     }
 
-    public void update(String nickname, String profileImage){
+    public void profileUpdate(String nickname, String profileImage){
         this.nickname = nickname;
         this.profileImage = profileImage;
     }
