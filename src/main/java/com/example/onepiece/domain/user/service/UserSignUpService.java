@@ -1,5 +1,6 @@
 package com.example.onepiece.domain.user.service;
 
+import com.example.onepiece.domain.user.exception.PasswordMissMatchException;
 import com.example.onepiece.domain.user.presentation.dto.request.UserSignUpRequest;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.domain.repository.UserRepository;
@@ -15,6 +16,10 @@ public class UserSignUpService {
     private final PasswordEncoder passwordEncoder;
 
     public void userSignUp(UserSignUpRequest request) {
+
+        if (!request.getPassword().equals(request.getPasswordValid())){
+            throw PasswordMissMatchException.EXCEPTION;
+        }
 
         userRepository.save(
                 User.builder()
