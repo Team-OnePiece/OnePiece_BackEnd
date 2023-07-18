@@ -33,7 +33,7 @@ public class UserController {
 
     @Operation(summary = "아이디 중복확인")
     @GetMapping("/id/Duplicate/{accountId}")
-    public void userIdDuplicate(@PathVariable String accountId) {
+    public void accountIdDuplicate(@PathVariable String accountId) {
         duplicateService.checkAccountIdDuplicate(accountId);
     }
 
