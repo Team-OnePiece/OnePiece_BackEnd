@@ -21,8 +21,8 @@ spring:
         accessKey: ${AWS_ACCESS_KEY}
         secretKey: ${AWS_SECRET_ACCESS_KEY}
       s3:
-        bucket: onepiece
+        bucket: ${BUCKET}
       region:
-        static: ap-northeast-2
+        static: ${STATIC}
       stack:
         auto: false
