@@ -30,15 +30,15 @@ public class UserController {
     }
 
     @Operation(summary = "아이디 중복확인")
-    @GetMapping("/id/Duplicate")
-    public void userIdDuplicate(@RequestBody IdDuplicateRequest request) {
-        duplicateService.checkUserIdDuplicate(request);
+    @GetMapping("/id/Duplicate/{accountId}")
+    public void userIdDuplicate(@PathVariable String accountId) {
+        duplicateService.checkAccountIdDuplicate(accountId);
     }
 
     @Operation(summary = "별명 중복확인")
-    @GetMapping("/nickname/Duplicate")
-    public void nicknameDuplicate(@RequestBody NicknameDuplicateRequest request) {
-        duplicateService.checkNicknameDuplicate(request);
+    @GetMapping("/nickname/Duplicate/{nickname}")
+    public void nicknameDuplicate(@PathVariable String nickname) {
+        duplicateService.checkNicknameDuplicate(nickname);
     }
 
     @Operation(summary = "로그인")
