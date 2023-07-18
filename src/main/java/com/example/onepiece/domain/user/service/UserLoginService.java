@@ -20,9 +20,9 @@ public class UserLoginService {
 
     public TokenResponse userLogin(UserLoginRequest request) {
 
-        User user = userFacade.getUserByUserId(request.getUserId());
+        User user = userFacade.getUserByUserId(request.getAccountId());
 
-        if (!passwordEncoder.matches(request.getUserPassword(), user.getUserPassword())) {
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw PasswordMissMatchException.EXCEPTION;
         }
         return jwtProvider.getToken(user);

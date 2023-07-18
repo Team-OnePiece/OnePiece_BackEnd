@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserLoginRequest {
 
-    private String userId;
+    private String accountId;
 
-    private String userPassword;
+    private String password;
 }

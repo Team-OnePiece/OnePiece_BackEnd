@@ -1,17 +1,28 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${url}
-    username: ${username}
-    password: ${password}
+    url: ${URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       show_sql: true
 
-
   jwt:
-    key: ${Jwt_key}
+    key: ${JWT_KEY}
     live:
-      accessToken: ${AccessToken_time}
+      accessToken: ${ACCESS_TOKEN_TIME}
+
+  cloud:
+    aws:
+      credentials:
+        accessKey: ${AWS_ACCESS_KEY}
+        secretKey: ${AWS_SECRET_ACCESS_KEY}
+      s3:
+        bucket: ${BUCKET}
+      region:
+        static: ${STATIC}
+      stack:
+        auto: false

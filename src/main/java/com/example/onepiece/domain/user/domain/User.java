@@ -1,9 +1,6 @@
 package com.example.onepiece.domain.user.domain;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -17,33 +14,38 @@ public class User {
     private Long id;
 
     @Column(nullable = false, length = 20)
-    private String userId;
+    private String accountId;
 
     @Column(nullable = false, length = 60)
-    private String userPassword;
+    private String password;
 
     @Column(nullable = false, length = 9)
     private String nickname;
 
-    private String profile;
+    private String profileImage;
 
     @Column(nullable = false, length = 3)
-    private Integer schoolNumber;
+    private Integer grade;
 
     @Column(nullable = false, length = 4)
     private Integer classNumber;
 
     @Column(nullable = false, length = 16)
-    private Integer studentNumber;
+    private Integer number;
 
     @Builder
-    public User(String userId, String userPassword, String nickname, String profile, Integer schoolNumber, Integer classNumber, Integer studentNumber) {
-        this.userId = userId;
-        this.userPassword = userPassword;
+    public User(String accountId, String password, String nickname, String profileImage, Integer grade, Integer classNumber, Integer number) {
+        this.accountId = accountId;
+        this.password = password;
         this.nickname = nickname;
-        this.profile = profile;
-        this.schoolNumber = schoolNumber;
+        this.profileImage = profileImage;
+        this.grade = grade;
         this.classNumber = classNumber;
-        this.studentNumber = studentNumber;
+        this.number = number;
+    }
+
+    public void profileUpdate(String nickname, String profileImage){
+        this.nickname = nickname;
+        this.profileImage = profileImage;
     }
 }

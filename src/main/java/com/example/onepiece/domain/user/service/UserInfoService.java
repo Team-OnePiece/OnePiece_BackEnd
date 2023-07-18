@@ -20,7 +20,7 @@ public class UserInfoService {
     public UserInfoResponse userInfo(){
         
         User currentUser = userFacade.getCurrentUser();
-        Optional<User>user = userRepository.findByUserId(currentUser.getUserId());
+        Optional<User>user = userRepository.findByAccountId(currentUser.getAccountId());
 
         if (!user.isPresent()){
             throw UserNotFoundException.EXCEPTION;

@@ -18,13 +18,13 @@ public class UserSignUpService {
 
         userRepository.save(
                 User.builder()
-                        .userId(request.getUserId())
-                        .userPassword(passwordEncoder.encode(request.getUserPassword()))
+                        .accountId(request.getAccountId())
+                        .password(passwordEncoder.encode(request.getPassword()))
                         .nickname(request.getNickname())
-                        .profile(request.getProfile())
-                        .schoolNumber(request.getSchoolNumber())
+                        .profileImage(request.getProfileImage())
+                        .grade(request.getGrade())
                         .classNumber(request.getClassNumber())
-                        .studentNumber(request.getStudentNumber())
+                        .number(request.getNumber())
                         .build());
     }
 }

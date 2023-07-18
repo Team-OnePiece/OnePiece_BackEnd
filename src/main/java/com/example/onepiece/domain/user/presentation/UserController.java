@@ -21,6 +21,7 @@ public class UserController {
     private final DuplicateService duplicateService;
     private final UserLoginService userLoginService;
     private final UserInfoService userInfoService;
+    private final UserUpdateService userUpdateService;
 
     @Operation(summary = "회원가입")
     @PostMapping("/signup")
@@ -50,5 +51,11 @@ public class UserController {
     @GetMapping("/info")
     public UserInfoResponse info(){
         return userInfoService.userInfo();
+    }
+
+    @Operation(summary = "별명 수정")
+    @PatchMapping("/update")
+    public void updateProfile(@RequestBody @Valid UserUpdateRequest request){
+        userUpdateService.userProfileUpdate(request);
     }
 }
