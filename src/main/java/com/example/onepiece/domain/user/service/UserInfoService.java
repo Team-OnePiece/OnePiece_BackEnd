@@ -2,6 +2,7 @@ package com.example.onepiece.domain.user.service;
 
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.domain.repository.UserRepository;
+import com.example.onepiece.domain.user.exception.UserNotFoundException;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.domain.user.presentation.dto.response.UserInfoResponse;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +21,15 @@ public class UserInfoService {
         
         User user = userFacade.getCurrentUser();
 
-        return UserInfoResponse.builder()
-                .nickname(user.getNickname())
-                .profileImage(profileImage(user))
-                .build();
+        try {
+            return UserInfoResponse.builder()
+                    .nickname(user.getNickname())
+                    .profileImage(profileImage(user))
+                    .build();
+        }  catch (Exception e) {
+            throw UserNotFoundException.EXCEPTION;
+        }
+
     }
 
     private List<String> profileImage(User user){
