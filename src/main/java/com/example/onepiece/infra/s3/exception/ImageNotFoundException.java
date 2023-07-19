@@ -1,4 +1,4 @@
-package com.example.onepiece.infra.s3;
+package com.example.onepiece.infra.s3.exception;
 
 import com.example.onepiece.global.error.ErrorCode;
 import com.example.onepiece.global.error.exception.CustomException;
