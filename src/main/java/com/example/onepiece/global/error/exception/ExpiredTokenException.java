@@ -7,6 +7,6 @@ public class ExpiredTokenException extends CustomException{
     public static final CustomException EXCEPTION = new ExpiredTokenException();
 
     private ExpiredTokenException() {
-        super(ErrorCode.USER_NOT_FOUND);
+        super(ErrorCode.JWT_EXPIRED);
     }
 }

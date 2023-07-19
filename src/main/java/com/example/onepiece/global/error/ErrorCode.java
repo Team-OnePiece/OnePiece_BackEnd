@@ -13,7 +13,9 @@ public enum ErrorCode {
     PASSWORD_MISS_MATCH(400, "Password Miss Match"),
 
     JWT_EXPIRED(401, "Jwt Expired"),
-    JWT_INVALID(401, "Jwt Invalid");
+    JWT_INVALID(401, "Jwt Invalid"),
+
+    IMAGE_NOT_FOUND(404, "Image Not Found");
 
     private final Integer httpStatus;
     private final String message;
