@@ -29,4 +29,8 @@ public class AwsConfig {
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .build();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main
