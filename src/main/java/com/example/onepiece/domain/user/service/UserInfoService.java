@@ -8,6 +8,7 @@ import com.example.onepiece.domain.user.presentation.dto.response.UserInfoRespon
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,14 +20,19 @@ public class UserInfoService {
 
     public UserInfoResponse userInfo(){
         
-        User currentUser = userFacade.getCurrentUser();
-        Optional<User>user = userRepository.findByAccountId(currentUser.getAccountId());
+        User user = userFacade.getCurrentUser();
 
-        if (!user.isPresent()){
-            throw UserNotFoundException.EXCEPTION;
-        }
-        else {
-            return new UserInfoResponse(user.get().getNickname());
-        }
+        return UserInfoResponse.builder()
+                .nickname(user.getNickname())
+                .profileImage(profileImage(user))
+                .build();
+    }
+
+    private List<String> profileImage(User user){
+
+        return userRepository.findByUser(user)
+                .stream()
+                .map(User::getProfileImage)
+                .toList();
     }
 }

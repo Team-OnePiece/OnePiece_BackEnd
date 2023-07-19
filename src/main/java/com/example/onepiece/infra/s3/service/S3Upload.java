@@ -33,7 +33,6 @@ public class S3Upload {
         if (!Objects.equals(user.getProfileImage(), DefaultImage.USER_PROFILE_IMAGE)) {
             amazonS3.deleteObject(bucket, user.getProfileImage());
         }
-
     }
 
     private String getImageUrl(String s3FileName) {
