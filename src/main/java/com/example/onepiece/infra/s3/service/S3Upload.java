@@ -14,7 +14,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class S3Upload {
 
-    private String bucket = "onepiece"; // TODO: 2023-07-19  
+    private String bucket; // TODO: 2023-07-19
 
     private final AmazonS3 amazonS3;
 

@@ -2,7 +2,6 @@ package com.example.onepiece.domain.profileImage.facade;
 
 import com.example.onepiece.domain.profileImage.domain.ProfileImage;
 import com.example.onepiece.domain.profileImage.domain.repository.ProfileImageRepository;
-import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.infra.s3.exception.ImageNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;

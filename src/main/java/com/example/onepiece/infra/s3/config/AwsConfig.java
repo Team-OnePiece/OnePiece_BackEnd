@@ -5,20 +5,18 @@ import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AwsConfig {
 
-    // TODO: 2023-07-19  
-    private String accessKey = "AKIAXVDNQVOSA7LJTHPN";
+    // TODO: 2023-07-19
+    private String accessKey;
 
-    private String secretKey = "YZgxm2pE4Nn01wVyTRvddQ+RnVxSo/NLfVBX5sYi";
+    private String secretKey;
 
-    private String region = "ap-northeast-2";
+    private String region;
 
     @Bean
     public AmazonS3Client amazonS3Client() {
