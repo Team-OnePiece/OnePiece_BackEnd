@@ -6,20 +6,19 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AwsConfig {
 
-    @Value("${cloud.aws.credentials.accessKey}")
-    private String accessKey;
+    // TODO: 2023-07-19  
+    private String accessKey = "AKIAXVDNQVOSA7LJTHPN";
 
-    @Value("${cloud.aws.credentials.secretKey}")
-    private String secretKey;
+    private String secretKey = "YZgxm2pE4Nn01wVyTRvddQ+RnVxSo/NLfVBX5sYi";
 
-    @Value("${cloud.aws.region.static}")
-    private String region;
+    private String region = "ap-northeast-2";
 
     @Bean
     public AmazonS3Client amazonS3Client() {

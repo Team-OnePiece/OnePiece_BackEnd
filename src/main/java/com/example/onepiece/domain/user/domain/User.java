@@ -1,8 +1,10 @@
 package com.example.onepiece.domain.user.domain;
 
+import com.example.onepiece.domain.profileImage.domain.ProfileImage;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,8 +24,6 @@ public class User {
     @Column(nullable = false, length = 9)
     private String nickname;
 
-    private String profileImage;
-
     @Column(nullable = false, length = 3)
     private Integer grade;
 
@@ -33,19 +33,21 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer number;
 
+    @OneToMany(mappedBy = "user")
+    private List<ProfileImage> profile;
+
     @Builder
-    public User(String accountId, String password, String nickname, String profileImage, Integer grade, Integer classNumber, Integer number) {
+    public User(String accountId, String password, String nickname, Integer grade, Integer classNumber, Integer number) {
         this.accountId = accountId;
         this.password = password;
         this.nickname = nickname;
-        this.profileImage = profileImage;
         this.grade = grade;
         this.classNumber = classNumber;
         this.number = number;
     }
 
-    public void profileUpdate(String nickname, String profileImage){
+    public void nicknameUpdate(String nickname) {
         this.nickname = nickname;
-        this.profileImage = profileImage;
     }
+
 }

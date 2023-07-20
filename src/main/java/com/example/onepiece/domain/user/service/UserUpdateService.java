@@ -20,12 +20,6 @@ public class UserUpdateService {
 
         User user = userFacade.getCurrentUser();
 
-        if (request.getProfileImage() != null) {
-            s3Upload.uploadImage(request.getProfileImage());
-        }
-
-        if (request.getNickname() != null) {
-            user.profileUpdate(request.getNickname(), null);
-        }
+        user.nicknameUpdate(request.getNickname());
     }
 }

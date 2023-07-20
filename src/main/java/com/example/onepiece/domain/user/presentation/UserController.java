@@ -57,7 +57,8 @@ public class UserController {
 
     @Operation(summary = "별명 수정")
     @PatchMapping("/update")
-    public void updateProfile(@RequestBody @Valid UserUpdateRequest request){
+    public void updateProfile(
+            @RequestBody @Valid UserUpdateRequest request){
         userUpdateService.userProfileUpdate(request);
     }
 }

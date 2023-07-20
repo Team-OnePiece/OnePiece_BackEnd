@@ -12,6 +12,4 @@ public class UserUpdateRequest {
 
     @Pattern(regexp = "^[ㄱ-ㅎ가-힣]{2,8}$", message = "닉네임은 특수문자, 숫자, 영어를 제외한 2~8자 한글 사용하세요.")
     private String nickname;
-
-    private MultipartFile profileImage;
 }
