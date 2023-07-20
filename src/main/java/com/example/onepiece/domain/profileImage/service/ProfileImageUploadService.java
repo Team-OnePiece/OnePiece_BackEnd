@@ -3,6 +3,7 @@ package com.example.onepiece.domain.profileImage.service;
 import com.example.onepiece.domain.profileImage.presentation.dto.response.ProfileImageResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
+import com.example.onepiece.infra.s3.exception.ImageNotFoundException;
 import com.example.onepiece.infra.s3.service.S3Upload;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,10 @@ public class ProfileImageUploadService {
     public ProfileImageResponse upload(List<MultipartFile> images) {
 
         User user = userFacade.getCurrentUser();
+
+        if (images == null) {
+            throw ImageNotFoundException.EXCEPTION;
+        }
 
             List<String> profileImageUrl = images
                     .stream()

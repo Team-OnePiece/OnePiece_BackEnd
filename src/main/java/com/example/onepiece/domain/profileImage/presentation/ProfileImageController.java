@@ -18,8 +18,8 @@ public class ProfileImageController {
     private final ProfileImageListServiece profileImageListServiece;
     private final ProfileImageUploadService profileImageUploadService;
 
-    @PatchMapping
-    public ProfileImageResponse upload(@RequestPart List<MultipartFile> profileImageUrl) {
+    @PostMapping
+    public ProfileImageResponse upload(@RequestPart(required = false) List<MultipartFile> profileImageUrl) {
         return profileImageUploadService.upload(profileImageUrl);
     }
 
