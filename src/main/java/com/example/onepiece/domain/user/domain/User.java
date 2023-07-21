@@ -1,6 +1,6 @@
 package com.example.onepiece.domain.user.domain;
 
-import com.example.onepiece.domain.profileImage.domain.ProfileImage;
+import com.example.onepiece.global.entity.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,11 +8,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class User extends BaseEntity {
 
     @Column(nullable = false, length = 20)
     private String accountId;
