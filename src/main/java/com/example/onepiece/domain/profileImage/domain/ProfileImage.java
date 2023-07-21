@@ -2,7 +2,6 @@ package com.example.onepiece.domain.profileImage.domain;
 
 import com.example.onepiece.domain.user.domain.User;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,13 +18,7 @@ public class ProfileImage {
 
     private String profileImageUrl;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    @Builder
-    public ProfileImage(User user, String profileImageUrl){
-        this.user = user;
-        this.profileImageUrl = profileImageUrl;
-    }
 }

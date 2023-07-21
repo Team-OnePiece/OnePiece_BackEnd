@@ -4,7 +4,6 @@ import com.example.onepiece.domain.profileImage.domain.ProfileImage;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -34,7 +33,7 @@ public class User {
     private Integer number;
 
     @OneToMany(mappedBy = "user")
-    private List<ProfileImage> profile;
+    private ProfileImage profileImage;
 
     @Builder
     public User(String accountId, String password, String nickname, Integer grade, Integer classNumber, Integer number) {

@@ -3,11 +3,12 @@ package com.example.onepiece.domain.profileImage.service;
 import com.example.onepiece.domain.profileImage.presentation.dto.response.ProfileImageResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
-import com.example.onepiece.infra.s3.service.S3Upload;
+import com.example.onepiece.infra.s3.service.S3Facade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,18 +17,14 @@ import java.util.stream.Collectors;
 public class ProfileImageUploadService {
 
     private final UserFacade userFacade;
-    private final S3Upload s3Upload;
+    private final S3Facade s3Facade;
 
-    public ProfileImageResponse upload(List<MultipartFile> images) {
-
+    public ProfileImageResponse upload(MultipartFile images) {
         User user = userFacade.getCurrentUser();
+        if (images == null) {
+            return new ProfileImageResponse("https://i.pinimg.com/736x/e3/1a/b4/e31ab423d046dd57f557d9dfd8700b76.jpg");
+        }
 
-            List<String> profileImageUrl = images
-                    .stream()
-                    .map(s3Upload::uploadImage)
-                    .collect(Collectors.toList());
-
-            return new ProfileImageResponse(profileImageUrl);
-
+        return new ProfileImageResponse(s3Facade.uploadImage(images));
     }
 }
