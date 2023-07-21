@@ -32,9 +32,6 @@ public class User {
     @Column(nullable = false, length = 16)
     private Integer number;
 
-    @OneToMany(mappedBy = "user")
-    private ProfileImage profileImage;
-
     @Builder
     public User(String accountId, String password, String nickname, Integer grade, Integer classNumber, Integer number) {
         this.accountId = accountId;

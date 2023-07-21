@@ -1,4 +1,4 @@
-package com.example.onepiece.domain.profileImage.presentation.dto.response;
+package com.example.onepiece.domain.user.presentation.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

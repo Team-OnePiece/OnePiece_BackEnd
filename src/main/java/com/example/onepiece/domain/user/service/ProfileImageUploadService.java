@@ -1,16 +1,12 @@
-package com.example.onepiece.domain.profileImage.service;
+package com.example.onepiece.domain.user.service;
 
-import com.example.onepiece.domain.profileImage.presentation.dto.response.ProfileImageResponse;
+import com.example.onepiece.domain.user.presentation.dto.response.ProfileImageResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.infra.s3.service.S3Facade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
