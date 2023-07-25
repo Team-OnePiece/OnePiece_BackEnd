@@ -1,4 +1,4 @@
-package com.example.onepiece.global.security.Jwt;
+package com.example.onepiece.global.security.jwt;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

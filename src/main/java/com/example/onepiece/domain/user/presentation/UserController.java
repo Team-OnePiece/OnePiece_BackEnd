@@ -3,11 +3,9 @@ package com.example.onepiece.domain.user.presentation;
 import com.example.onepiece.domain.user.presentation.dto.request.*;
 import com.example.onepiece.domain.user.presentation.dto.response.UserInfoResponse;
 import com.example.onepiece.domain.user.service.*;
-import com.example.onepiece.global.error.exception.CustomException;
-import com.example.onepiece.global.security.Jwt.dto.TokenResponse;
+import com.example.onepiece.global.security.jwt.dto.TokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

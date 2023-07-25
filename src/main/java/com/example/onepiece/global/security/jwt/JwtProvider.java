@@ -1,9 +1,9 @@
-package com.example.onepiece.global.security.Jwt;
+package com.example.onepiece.global.security.jwt;
 
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.global.security.principle.AuthDetailsService;
 import com.example.onepiece.global.error.exception.ExpiredTokenException;
-import com.example.onepiece.global.security.Jwt.dto.TokenResponse;
+import com.example.onepiece.global.security.jwt.dto.TokenResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

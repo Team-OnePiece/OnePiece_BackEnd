@@ -1,7 +1,7 @@
 package com.example.onepiece.global.security.config;
 
-import com.example.onepiece.global.security.Jwt.JwtAuthenticationFilter;
-import com.example.onepiece.global.security.Jwt.JwtProvider;
+import com.example.onepiece.global.security.jwt.JwtAuthenticationFilter;
+import com.example.onepiece.global.security.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

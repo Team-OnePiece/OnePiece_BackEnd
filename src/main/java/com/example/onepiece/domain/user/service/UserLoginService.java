@@ -4,8 +4,8 @@ import com.example.onepiece.domain.user.presentation.dto.request.UserLoginReques
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.domain.user.exception.PasswordMissMatchException;
-import com.example.onepiece.global.security.Jwt.JwtProvider;
-import com.example.onepiece.global.security.Jwt.dto.TokenResponse;
+import com.example.onepiece.global.security.jwt.JwtProvider;
+import com.example.onepiece.global.security.jwt.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

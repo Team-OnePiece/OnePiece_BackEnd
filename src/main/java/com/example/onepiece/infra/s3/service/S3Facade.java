@@ -7,6 +7,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.example.onepiece.infra.s3.ImageUtil;
 import com.example.onepiece.infra.s3.exception.ImageValueNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,7 +17,8 @@ import java.util.UUID;
 @Component
 public class S3Facade implements ImageUtil {
 
-    private final S3Properties s3Properties;
+    @Value("${spring.cloud.aws.s3.bucket}")
+    private String bucketName;
     private final AmazonS3 amazonS3;
 
     @Override
@@ -29,7 +31,7 @@ public class S3Facade implements ImageUtil {
 
         try {
             PutObjectRequest request = new PutObjectRequest(
-                    s3Properties.getBucket(), fileName, image.getInputStream(), getObjectMetadata(image)
+                    bucketName, fileName, image.getInputStream(), getObjectMetadata(image)
             ).withCannedAcl(CannedAccessControlList.PublicRead);
 
             amazonS3.putObject(request);
@@ -49,6 +51,6 @@ public class S3Facade implements ImageUtil {
     }
 
     public String getFileUrl(String fileName) {
-        return amazonS3.getUrl(s3Properties.getBucket(), fileName).toString();
+        return amazonS3.getUrl(bucketName, fileName).toString();
     }
 }
