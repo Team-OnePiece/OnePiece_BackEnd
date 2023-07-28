@@ -28,6 +28,8 @@ public class User extends BaseEntity {
     @Column(nullable = false, length = 16)
     private Integer number;
 
+    private String profileImageUrl = "";
+
     @Builder
     public User(String accountId, String password, String nickname, Integer grade, Integer classNumber, Integer number) {
         this.accountId = accountId;
@@ -40,6 +42,10 @@ public class User extends BaseEntity {
 
     public void nicknameUpdate(String nickname) {
         this.nickname = nickname;
+    }
+
+    public void profileUpload(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 
 }
