@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
-public class ProfileImageUploadService {
+public class UserProfileImageUploadService {
 
     private final UserFacade userFacade;
     private final S3Facade s3Facade;

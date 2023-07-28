@@ -8,10 +8,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 
-@Tag(name = "UserAPI입니다")
+@Tag(name = "User API 입니다")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -22,6 +23,7 @@ public class UserController {
     private final UserLoginService userLoginService;
     private final UserInfoService userInfoService;
     private final UserUpdateService userUpdateService;
+    private final UserProfileImageUploadService profileImageUploadService;
 
     @Operation(summary = "회원가입")
     @PostMapping("/signup")
@@ -38,7 +40,7 @@ public class UserController {
     @Operation(summary = "별명 중복확인")
     @GetMapping("/nickname/duplicate")
     public void nicknameDuplicate(@RequestParam("nickname") String nickname) {
-       duplicateService.checkNicknameDuplicate(nickname);
+        duplicateService.checkNicknameDuplicate(nickname);
     }
 
     @Operation(summary = "로그인")
@@ -49,14 +51,20 @@ public class UserController {
 
     @Operation(summary = "내 정보")
     @GetMapping("/info")
-    public UserInfoResponse info(){
+    public UserInfoResponse info() {
         return userInfoService.userInfo();
     }
 
     @Operation(summary = "별명 수정")
     @PatchMapping("/update")
     public void updateProfile(
-            @RequestBody @Valid UserUpdateRequest request){
+            @RequestBody @Valid UserUpdateRequest request) {
         userUpdateService.userProfileUpdate(request);
+    }
+
+    @Operation(summary = "프로필 이미지 업로드")
+    @PostMapping("/image/upload")
+    public String upload(@RequestPart(required = false, value = "image") MultipartFile image) {
+        return profileImageUploadService.upload(image);
     }
 }
