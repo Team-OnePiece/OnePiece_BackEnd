@@ -15,7 +15,7 @@ public class ProfileImageController {
 
     @Operation(summary = "프로필 이미지 업로드")
     @PostMapping
-    public void upload(@RequestPart(required = false, value = "image") MultipartFile image) {
-         profileImageUploadService.upload(image);
+    public String upload(@RequestPart(required = false, value = "image") MultipartFile image) {
+        return profileImageUploadService.upload(image);
     }
 }
