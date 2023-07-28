@@ -65,6 +65,6 @@ public class UserController {
     @Operation(summary = "프로필 이미지 업로드")
     @PostMapping("/image/upload")
     public String upload(@RequestPart(required = false, value = "image") MultipartFile image) {
-        return profileImageUploadService.upload(image);
+        return profileImageUploadService.userProfileImageUpload(image);
     }
 }

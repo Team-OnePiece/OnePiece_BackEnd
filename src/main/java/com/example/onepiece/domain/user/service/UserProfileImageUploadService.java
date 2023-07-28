@@ -16,7 +16,7 @@ public class UserProfileImageUploadService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public String upload(MultipartFile profileImage) {
+    public String userProfileImageUpload(MultipartFile profileImage) {
         User user = userFacade.getCurrentUser();
 
         String profileImageUrl = s3Facade.uploadImage(profileImage);
