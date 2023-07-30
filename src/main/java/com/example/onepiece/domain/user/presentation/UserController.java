@@ -33,7 +33,7 @@ public class UserController {
 
     @Operation(summary = "아이디 중복확인")
     @GetMapping("/id/duplicate")
-    public void accountIdDuplicate(@RequestParam("accountId") String accountId) {
+    public void accountIdDuplicate(@RequestParam("account_id") String accountId) {
         duplicateService.checkAccountIdDuplicate(accountId);
     }
 
