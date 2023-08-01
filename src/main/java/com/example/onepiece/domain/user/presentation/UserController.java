@@ -19,7 +19,8 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserSignUpService userSignUpService;
-    private final DuplicateService duplicateService;
+    private final AccountIdDuplicateService accountIdDuplicateService;
+    private final NicknameDuplicateService nicknameDuplicateService;
     private final UserLoginService userLoginService;
     private final UserInfoService userInfoService;
     private final UserUpdateService userUpdateService;
@@ -34,13 +35,13 @@ public class UserController {
     @Operation(summary = "아이디 중복확인")
     @GetMapping("/id/duplicate")
     public void accountIdDuplicate(@RequestParam("account_id") String accountId) {
-        duplicateService.checkAccountIdDuplicate(accountId);
+        accountIdDuplicateService.checkAccountIdDuplicate(accountId);
     }
 
     @Operation(summary = "별명 중복확인")
     @GetMapping("/nickname/duplicate")
     public void nicknameDuplicate(@RequestParam("nickname") String nickname) {
-        duplicateService.checkNicknameDuplicate(nickname);
+        nicknameDuplicateService.checkNicknameDuplicate(nickname);
     }
 
     @Operation(summary = "로그인")
