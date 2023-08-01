@@ -25,6 +25,7 @@ public class UserController {
     private final UserInfoService userInfoService;
     private final UserUpdateService userUpdateService;
     private final UserProfileImageUploadService profileImageUploadService;
+    private final StudentIdDuplicationService studentIdDuplicationService;
 
     @Operation(summary = "회원가입")
     @PostMapping("/signup")
@@ -42,6 +43,12 @@ public class UserController {
     @GetMapping("/nickname/duplicate")
     public void nicknameDuplicate(@RequestParam("nickname") String nickname) {
         nicknameDuplicateService.checkNicknameDuplicate(nickname);
+    }
+
+    @Operation(summary = "학번 중복확인")
+    @GetMapping("/student/id/duplicate")
+    public void studentIdDuplicate(@RequestParam("grade") Integer grade, @RequestParam("class_number") Integer classNumber, @RequestParam("number") Integer number) {
+        studentIdDuplicationService.studentIdDuplicate(grade, classNumber, number);
     }
 
     @Operation(summary = "로그인")
