@@ -23,7 +23,7 @@ public class BoardService {
     private final UserFacade userFacade;
 
     public BoardIdResponse writeBoard(BoardRequest request) {
-        User currentUser = userFacade.CurrentUser();
+        User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(
                 Board.builder()
                         .user(currentUser)
@@ -35,7 +35,7 @@ public class BoardService {
     }
 
     public void deleteBoard(Long boardId) {
-        User currentUser = userFacade.currentUser();
+        User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.findById(boardId)
                 .orElseThrow(() -> BoardNotFoundException.EXCEPTION);
         writerCheck(currentUser, board);
@@ -52,21 +52,5 @@ public class BoardService {
         Board board = boardRepository.findById(boardId)
                 .orElseThrow(() -> BoardNotFoundException.EXCEPTION);
         return new BoardResponse(board);
-    }
-
-    public List<BoardResponse> finaAllBoards() {
-        return boardRepository.findAll()
-                .stream()
-                .map(BoardResponse::new)
-                .collect(Collectors.toList());
-
-    }
-
-    public List<BoardResponse> findMyBoards() {
-        User currentUser = userFacade.currentUser();
-        return boardRepository.findByUserId(currentUser.getId())
-                .stream()
-                .map(BoardResponse::new)
-                .collect(Collectors.toList());
     }
 }

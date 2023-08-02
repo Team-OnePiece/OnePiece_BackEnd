@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Validated
 @RestController
 @RequiredArgsConstructor
-
 public class BoardController {
+
     private final BoardService boardService;
 
     @PostMapping("/board")
@@ -28,22 +27,12 @@ public class BoardController {
             @PathVariable Long boardId,
             @Valid @RequestBody BoardRequest request
     ) {
-        boardService.modifyBoard(boardId, request);
+        boardService.(boardId, request);
     }
 
     @DeleteMapping("/board/{boardId}")
     public void deleteBoard(@PathVariable Long boardId) {
         boardService.deleteBoard(boardId);
-    }
-
-    @GetMapping("/board/all")
-    public List<BoardResponse> findBoardAll() {
-        return boardService.findAllBoards();
-    }
-
-    @GetMapping("/board")
-    public List<BoardResponse> findMyBoard() {
-        return boardService.findMyBoards();
     }
 
 }
