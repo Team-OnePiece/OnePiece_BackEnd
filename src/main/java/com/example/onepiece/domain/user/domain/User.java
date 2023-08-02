@@ -1,9 +1,13 @@
 package com.example.onepiece.domain.user.domain;
 
+import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.global.entity.BaseEntity;
 import lombok.*;
+import org.hibernate.mapping.Array;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -28,7 +32,12 @@ public class User extends BaseEntity {
     @Column(nullable = false, length = 16)
     private Integer number;
 
+<<<<<<< HEAD
     private String profileImageUrl = "";
+=======
+    @OneToMany(mappedBy = "user")
+    private List<Board> boards = new ArrayList<Board>();
+>>>>>>> add-boardentity
 
     @Builder
     public User(String accountId, String password, String nickname, Integer grade, Integer classNumber, Integer number) {
