@@ -12,27 +12,14 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping("board")
 @RequiredArgsConstructor
 public class BoardController {
 
     private final BoardService boardService;
 
-    @PostMapping("/board")
+    @PostMapping
     public BoardIdResponse writeBoard(@Valid @RequestBody BoardRequest request) {
         return boardService.writeBoard(request);
     }
-
-    @PatchMapping("/board/{boardId}")
-    public void modifyBoard(
-            @PathVariable Long boardId,
-            @Valid @RequestBody BoardRequest request
-    ) {
-        boardService.(boardId, request);
-    }
-
-    @DeleteMapping("/board/{boardId}")
-    public void deleteBoard(@PathVariable Long boardId) {
-        boardService.deleteBoard(boardId);
-    }
-
 }

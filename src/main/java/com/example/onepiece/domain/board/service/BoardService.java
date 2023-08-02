@@ -11,6 +11,7 @@ import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,25 +33,5 @@ public class BoardService {
                         .build()
         );
         return new BoardIdResponse(board.getId());
-    }
-
-    public void deleteBoard(Long boardId) {
-        User currentUser = userFacade.getCurrentUser();
-        Board board = boardRepository.findById(boardId)
-                .orElseThrow(() -> BoardNotFoundException.EXCEPTION);
-        writerCheck(currentUser, board);
-        boardRepository.deleteById(boardId);
-    }
-
-    public void writerCheck(User user, Board board) {
-        if (board.getUser() != user) {
-            throw BoardWriterMismatchException.EXCEPTION;
-        }
-    }
-
-    public BoardResponse findBoard(Long boardId) {
-        Board board = boardRepository.findById(boardId)
-                .orElseThrow(() -> BoardNotFoundException.EXCEPTION);
-        return new BoardResponse(board);
     }
 }
