@@ -1,9 +1,8 @@
 package com.example.onepiece.domain.board.service;
 
-import com.example.onepiece.domain.board.controller.dto.BoardController;
-import com.example.onepiece.domain.board.controller.dto.request.BoardRequest;
-import com.example.onepiece.domain.board.controller.dto.response.BoardIdResponse;
-import com.example.onepiece.domain.board.controller.dto.response.BoardResponse;
+import com.example.onepiece.domain.board.presentation.dto.request.BoardRequest;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardIdResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardResponse;
 import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.domain.board.domain.repository.BoardRepository;
 import com.example.onepiece.domain.board.exception.BoardNotFoundException;

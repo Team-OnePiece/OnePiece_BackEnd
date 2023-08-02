@@ -1,4 +1,4 @@
-package com.example.onepiece.domain.board.controller.dto.response;
+package com.example.onepiece.domain.board.presentation.dto.response;
 
 import com.example.onepiece.domain.board.domain.Board;
 import lombok.AllArgsConstructor;

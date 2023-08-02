@@ -1,4 +1,4 @@
-package com.example.onepiece.domain.board.controller.dto.request;
+package com.example.onepiece.domain.board.presentation.dto.request;
 
 import lombok.AccessLevel;
 import lombok.Getter;

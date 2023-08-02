@@ -1,8 +1,8 @@
-package com.example.onepiece.domain.board.controller.dto;
+package com.example.onepiece.domain.board.presentation;
 
-import com.example.onepiece.domain.board.controller.dto.request.BoardRequest;
-import com.example.onepiece.domain.board.controller.dto.response.BoardIdResponse;
-import com.example.onepiece.domain.board.controller.dto.response.BoardResponse;
+import com.example.onepiece.domain.board.presentation.dto.request.BoardRequest;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardIdResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardResponse;
 import com.example.onepiece.domain.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;

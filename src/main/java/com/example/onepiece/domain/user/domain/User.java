@@ -32,12 +32,10 @@ public class User extends BaseEntity {
     @Column(nullable = false, length = 16)
     private Integer number;
 
-<<<<<<< HEAD
     private String profileImageUrl = "";
-=======
+
     @OneToMany(mappedBy = "user")
-    private List<Board> boards = new ArrayList<Board>();
->>>>>>> add-boardentity
+    private List<Board> boards = new ArrayList<>();
 
     @Builder
     public User(String accountId, String password, String nickname, Integer grade, Integer classNumber, Integer number) {
