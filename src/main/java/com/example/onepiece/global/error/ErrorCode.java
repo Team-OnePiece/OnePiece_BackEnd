@@ -1,5 +1,6 @@
 package com.example.onepiece.global.error;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,7 +17,12 @@ public enum ErrorCode {
     JWT_INVALID(401, "Jwt Invalid"),
 
     IMAGE_UPLOAD_FAILED(400, "Image Upload Failed"),
-    IMAGE_VALUE_NOT_FOUND(404, "Image Value Not Found");
+    IMAGE_VALUE_NOT_FOUND(404, "Image Value Not Found"),
+
+    BOARD_NOT_FOUND(404, "Board Not Found"),
+    BOARD_WRITER_MISMATCH(403, "BOARD WRITER MISMATCH");
+
+
 
     private final Integer httpStatus;
     private final String message;
