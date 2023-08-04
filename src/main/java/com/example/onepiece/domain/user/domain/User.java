@@ -1,9 +1,7 @@
 package com.example.onepiece.domain.user.domain;
 
-import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.global.entity.BaseEntity;
 import lombok.*;
-import org.hibernate.mapping.Array;
 
 import javax.persistence.*;
 import java.util.ArrayList;
