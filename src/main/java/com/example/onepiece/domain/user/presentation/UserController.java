@@ -2,7 +2,6 @@ package com.example.onepiece.domain.user.presentation;
 
 import com.example.onepiece.domain.user.presentation.dto.request.*;
 import com.example.onepiece.domain.user.presentation.dto.response.UserInfoResponse;
-import com.example.onepiece.domain.user.presentation.dto.response.UserProfileImageUploadResponse;
 import com.example.onepiece.domain.user.service.*;
 import com.example.onepiece.global.security.jwt.dto.TokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -73,7 +72,7 @@ public class UserController {
 
     @Operation(summary = "프로필 이미지 업로드")
     @PostMapping("/image/upload")
-    public UserProfileImageUploadResponse upload(@RequestPart(required = false, value = "image") MultipartFile image) {
+    public String upload(@RequestPart(required = false, value = "image") MultipartFile image) {
         return profileImageUploadService.userProfileImageUpload(image);
     }
 }
