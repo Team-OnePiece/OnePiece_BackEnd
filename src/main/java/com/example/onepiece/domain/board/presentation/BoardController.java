@@ -17,6 +17,7 @@ import javax.validation.Valid;
 public class BoardController {
 
     private final BoardCreateService boardCreateService;
+
     @PostMapping("/board")
     public BoardIdResponse writeBoard(@Valid @RequestBody BoardRequest request) {
         return boardCreateService.writeBoard(request);
