@@ -24,7 +24,6 @@ public enum ErrorCode {
     BOARD_WRITER_MISMATCH(403, "BOARD WRITER MISMATCH");
 
 
-
     private final Integer httpStatus;
     private final String message;
 }
