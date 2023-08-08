@@ -10,4 +10,5 @@ import lombok.Getter;
 public class BoardIdResponse {
 
     Long id;
+
 }
