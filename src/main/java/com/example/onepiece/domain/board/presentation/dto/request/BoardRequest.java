@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class BoardRequest {
 
     @NotNull
@@ -15,4 +15,5 @@ public class BoardRequest {
 
     @NotNull
     private String image;
+
 }
