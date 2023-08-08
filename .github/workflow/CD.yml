@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t eeuunn/one-piece-image  .
+        run: docker build -t eeuunn/one-piece-image .
 
       - name: Push on Dockerhub
         run: docker push eeuunn/one-piece-image
