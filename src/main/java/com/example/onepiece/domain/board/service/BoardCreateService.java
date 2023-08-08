@@ -28,4 +28,5 @@ public class BoardCreateService {
         );
         return new BoardIdResponse(board.getId());
     }
+
 }
