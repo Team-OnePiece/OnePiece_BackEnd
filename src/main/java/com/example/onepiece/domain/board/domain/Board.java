@@ -40,4 +40,5 @@ public class Board extends BaseEntity {
         this.place = place;
         this.image = image;
     }
+
 }
