@@ -1,6 +1,4 @@
 package com.example.onepiece.global.entity;
-
-
 import lombok.Getter;
 
 import javax.persistence.GeneratedValue;
@@ -10,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 
 @Getter
 @MappedSuperclass
-public class BaseEntity {
+public class BaseIdEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
