@@ -1,7 +1,7 @@
 package com.example.onepiece.domain.user.domain;
 
 import com.example.onepiece.domain.board.domain.Board;
-import com.example.onepiece.global.entity.BaseEntity;
+import com.example.onepiece.global.entity.BaseIdEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class User extends BaseEntity {
+public class User extends BaseIdEntity {
 
     @Column(nullable = false, length = 20)
     private String accountId;
