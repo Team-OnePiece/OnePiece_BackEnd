@@ -22,8 +22,6 @@ public enum ErrorCode {
 
     BOARD_NOT_FOUND(404, "Board Not Found"),
     BOARD_WRITER_MISMATCH(403, "BOARD WRITER MISMATCH");
-
-
     private final Integer httpStatus;
     private final String message;
 }
