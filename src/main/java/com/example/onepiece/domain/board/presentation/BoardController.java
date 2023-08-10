@@ -16,7 +16,7 @@ public class BoardController {
     private final BoardCreateService boardCreateService;
 
     @PostMapping
-    public BoardCreateResponse writeBoard(@Valid @RequestParam("place") String place, @RequestPart(required = false, value = "images") MultipartFile image) {
-        return boardCreateService.writeBoard(place, image);
+    public BoardCreateResponse writeBoard(@RequestBody @Valid BoardCreateRequest request, @RequestPart(required = false, value = "images") MultipartFile image) {
+        return boardCreateService.writeBoard(request, image);
     }
 }

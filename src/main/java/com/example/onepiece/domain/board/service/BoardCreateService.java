@@ -20,13 +20,13 @@ public class BoardCreateService {
     private final UserFacade userFacade;
     private final S3Facade s3Facade;
 
-    public BoardCreateResponse writeBoard(String place, MultipartFile boardImage) {
+    public BoardCreateResponse writeBoard(BoardCreateRequest request, MultipartFile boardImage) {
 
         User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(
                 Board.builder()
                         .writer(currentUser)
-                        .place(place)
+                        .place(request.getPlace())
                         .build()
         );
 
