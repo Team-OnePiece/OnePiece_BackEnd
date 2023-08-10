@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor
-public class RequestBoard {
+public class BoardCreateRequest {
 
     @NotNull
     private String place;
