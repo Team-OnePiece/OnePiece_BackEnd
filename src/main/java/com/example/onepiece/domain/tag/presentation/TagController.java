@@ -1,6 +1,7 @@
 package com.example.onepiece.domain.tag.presentation;
 
 import com.example.onepiece.domain.tag.presentation.dto.request.TagCreateRequest;
+import com.example.onepiece.domain.tag.presentation.dto.response.TagIdResponse;
 import com.example.onepiece.domain.tag.presentation.dto.response.TagMyListResponse;
 import com.example.onepiece.domain.tag.service.TagCreateService;
 import com.example.onepiece.domain.tag.service.TagDeleteService;
@@ -30,7 +31,7 @@ public class TagController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Long createTag(@RequestBody @Valid TagCreateRequest request) {
+    public TagIdResponse createTag(@RequestBody @Valid TagCreateRequest request) {
       return tagCreateService.tagCreate(request);
     }
 
