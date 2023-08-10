@@ -23,4 +23,5 @@ public class BoardAllResponse {
         this.createAt = board.getCreatedAt();
         this.nickname = board.getUser().getNickname();
     }
+
 }
