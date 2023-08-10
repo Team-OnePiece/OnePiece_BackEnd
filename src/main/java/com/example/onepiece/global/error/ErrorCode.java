@@ -21,7 +21,9 @@ public enum ErrorCode {
     IMAGE_VALUE_NOT_FOUND(404, "Image Value Not Found"),
 
     BOARD_NOT_FOUND(404, "Board Not Found"),
-    BOARD_WRITER_MISMATCH(403, "Board Writer Mismatch");
+    BOARD_WRITER_MISMATCH(403, "Board Writer Mismatch"),
+
+    TAG_GENERATION_COUNT_EXCEEDED(400, "Tag Generation Count Exceeded");
 
     private final Integer httpStatus;
     private final String message;
