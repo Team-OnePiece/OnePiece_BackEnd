@@ -4,9 +4,10 @@ package com.example.onepiece.domain.board.service;
 import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.domain.board.domain.repository.BoardRepository;
 import com.example.onepiece.domain.board.presentation.dto.request.BoardCreateRequest;
-import com.example.onepiece.domain.board.presentation.dto.response.BoardIdResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
+import com.example.onepiece.infra.s3.service.S3Facade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,18 +18,21 @@ public class BoardCreateService {
 
     private final BoardRepository boardRepository;
     private final UserFacade userFacade;
+    private final S3Facade s3Facade;
 
-    public BoardIdResponse writeBoard(BoardCreateRequest request, MultipartFile boardImage) {
+    public BoardCreateResponse writeBoard(String place, MultipartFile boardImage) {
+
         User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(
                 Board.builder()
                         .writer(currentUser)
-                        .place(request.getPlace())
+                        .place(place)
                         .build()
         );
-        return new BoardIdResponse(board.getId());
-        if(boardImage == null) {
-        }
-    }
 
+        String boardImageUrl = s3Facade.uploadImage(boardImage);
+        board.imageUpload(boardImageUrl);
+
+        return new BoardCreateResponse(board.getId(), boardImageUrl);
+    }
 }

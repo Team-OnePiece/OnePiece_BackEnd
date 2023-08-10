@@ -5,7 +5,8 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class BoardIdResponse {
+public class BoardCreateResponse {
 
     Long id;
+    String boardImageUrl;
 }

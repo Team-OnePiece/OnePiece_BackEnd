@@ -21,8 +21,8 @@ import java.time.LocalDate;
 public class Board extends BaseIdEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User writer;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(nullable = false, length = 10)
     private String place;
@@ -34,7 +34,7 @@ public class Board extends BaseIdEntity {
 
     @Builder
     public Board(User writer, String place) {
-        this.writer = writer;
+        this.user = writer;
         this.place = place;
     }
 

@@ -11,7 +11,4 @@ public class BoardCreateRequest {
 
     @NotNull
     private String place;
-
-    @NotNull
-    private String boardImageUrl;
 }
