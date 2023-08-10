@@ -7,6 +7,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class BoardCreateResponse {
 
-    Long id;
-    String boardImageUrl;
+    private Long id;
+    private String boardImageUrl;
 }
