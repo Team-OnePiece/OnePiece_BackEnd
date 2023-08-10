@@ -13,7 +13,5 @@ public class RequestBoard {
     private String place;
 
     @NotNull
-    private String image;
-
-
+    private String boardImageUrl;
 }
