@@ -14,5 +14,5 @@ public class BoardResponse {
     private String place;
     private String boardImageUrl;
     private LocalDate createAt;
-    private User writer;
+    private User nickname;
 }

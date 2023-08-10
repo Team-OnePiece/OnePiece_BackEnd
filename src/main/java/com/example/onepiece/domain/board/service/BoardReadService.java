@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +23,7 @@ public class BoardReadService {
 
         return boardRepository.findAll()
                 .stream()
-                .map(board -> new BoardResponse(board.getId(), board.getPlace(), board.))
+                .map(board -> new BoardResponse(board.getId(), board.getPlace(), board.getBoardImageUrl(), board.getCreatedAt(), board.getUser()))
+                .collect(Collectors.toList());
     }
 }
