@@ -30,8 +30,8 @@ public class TagController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public void createTag(@RequestBody @Valid TagCreateRequest request) {
-        tagCreateService.tagCreate(request);
+    public Long createTag(@RequestBody @Valid TagCreateRequest request) {
+      return tagCreateService.tagCreate(request);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

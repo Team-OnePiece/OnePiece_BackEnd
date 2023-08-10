@@ -20,7 +20,7 @@ public class TagCreateService {
     private final UserFacade userFacade;
 
     @Transactional
-    public void tagCreate(TagCreateRequest request) {
+    public Long tagCreate(TagCreateRequest request) {
 
         User user = userFacade.getCurrentUser();
         List<Tag>userTags = tagRepository.findByUser(user);
@@ -29,10 +29,10 @@ public class TagCreateService {
             throw TagGenerationCountExceededException.EXCEPTION;
         }
 
-        tagRepository.save(
+      return tagRepository.save(
                 Tag.builder()
                         .user(user)
                         .tag(request.getTag())
-                        .build());
+                        .build()).getId();
     }
 }
