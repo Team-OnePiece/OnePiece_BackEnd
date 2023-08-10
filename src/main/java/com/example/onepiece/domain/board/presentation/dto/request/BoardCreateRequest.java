@@ -13,4 +13,5 @@ public class BoardCreateRequest {
     @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-zA-Z0-9@#$%\\W\\S]{1,10}$")
     @NotNull
     private String place;
+
 }

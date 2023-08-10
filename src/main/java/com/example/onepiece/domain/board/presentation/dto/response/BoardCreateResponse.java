@@ -11,3 +11,4 @@ public class BoardCreateResponse {
     private String boardImageUrl;
 
 }
+
