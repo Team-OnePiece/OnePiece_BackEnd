@@ -4,8 +4,6 @@ import com.example.onepiece.domain.user.presentation.dto.request.*;
 import com.example.onepiece.domain.user.presentation.dto.response.UserInfoResponse;
 import com.example.onepiece.domain.user.service.*;
 import com.example.onepiece.global.security.jwt.dto.TokenResponse;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
