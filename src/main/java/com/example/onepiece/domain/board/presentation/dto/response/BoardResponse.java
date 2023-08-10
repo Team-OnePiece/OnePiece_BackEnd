@@ -1,21 +1,18 @@
 package com.example.onepiece.domain.board.presentation.dto.response;
 
-import com.example.onepiece.domain.board.domain.Board;
-import lombok.Builder;
+import com.example.onepiece.domain.user.domain.User;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDate;
+
 @Getter
-@Builder
+@AllArgsConstructor
 public class BoardResponse {
 
-    private final String place;
-    private final String boardImageUrl;
-
-    public static BoardResponse of(Board board) {
-
-        return BoardResponse.builder()
-                .place(board.getPlace())
-                .boardImageUrl(board.getBoardImageUrl())
-                .build();
-    }
+    private Long id;
+    private String place;
+    private String boardImageUrl;
+    private LocalDate createAt;
+    private User writer;
 }
