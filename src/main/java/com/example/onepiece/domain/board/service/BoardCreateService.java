@@ -35,4 +35,5 @@ public class BoardCreateService {
 
         return new BoardCreateResponse(board.getId(), boardImageUrl);
     }
+
 }

@@ -9,4 +9,5 @@ public class BoardCreateResponse {
 
     private Long id;
     private String boardImageUrl;
+
 }
