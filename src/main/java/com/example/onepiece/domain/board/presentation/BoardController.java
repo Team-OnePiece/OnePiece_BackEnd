@@ -1,7 +1,7 @@
 package com.example.onepiece.domain.board.presentation;
 
-import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
 import com.example.onepiece.domain.board.presentation.dto.response.BoardAllResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
 import com.example.onepiece.domain.board.service.BoardCreateService;
 import com.example.onepiece.domain.board.service.BoardReadService;
 import lombok.RequiredArgsConstructor;
