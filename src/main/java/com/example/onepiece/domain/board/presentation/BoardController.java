@@ -31,8 +31,7 @@ public class BoardController {
     }
 
     @GetMapping
-    public List<BoardResponse> findBoard() {
-        return boardReadService.findBoard();
+    public List<BoardResponse> findBoardAll() {
+        return boardReadService.findAllBoards();
     }
-
 }

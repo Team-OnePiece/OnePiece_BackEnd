@@ -17,7 +17,7 @@ public class BoardReadService {
     private final BoardRepository boardRepository;
     private final UserFacade userFacade;
 
-    public List<BoardResponse> findBoard() {
+    public List<BoardResponse> findAllBoards() {
 
         User currentUser = userFacade.getCurrentUser();
 
