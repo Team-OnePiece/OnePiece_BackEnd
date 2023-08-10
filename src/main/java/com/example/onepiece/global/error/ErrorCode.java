@@ -21,7 +21,9 @@ public enum ErrorCode {
     IMAGE_VALUE_NOT_FOUND(404, "Image Value Not Found"),
 
     BOARD_NOT_FOUND(404, "Board Not Found"),
-    BOARD_WRITER_MISMATCH(403, "BOARD WRITER MISMATCH");
+    BOARD_WRITER_MISMATCH(403, "Board Writer Mismatch"),
+    BOARD_IMAGE_NOT_FOUND(404, "Board Image Not Found");
+
     private final Integer httpStatus;
     private final String message;
 }

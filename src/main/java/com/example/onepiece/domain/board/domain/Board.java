@@ -1,7 +1,7 @@
 package com.example.onepiece.domain.board.domain;
 
 import com.example.onepiece.domain.user.domain.User;
-import com.example.onepiece.global.entity.BaseEntity;
+import com.example.onepiece.global.entity.BaseIdEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,32 +13,32 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Board extends BaseEntity {
-
+public class Board extends BaseIdEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User writer;
 
     @Column(nullable = false, length = 10)
     private String place;
 
-    @Column(nullable = false)
-    private String image;
+    private String boardImageUrl = "";
 
     @CreatedDate
-    private LocalDateTime createdDatetime;
+    private LocalDate createdAt;
 
     @Builder
-    public Board(User user, String place, String image) {
-        this.user = user;
+    public Board(User writer, String place) {
+        this.writer = writer;
         this.place = place;
-        this.image = image;
     }
 
+    public void imageUpload(String boardImageUrl) {
+        this.boardImageUrl = boardImageUrl;
+    }
 }

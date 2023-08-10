@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-
 public class BoardFacade {
 
     private final BoardRepository boardRepository;

@@ -1,25 +1,21 @@
 package com.example.onepiece.domain.board.presentation.dto.response;
 
 import com.example.onepiece.domain.board.domain.Board;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
-@AllArgsConstructor
-
 public class BoardResponse {
 
-    private Long id;
+    private final String place;
+    private final String boardImageUrl;
 
-    private String place;
+    public static BoardResponse of(Board board) {
 
-    private String image;
-
-    public BoardResponse(Board board) {
-        id = board.getId();
-        place = board.getPlace();
-        image = board.getImage();
+        return BoardResponse.builder()
+                .place(board.getPlace())
+                .boardImageUrl(board.getBoardImageUrl())
+                .build();
     }
 }

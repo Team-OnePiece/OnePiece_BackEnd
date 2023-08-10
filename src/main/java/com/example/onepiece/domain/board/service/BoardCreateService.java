@@ -9,6 +9,7 @@ import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
@@ -17,7 +18,7 @@ public class BoardCreateService {
     private final BoardRepository boardRepository;
     private final UserFacade userFacade;
 
-    public BoardIdResponse writeBoard(BoardCreateRequest request) {
+    public BoardIdResponse writeBoard(BoardCreateRequest request, MultipartFile boardImage) {
         User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(
                 Board.builder()
@@ -26,5 +27,8 @@ public class BoardCreateService {
                         .build()
         );
         return new BoardIdResponse(board.getId());
+        if(boardImage == null) {
+        }
     }
+
 }
