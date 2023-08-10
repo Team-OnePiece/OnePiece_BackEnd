@@ -1,10 +1,13 @@
 package com.example.onepiece.domain.tag.presentation;
 
 import com.example.onepiece.domain.tag.presentation.dto.request.TagCreateRequest;
+import com.example.onepiece.domain.tag.presentation.dto.response.TagMyListResponse;
 import com.example.onepiece.domain.tag.service.TagCreateService;
 import com.example.onepiece.domain.tag.service.TagDeleteService;
+import com.example.onepiece.domain.tag.service.TagMyListService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +19,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @RestController
 @RequestMapping("/tag")
@@ -24,6 +28,7 @@ public class TagController {
 
     private final TagCreateService tagCreateService;
     private final TagDeleteService tagDeleteService;
+    private final TagMyListService tagMyListService;
 
     @PostMapping
     public void createTag(@RequestBody @Valid TagCreateRequest request) {
@@ -33,5 +38,10 @@ public class TagController {
     @DeleteMapping("/remove/{tagId}")
     public void deleteTag(@PathVariable Long tagId) {
         tagDeleteService.tagDelete(tagId);
+    }
+
+    @GetMapping("/my/list")
+    public List<TagMyListResponse>myListTag() {
+        return tagMyListService.tagMyList();
     }
 }
