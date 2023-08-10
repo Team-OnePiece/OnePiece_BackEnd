@@ -1,7 +1,7 @@
 package com.example.onepiece.domain.board.presentation;
 
 import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
-import com.example.onepiece.domain.board.presentation.dto.response.BoardResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardAllResponse;
 import com.example.onepiece.domain.board.service.BoardCreateService;
 import com.example.onepiece.domain.board.service.BoardReadService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,8 +28,8 @@ public class BoardController {
         return boardCreateService.writeBoard(place, image);
     }
 
-    @GetMapping
-    public List<BoardResponse> findBoardAll() {
+    @GetMapping("/all")
+    public List<BoardAllResponse> findBoardAll() {
         return boardReadService.findAllBoards();
     }
 }
