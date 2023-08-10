@@ -2,8 +2,11 @@ package com.example.onepiece.domain.board.presentation;
 
 import com.example.onepiece.domain.board.presentation.dto.request.BoardCreateRequest;
 import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardResponse;
 import com.example.onepiece.domain.board.service.BoardCreateService;
+import com.example.onepiece.domain.board.service.BoardReadService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,9 +23,16 @@ import javax.validation.Valid;
 public class BoardController {
 
     private final BoardCreateService boardCreateService;
+    private final BoardReadService boardReadService;
 
     @PostMapping
     public BoardCreateResponse writeBoard(@RequestBody @Valid BoardCreateRequest request, @RequestPart(required = false, value = "images") MultipartFile image) {
         return boardCreateService.writeBoard(request, image);
     }
+
+    @GetMapping
+    public List<BoardResponse> findBoard() {
+        return boardReadService.findBoard();
+    }
+
 }
