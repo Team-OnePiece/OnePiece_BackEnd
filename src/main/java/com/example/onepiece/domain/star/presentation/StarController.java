@@ -21,25 +21,25 @@ public class StarController {
     private final UnStarService unStarService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/star/{board-id}")
+    @PostMapping("/{board-id}/star")
     public StarResponse star(@PathVariable("board-id") Long boardId){
-        return starService.Star(boardId);
+        return starService.star(boardId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/star/{board-id}")
+    @PostMapping("/{board-id}/delete-star")
     public StarResponse deleteStar(@PathVariable("board-id") Long boardId){
         return starService.deleteStar(boardId);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/star/{board-id}")
+    @PostMapping("/{board-id}/unStar")
     public UnStarResponse unStar(@PathVariable("board-id") Long boardId){
         return unStarService.unStar(boardId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/star/{board-id}")
+    @PostMapping("/{board-id}/delete-unStar")
     public UnStarResponse deleteUnStar(@PathVariable("board-id") Long boardId){
         return unStarService.deleteUnStar(boardId);
     }
