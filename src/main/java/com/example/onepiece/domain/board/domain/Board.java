@@ -1,17 +1,13 @@
 package com.example.onepiece.domain.board.domain;
 
-import com.example.onepiece.domain.star.domain.Star;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.global.entity.BaseIdEntity;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -28,9 +24,6 @@ public class Board extends BaseIdEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "board")
-    private List<Star> stars = new ArrayList<>();
-
     @Column(nullable = false, length = 10)
     private String place;
 
@@ -43,9 +36,10 @@ public class Board extends BaseIdEntity {
     private Integer starCounts;
 
     @Builder
-    public Board(User writer, String place) {
+    public Board(User writer, String place, Integer starCounts) {
         this.user = writer;
         this.place = place;
+        this.starCounts = starCounts;
     }
 
     public void imageUpload(String boardImageUrl) {
