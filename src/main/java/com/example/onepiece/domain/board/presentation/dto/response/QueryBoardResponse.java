@@ -15,6 +15,10 @@ public class QueryBoardResponse {
     private String boardImageUrl;
     private LocalDate createAt;
     private String nickname;
+    private String profileImageUrl;
+    private Integer grade;
+    private Integer classNumber;
+    private Integer number;
 
     public QueryBoardResponse(Board board) {
         this.id = board.getId();
@@ -22,6 +26,10 @@ public class QueryBoardResponse {
         this.boardImageUrl = board.getBoardImageUrl();
         this.createAt = board.getCreatedAt();
         this.nickname = board.getUser().getNickname();
+        this.profileImageUrl = board.getUser().getProfileImageUrl();
+        this.grade = board.getUser().getGrade();
+        this.classNumber = board.getUser().getClassNumber();
+        this.number = board.getUser().getNumber();
     }
 
 }
