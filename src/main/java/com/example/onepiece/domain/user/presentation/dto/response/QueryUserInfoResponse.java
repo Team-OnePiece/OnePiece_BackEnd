@@ -4,18 +4,16 @@ import com.example.onepiece.domain.user.domain.User;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.util.List;
-
 @Getter
 @Builder
-public class UserInfoResponse {
+public class QueryUserInfoResponse {
 
     private String nickname;
     private String profileImageUrl;
 
-    public static UserInfoResponse of(User user) {
+    public static QueryUserInfoResponse of(User user) {
 
-        return UserInfoResponse.builder()
+        return QueryUserInfoResponse.builder()
                 .nickname(user.getNickname())
                 .profileImageUrl(user.getProfileImageUrl())
                 .build();
