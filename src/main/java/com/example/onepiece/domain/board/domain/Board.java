@@ -33,8 +33,8 @@ public class Board extends BaseIdEntity {
     private LocalDate createdAt;
 
     @Builder
-    public Board(User writer, String place) {
-        this.user = writer;
+    public Board(User user, String place) {
+        this.user = user;
         this.place = place;
     }
 
