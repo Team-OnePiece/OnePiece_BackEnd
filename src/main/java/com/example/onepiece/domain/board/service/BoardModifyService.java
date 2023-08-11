@@ -3,7 +3,6 @@ package com.example.onepiece.domain.board.service;
 import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.domain.board.exception.BoardWriterMismatchException;
 import com.example.onepiece.domain.board.facade.BoardFacade;
-import com.example.onepiece.domain.board.presentation.dto.request.BoardUpdateRequest;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.infra.s3.service.S3Facade;
@@ -21,18 +20,17 @@ public class BoardModifyService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public String boardModify(Long boardId, BoardUpdateRequest request, MultipartFile boardImage) {
+    public String boardModify(Long boardId, String place, MultipartFile boardImage) {
 
         User currentUser = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
-        if (!currentUser.getNickname().equals(board.getUser())) {
+        if (!currentUser.getNickname().equals(board.getUser().getNickname())) {
             throw BoardWriterMismatchException.EXCEPTION;
         }
 
         String boardImageUrl = s3Facade.uploadImage(boardImage);
-
-        board.modifyPlaceAndBoardImageUrl(request.getPlace(), boardImageUrl);
+        board.modifyPlaceAndBoardImageUrl(place, boardImageUrl);
 
         return boardImageUrl;
     }

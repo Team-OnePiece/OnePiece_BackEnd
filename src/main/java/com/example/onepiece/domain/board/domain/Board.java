@@ -32,9 +32,6 @@ public class Board extends BaseIdEntity {
     @CreatedDate
     private LocalDate createdAt;
 
-    @NotNull
-    private Integer starCounts;
-
     @Builder
     public Board(User user, String place) {
         this.user = user;
@@ -46,7 +43,7 @@ public class Board extends BaseIdEntity {
     }
 
     public void modifyPlaceAndBoardImageUrl(String place, String boardImageUrl) {
-        this.place = place;
         this.boardImageUrl = boardImageUrl;
+        this.place = place;
     }
 }
