@@ -1,9 +1,9 @@
 package com.example.onepiece.domain.board.presentation;
 
-import com.example.onepiece.domain.board.presentation.dto.response.BoardAllResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.BoardReadResponse;
 import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
 import com.example.onepiece.domain.board.service.BoardCreateService;
-import com.example.onepiece.domain.board.service.BoardReadService;
+import com.example.onepiece.domain.board.service.FindAllBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +21,7 @@ import java.util.List;
 public class BoardController {
 
     private final BoardCreateService boardCreateService;
-    private final BoardReadService boardReadService;
+    private final FindAllBoardService findAllBoardService;
 
     @PostMapping
     public BoardCreateResponse writeBoard(@RequestParam("place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
@@ -29,7 +29,7 @@ public class BoardController {
     }
 
     @GetMapping("/all")
-    public List<BoardAllResponse> findBoardAll() {
-        return boardReadService.findAllBoards();
+    public List<BoardReadResponse> findBoardAll() {
+        return findAllBoardService.findAllBoards();
     }
 }
