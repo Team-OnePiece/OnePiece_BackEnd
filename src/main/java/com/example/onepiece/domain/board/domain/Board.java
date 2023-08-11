@@ -45,11 +45,4 @@ public class Board extends BaseIdEntity {
         this.boardImageUrl = boardImageUrl;
     }
 
-    public void addStarCount() {
-        this.starCounts += 1;
-    }
-
-    public void minusStarCount() {
-        this.starCounts -= 1;
-    }
 }
