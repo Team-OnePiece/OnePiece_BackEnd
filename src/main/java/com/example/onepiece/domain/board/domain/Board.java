@@ -35,9 +35,6 @@ public class Board extends BaseIdEntity {
     @NotNull
     private Integer starCounts;
 
-    @NotNull
-    private Integer unStarCounts;
-
     @Builder
     public Board(User writer, String place) {
         this.user = writer;
@@ -54,13 +51,5 @@ public class Board extends BaseIdEntity {
 
     public void minusStarCount() {
         this.starCounts -= 1;
-    }
-
-    public void addUnStarCount() {
-        this.unStarCounts += 1;
-    }
-
-    public void minusUnStarCount() {
-        this.unStarCounts -= 1;
     }
 }
