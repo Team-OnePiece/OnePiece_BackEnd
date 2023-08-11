@@ -1,18 +1,18 @@
 package com.example.onepiece.domain.user.service;
 
 import com.example.onepiece.domain.user.facade.UserFacade;
-import com.example.onepiece.domain.user.presentation.dto.response.UserInfoResponse;
+import com.example.onepiece.domain.user.presentation.dto.response.QuerySchoolNumberResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserInfoService {
+public class QuerySchoolNumberService {
 
     private final UserFacade userFacade;
 
-    public UserInfoResponse userInfo(){
+    public QuerySchoolNumberResponse querySchoolNumber() {
 
-        return UserInfoResponse.of(userFacade.getCurrentUser());
+        return QuerySchoolNumberResponse.of(userFacade.getCurrentUser());
     }
 }
