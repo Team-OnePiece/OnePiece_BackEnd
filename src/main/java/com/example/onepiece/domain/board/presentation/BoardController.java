@@ -29,7 +29,7 @@ public class BoardController {
     }
 
     @PatchMapping("/update/{boardId}")
-    public void modifyBoard(@PathVariable(value = "boardId") Long boardId, @Valid @RequestBody BoardUpdateRequest request) {
-        modifyBoard(boardId, request);
+    public String modifyBoard(@PathVariable(value = "boardId") Long boardId, @Valid @RequestBody BoardUpdateRequest request) {
+        return modifyBoard(boardId, request);
     }
 }

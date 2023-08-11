@@ -11,7 +11,4 @@ public class BoardUpdateRequest {
 
     @NotNull
     private String place;
-
-    @NotNull
-    private String boardImageUrl;
 }
