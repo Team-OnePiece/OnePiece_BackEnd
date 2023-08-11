@@ -44,5 +44,9 @@ public class Board extends BaseIdEntity {
     public void imageUpload(String boardImageUrl) {
         this.boardImageUrl = boardImageUrl;
     }
-    
+
+    public void modifyPlaceAndBoardImageUrl(String place, String boardImageUrl) {
+        this.place = place;
+        this.boardImageUrl = boardImageUrl;
+    }
 }
