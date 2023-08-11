@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
-public class BoardReadResponse {
+public class QueryBoardResponse {
 
     private Long id;
     private String place;
@@ -16,7 +16,7 @@ public class BoardReadResponse {
     private LocalDate createAt;
     private String nickname;
 
-    public BoardReadResponse(Board board) {
+    public QueryBoardResponse(Board board) {
         this.id = board.getId();
         this.place = board.getPlace();
         this.boardImageUrl = board.getBoardImageUrl();
