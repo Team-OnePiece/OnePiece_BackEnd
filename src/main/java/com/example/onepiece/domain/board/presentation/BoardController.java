@@ -1,9 +1,12 @@
 package com.example.onepiece.domain.board.presentation;
 
 import com.example.onepiece.domain.board.presentation.dto.request.BoardCreateRequest;
+import com.example.onepiece.domain.board.presentation.dto.request.BoardUpdateRequest;
 import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
 import com.example.onepiece.domain.board.service.BoardCreateService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +26,10 @@ public class BoardController {
     @PostMapping
     public BoardCreateResponse writeBoard(@RequestBody @Valid BoardCreateRequest request, @RequestPart(required = false, value = "images") MultipartFile image) {
         return boardCreateService.writeBoard(request, image);
+    }
+
+    @PatchMapping("/update/{boardId}")
+    public void modifyBoard(@PathVariable(value = "boardId") Long boardId, @Valid @RequestBody BoardUpdateRequest request) {
+        modifyBoard(boardId, request);
     }
 }
