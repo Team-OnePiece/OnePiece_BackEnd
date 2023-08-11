@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class StarController {
     private final StarService starService;
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{board-id}/star")
-    public StarResponse star(@PathVariable("board-id") Long boardId){
+    @PostMapping("/{boardId}/star")
+    public StarResponse star(@PathVariable("boardId") Long boardId){
         return starService.star(boardId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/{board-id}/delete-star")
-    public StarResponse deleteStar(@PathVariable("board-id") Long boardId){
+    @PostMapping("/{boardId}/delete-star")
+    public StarResponse deleteStar(@PathVariable("boardId") Long boardId){
         return starService.deleteStar(boardId);
     }
 }
