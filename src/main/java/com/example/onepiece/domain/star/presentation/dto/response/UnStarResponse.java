@@ -8,6 +8,6 @@ import lombok.Getter;
 @Builder
 public class UnStarResponse {
 
-    private Integer UnStarCounts;
-    private boolean UnStar;
+    private Integer unStarCounts;
+    private boolean unStar;
 }
