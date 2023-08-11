@@ -2,18 +2,18 @@ package com.example.onepiece.domain.board.domain;
 
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.global.entity.BaseIdEntity;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -32,6 +32,9 @@ public class Board extends BaseIdEntity {
     @CreatedDate
     private LocalDate createdAt;
 
+    @NotNull
+    private Integer starCounts;
+
     @Builder
     public Board(User writer, String place) {
         this.user = writer;
@@ -40,5 +43,13 @@ public class Board extends BaseIdEntity {
 
     public void imageUpload(String boardImageUrl) {
         this.boardImageUrl = boardImageUrl;
+    }
+
+    public void addStarCount() {
+        this.starCounts += 1;
+    }
+
+    public void minusStarCount() {
+        this.starCounts -= 1;
     }
 }
