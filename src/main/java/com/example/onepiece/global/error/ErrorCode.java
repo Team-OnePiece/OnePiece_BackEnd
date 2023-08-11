@@ -23,7 +23,12 @@ public enum ErrorCode {
     BOARD_NOT_FOUND(404, "Board Not Found"),
     BOARD_WRITER_MISMATCH(403, "Board Writer Mismatch"),
 
-    TAG_GENERATION_COUNT_EXCEEDED(400, "Tag Generation Count Exceeded");
+    TAG_GENERATION_COUNT_EXCEEDED(400, "Tag Generation Count Exceeded"),
+
+    STAR_EXIST(409, "Like Exist"),
+    REMOVE_STAR_EXIST(409, "Remove Like Exist"),
+    UNSTAR_EXIST(409, "Unlike Exist"),
+    REMOVE_UNSTAR_EXIST(409, "Remove Unlike Exist");
 
     private final Integer httpStatus;
     private final String message;
