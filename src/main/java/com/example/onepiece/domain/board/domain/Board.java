@@ -28,7 +28,7 @@ public class Board extends BaseIdEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "star")
+    @OneToMany(mappedBy = "board")
     private List<Star> stars = new ArrayList<>();
 
     @Column(nullable = false, length = 10)
