@@ -27,6 +27,7 @@ public class BoardCreateService {
         Board board = boardRepository.save(
                 Board.builder()
                         .user(currentUser)
+                        .starCounts(0)
                         .place(place)
                         .build()
         );
