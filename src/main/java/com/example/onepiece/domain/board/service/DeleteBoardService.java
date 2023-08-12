@@ -27,7 +27,7 @@ public class DeleteBoardService {
         if (!currentUser.equals(board.getUser())) {
             throw BoardWriterMismatchException.EXCEPTION;
         }
-
-         boardRepository.deleteById(boardId);
+        
+        boardRepository.deleteById(boardId);
     }
 }
