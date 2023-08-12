@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -32,6 +33,9 @@ public class Board extends BaseIdEntity {
     @CreatedDate
     private LocalDate createdAt;
 
+    @NotNull
+    private Integer starCounts;
+
     @Builder
     public Board(User user, String place, Integer starCounts) {
         this.user = user;
@@ -45,7 +49,7 @@ public class Board extends BaseIdEntity {
     }
 
 
-    public void modifyPlaceAndBoardImageUrl(String place, String boardImageUrl) {
+    public void modifyPlaceAndBoardImageUrl(String boardImageUrl, String place) {
         this.boardImageUrl = boardImageUrl;
         this.place = place;
     }
