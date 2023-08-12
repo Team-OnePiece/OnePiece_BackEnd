@@ -1,6 +1,5 @@
 package com.example.onepiece.domain.star.domain.repository;
 
-
 import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.domain.star.domain.Star;
 import com.example.onepiece.domain.user.domain.User;

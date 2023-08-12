@@ -1,6 +1,5 @@
 package com.example.onepiece.domain.star.domain;
 
-
 import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.global.entity.BaseIdEntity;
