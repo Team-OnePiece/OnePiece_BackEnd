@@ -1,5 +1,7 @@
 package com.example.onepiece.domain.tag.service;
 
+import com.example.onepiece.domain.board.domain.Board;
+import com.example.onepiece.domain.board.facade.BoardFacade;
 import com.example.onepiece.domain.tag.domain.Tag;
 import com.example.onepiece.domain.tag.domain.repository.TagRepository;
 import com.example.onepiece.domain.tag.exception.TagGenerationCountExceededException;
@@ -19,11 +21,14 @@ public class TagCreateService {
 
     private final TagRepository tagRepository;
     private final UserFacade userFacade;
+    private final BoardFacade boardFacade;
 
     @Transactional
-    public TagIdResponse tagCreate(TagCreateRequest request) {
+    public TagIdResponse tagCreate(TagCreateRequest request, Long boardId) {
 
         User user = userFacade.getCurrentUser();
+        Board board = boardFacade.getBoard(boardId);
+
         List<Tag>userTags = tagRepository.findByUser(user);
 
         if (userTags.size() >= 6) {
@@ -34,6 +39,7 @@ public class TagCreateService {
                 Tag.builder()
                         .tag(request.getTag())
                         .user(user)
+                        .board(board)
                         .build());
 
         return new TagIdResponse(tag.getId());
