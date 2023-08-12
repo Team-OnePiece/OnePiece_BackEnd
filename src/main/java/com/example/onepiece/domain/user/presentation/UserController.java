@@ -1,7 +1,8 @@
 package com.example.onepiece.domain.user.presentation;
 
 import com.example.onepiece.domain.user.presentation.dto.request.*;
-import com.example.onepiece.domain.user.presentation.dto.response.UserInfoResponse;
+import com.example.onepiece.domain.user.presentation.dto.response.QuerySchoolNumberResponse;
+import com.example.onepiece.domain.user.presentation.dto.response.QueryUserInfoResponse;
 import com.example.onepiece.domain.user.service.*;
 import com.example.onepiece.global.security.jwt.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +21,11 @@ public class UserController {
     private final AccountIdDuplicateService accountIdDuplicateService;
     private final NicknameDuplicateService nicknameDuplicateService;
     private final UserLoginService userLoginService;
-    private final UserInfoService userInfoService;
+    private final QueryUserInfoService queryUserInfoService;
     private final UserUpdateService userUpdateService;
     private final UserProfileImageUploadService profileImageUploadService;
     private final StudentIdDuplicationService studentIdDuplicationService;
+    private final QuerySchoolNumberService querySchoolNumberService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
@@ -53,8 +55,8 @@ public class UserController {
     }
 
     @GetMapping("/info")
-    public UserInfoResponse info() {
-        return userInfoService.userInfo();
+    public QueryUserInfoResponse info() {
+        return queryUserInfoService.userInfo();
     }
 
     @PatchMapping("/update")
@@ -67,5 +69,10 @@ public class UserController {
     @PostMapping("/image/upload")
     public String upload(@RequestPart(required = false, value = "image") MultipartFile image) {
         return profileImageUploadService.userProfileImageUpload(image);
+    }
+    
+    @GetMapping("/group/info")
+    public QuerySchoolNumberResponse schoolNumberQuery() {
+        return querySchoolNumberService.querySchoolNumber();
     }
 }

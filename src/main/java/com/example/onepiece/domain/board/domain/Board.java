@@ -36,10 +36,11 @@ public class Board extends BaseIdEntity {
     private Integer starCounts;
 
     @Builder
-    public Board(User writer, String place, Integer starCounts) {
-        this.user = writer;
+    public Board(User user, String place, Integer starCounts) {
+        this.user = user;
         this.place = place;
         this.starCounts = starCounts;
+        this.createdAt = LocalDate.now();
     }
 
     public void imageUpload(String boardImageUrl) {
