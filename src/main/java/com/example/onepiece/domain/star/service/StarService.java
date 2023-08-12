@@ -25,7 +25,7 @@ public class StarService {
     private final StarFacade starFacade;
 
     @Transactional
-    public StarResponse star(Long boardId) {
+    public StarResponse createStar(Long boardId) {
         User user = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
