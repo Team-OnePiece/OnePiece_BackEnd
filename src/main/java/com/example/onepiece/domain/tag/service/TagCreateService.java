@@ -13,8 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class TagCreateService {
@@ -29,9 +27,7 @@ public class TagCreateService {
         User user = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
-        List<Tag>userTags = tagRepository.findByUser(user);
-
-        if (userTags.size() >= 6) {
+        if (board.getTags().size() >= 6) {
             throw TagGenerationCountExceededException.EXCEPTION;
         }
 
