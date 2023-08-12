@@ -26,7 +26,7 @@ public class BoardCreateService {
         User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(
                 Board.builder()
-                        .writer(currentUser)
+                        .user(currentUser)
                         .place(place)
                         .build()
         );
