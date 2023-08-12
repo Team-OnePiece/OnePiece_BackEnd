@@ -56,19 +56,15 @@ public class StarService {
             .board(board)
             .build());
 
-        return StarResponse.builder()
-            .starCounts(board.getStarCounts())
-            .star(starFacade.hasUserGivenStarToBoard(user, board))
-            .build();
+        return new StarResponse(board.getStarCounts(),
+            starFacade.hasUserGivenStarToBoard(user, board));
     }
 
     private StarResponse removeStar(User user, Board board) {
         starRepository.deleteByUserAndBoard(user, board);
 
-        return StarResponse.builder()
-            .starCounts(board.getStarCounts())
-            .star(starFacade.hasUserGivenStarToBoard(user, board))
-            .build();
+        return new StarResponse(board.getStarCounts(),
+            starFacade.hasUserGivenStarToBoard(user, board));
     }
 }
 
