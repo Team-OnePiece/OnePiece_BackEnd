@@ -12,7 +12,7 @@ public class StarFacade {
 
     private final StarRepository starRepository;
 
-    public boolean checkStar(User user, Board board) {
+    public boolean hasUserGivenStarToBoard(User user, Board board) {
         return starRepository.existsByUserAndBoard(user, board);
     }
 }
