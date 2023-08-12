@@ -29,3 +29,4 @@ public class StarController {
         return starService.deleteStar(boardId);
     }
 }
+
