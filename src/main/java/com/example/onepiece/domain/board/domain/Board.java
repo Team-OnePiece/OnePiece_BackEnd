@@ -33,17 +33,28 @@ public class Board extends BaseIdEntity {
     private LocalDate createdAt;
 
     @Builder
-    public Board(User user, String place) {
+    public Board(User user, String place, Integer starCounts) {
         this.user = user;
         this.place = place;
+        this.starCounts = starCounts;
+        this.createdAt = LocalDate.now();
     }
 
     public void imageUpload(String boardImageUrl) {
         this.boardImageUrl = boardImageUrl;
     }
 
+
     public void modifyPlaceAndBoardImageUrl(String place, String boardImageUrl) {
         this.boardImageUrl = boardImageUrl;
         this.place = place;
+    }
+  
+    public void addStarCount() {
+        this.starCounts += 1;
+    }
+
+    public void minusStarCount() {
+        this.starCounts -= 1;
     }
 }
