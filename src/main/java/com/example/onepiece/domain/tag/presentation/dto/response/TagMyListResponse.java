@@ -8,4 +8,5 @@ import lombok.Getter;
 public class TagMyListResponse {
 
     private String tag;
+    private Long boardId;
 }

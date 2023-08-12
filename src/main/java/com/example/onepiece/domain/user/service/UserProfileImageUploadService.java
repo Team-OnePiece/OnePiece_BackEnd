@@ -16,13 +16,11 @@ public class UserProfileImageUploadService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public String userProfileImageUpload(MultipartFile profileImage) {
+    public void userProfileImageUpload(MultipartFile profileImage) {
         User user = userFacade.getCurrentUser();
 
         String profileImageUrl = s3Facade.uploadImage(profileImage);
 
         user.profileUpload(profileImageUrl);
-
-        return profileImageUrl;
     }
 }

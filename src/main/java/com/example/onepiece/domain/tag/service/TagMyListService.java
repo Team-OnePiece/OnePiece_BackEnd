@@ -24,7 +24,7 @@ public class TagMyListService {
         List<Tag> userTags = tagRepository.findByUser(user);
 
         return userTags.stream()
-                .map(tag -> new TagMyListResponse(tag.getTag()))
+                .map(tag -> new TagMyListResponse(tag.getTag(), tag.getBoard().getId()))
                 .collect(Collectors.toList());
     }
 }

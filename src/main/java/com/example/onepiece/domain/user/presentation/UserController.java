@@ -67,8 +67,8 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/image/upload")
-    public String upload(@RequestPart(required = false, value = "image") MultipartFile image) {
-        return profileImageUploadService.userProfileImageUpload(image);
+    public void upload(@RequestPart(required = false, value = "image") MultipartFile image) {
+        profileImageUploadService.userProfileImageUpload(image);
     }
     
     @GetMapping("/group/info")

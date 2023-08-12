@@ -30,9 +30,9 @@ public class TagController {
     private final TagMyListService tagMyListService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
-    public TagIdResponse createTag(@RequestBody @Valid TagCreateRequest request) {
-      return tagCreateService.tagCreate(request);
+    @PostMapping("/{boardId}")
+    public TagIdResponse createTag(@RequestBody @Valid TagCreateRequest request, @PathVariable(value = "boardId") Long boardId) {
+      return tagCreateService.tagCreate(request, boardId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
