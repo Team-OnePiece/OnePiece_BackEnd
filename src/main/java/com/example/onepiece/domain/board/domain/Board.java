@@ -39,6 +39,7 @@ public class Board extends BaseIdEntity {
     public Board(User user, String place) {
         this.user = user;
         this.place = place;
+        this.createdAt = LocalDate.now();
     }
 
     public void imageUpload(String boardImageUrl) {
