@@ -20,7 +20,7 @@ public class StarController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{boardId}/star")
     public StarResponse star(@PathVariable("boardId") Long boardId){
-        return starService.star(boardId);
+        return starService.createStar(boardId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
