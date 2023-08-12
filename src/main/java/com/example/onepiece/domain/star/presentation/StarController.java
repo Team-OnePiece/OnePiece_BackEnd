@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StarController {
     private final StarService starService;
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{boardId}/star")
     public StarResponse star(@PathVariable("boardId") Long boardId){
