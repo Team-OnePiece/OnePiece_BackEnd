@@ -11,3 +11,4 @@ public class RemoveStarExistException extends CustomException {
         super(ErrorCode.REMOVE_STAR_EXIST);
     }
 }
+
