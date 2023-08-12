@@ -33,3 +33,4 @@ public class Star extends BaseIdEntity {
     }
 
 }
+
