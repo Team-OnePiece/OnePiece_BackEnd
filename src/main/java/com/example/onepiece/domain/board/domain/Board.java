@@ -1,13 +1,18 @@
 package com.example.onepiece.domain.board.domain;
 
+import com.example.onepiece.domain.tag.domain.Tag;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.global.entity.BaseIdEntity;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -23,6 +28,9 @@ public class Board extends BaseIdEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE)
+    private List<Tag> tags = new ArrayList<>();
 
     @Column(nullable = false, length = 10)
     private String place;
