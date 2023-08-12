@@ -20,7 +20,7 @@ public class BoardModifyService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public String boardModify(Long boardId, String place, MultipartFile boardImage) {
+    public String modifyBoard(Long boardId, String place, MultipartFile boardImage) {
 
         User currentUser = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
