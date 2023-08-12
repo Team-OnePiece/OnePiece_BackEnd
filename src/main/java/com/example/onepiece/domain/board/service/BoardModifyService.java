@@ -25,7 +25,7 @@ public class BoardModifyService {
         User currentUser = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
-        if (!currentUser.getNickname().equals(board.getUser().getNickname())) {
+        if (!currentUser.equals(board.getUser())) {
             throw BoardWriterMismatchException.EXCEPTION;
         }
 
