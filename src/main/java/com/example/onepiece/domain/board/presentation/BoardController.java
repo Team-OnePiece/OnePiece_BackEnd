@@ -32,6 +32,6 @@ public class BoardController {
 
     @PatchMapping("/update/{boardId}")
     public String modifyBoard(@PathVariable(value = "boardId") Long boardId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        return boardModifyService.boardModify(boardId, place, image);
+        return boardModifyService.modifyBoard(boardId, place, image);
     }
 }
