@@ -29,7 +29,7 @@ public class StarService {
         User user = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
-        if (starFacade.checkStar(user, board)) {
+        if (starFacade.hasUserGivenStarToBoard(user, board)) {
             throw StarExistException.EXCEPTION;
         }
 
@@ -42,7 +42,7 @@ public class StarService {
         User user = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
-        if (!starFacade.checkStar(user, board)) {
+        if (!starFacade.hasUserGivenStarToBoard(user, board)) {
             throw RemoveStarExistException.EXCEPTION;
         }
 
@@ -58,7 +58,7 @@ public class StarService {
 
         return StarResponse.builder()
             .starCounts(board.getStarCounts())
-            .star(starFacade.checkStar(user, board))
+            .star(starFacade.hasUserGivenStarToBoard(user, board))
             .build();
     }
 
@@ -67,7 +67,7 @@ public class StarService {
 
         return StarResponse.builder()
             .starCounts(board.getStarCounts())
-            .star(starFacade.checkStar(user, board))
+            .star(starFacade.hasUserGivenStarToBoard(user, board))
             .build();
     }
 }
