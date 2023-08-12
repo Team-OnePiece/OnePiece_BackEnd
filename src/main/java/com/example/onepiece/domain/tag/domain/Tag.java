@@ -1,5 +1,6 @@
 package com.example.onepiece.domain.tag.domain;
 
+import com.example.onepiece.domain.board.domain.Board;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.global.entity.BaseIdEntity;
 import lombok.AccessLevel;
@@ -22,9 +23,14 @@ public class Tag extends BaseIdEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "board_id")
+    private Board board;
+
     @Builder
-    public Tag(String tag, User user) {
+    public Tag(String tag, User user, Board board) {
         this.tag = tag;
         this.user = user;
+        this.board = board;
     }
 }

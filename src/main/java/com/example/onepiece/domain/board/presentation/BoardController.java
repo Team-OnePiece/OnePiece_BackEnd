@@ -24,8 +24,8 @@ public class BoardController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public BoardCreateResponse writeBoard(@RequestBody @NotNull String place) {
-        return boardCreateService.writeBoard(place);
+    public BoardCreateResponse writeBoard(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+        return boardCreateService.writeBoard(place, image);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

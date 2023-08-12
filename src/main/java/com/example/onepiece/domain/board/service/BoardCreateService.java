@@ -10,6 +10,9 @@ import com.example.onepiece.infra.s3.service.S3Facade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.channels.MulticastChannel;
 
 @Service
 @RequiredArgsConstructor
@@ -20,7 +23,7 @@ public class BoardCreateService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public BoardCreateResponse writeBoard(String place) {
+    public BoardCreateResponse writeBoard(String place, MultipartFile boardImage) {
 
         User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(
@@ -30,6 +33,9 @@ public class BoardCreateService {
                         .place(place)
                         .build()
         );
+
+        String boardImageUrl = s3Facade.uploadImage(boardImage);
+        board.imageUpload(boardImageUrl);
 
         return new BoardCreateResponse(board.getId());
     }
