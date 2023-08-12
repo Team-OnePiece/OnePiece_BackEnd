@@ -35,7 +35,7 @@ public class BoardCreateService {
         String boardImageUrl = s3Facade.uploadImage(boardImage);
         board.imageUpload(boardImageUrl);
 
-        return new BoardCreateResponse(board.getId(), boardImageUrl);
+        return new BoardCreateResponse(board.getId());
     }
 
 }
