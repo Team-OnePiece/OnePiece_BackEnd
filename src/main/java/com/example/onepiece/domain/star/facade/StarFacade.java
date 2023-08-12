@@ -16,4 +16,3 @@ public class StarFacade {
         return starRepository.existsByUserAndBoard(user, board);
     }
 }
-

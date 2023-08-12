@@ -30,6 +30,4 @@ public class Star extends BaseIdEntity {
         this.board = board;
         this.user = user;
     }
-
 }
-

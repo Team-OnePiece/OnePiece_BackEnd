@@ -67,4 +67,3 @@ public class StarService {
             starFacade.hasUserGivenStarToBoard(user, board));
     }
 }
-

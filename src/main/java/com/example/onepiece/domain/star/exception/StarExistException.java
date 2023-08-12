@@ -11,4 +11,3 @@ public class StarExistException extends CustomException{
         super(ErrorCode.STAR_EXIST);
     }
 }
-

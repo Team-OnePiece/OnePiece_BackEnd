@@ -12,4 +12,3 @@ public interface StarRepository extends JpaRepository<Star, Long> {
     Boolean existsByUserAndBoard(User user, Board board);
     void deleteByUserAndBoard(User user, Board board);
 }
-
