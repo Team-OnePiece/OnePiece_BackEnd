@@ -46,7 +46,7 @@ public class BoardController {
         return queryBoardService.findAllBoards();
     }
 
-    @PatchMapping("/update/{boardId}")
+    @PatchMapping("/{boardId}")
     public String modifyBoard(@PathVariable(value = "boardId") Long boardId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
         return boardModifyService.modifyBoard(boardId, place, image);
     }
