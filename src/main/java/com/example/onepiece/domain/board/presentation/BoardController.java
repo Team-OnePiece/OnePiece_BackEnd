@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -27,8 +29,9 @@ public class BoardController {
     private final QueryBoardService queryBoardService;
     private final DeleteBoardService deleteBoardService;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public BoardCreateResponse writeBoard(@RequestParam("place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+    public BoardCreateResponse writeBoard(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
         return boardCreateService.writeBoard(place, image);
     }
 
