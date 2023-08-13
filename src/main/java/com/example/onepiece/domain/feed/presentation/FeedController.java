@@ -33,9 +33,9 @@ public class FeedController {
     private final DeleteFeedService deleteFeedService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
-    public CreateFeedResponse boardCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        return createFeedService.createBoard(place, image);
+    @PostMapping("/{groupId}")
+    public CreateFeedResponse boardCreate(@RequestParam(value = "place") String place, @PathVariable(value = "groupId") Integer groupId , @RequestPart(required = false, value = "image") MultipartFile image) {
+        return createFeedService.createBoard(place, groupId ,image);
     }
 
     @GetMapping("/all")

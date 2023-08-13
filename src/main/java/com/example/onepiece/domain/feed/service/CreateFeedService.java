@@ -1,6 +1,7 @@
 package com.example.onepiece.domain.feed.service;
 
 
+import com.amazonaws.services.kms.model.NotFoundException;
 import com.example.onepiece.domain.feed.domain.Feed;
 import com.example.onepiece.domain.feed.domain.repository.FeedRepository;
 import com.example.onepiece.domain.feed.presentation.dto.response.CreateFeedResponse;
@@ -21,12 +22,18 @@ public class CreateFeedService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public CreateFeedResponse createBoard(String place, MultipartFile feedImage) {
+    public CreateFeedResponse createBoard(String place, Integer groupId, MultipartFile feedImage) {
 
         User currentUser = userFacade.getCurrentUser();
+
+        if (!groupId.equals(currentUser.getGrade()) || groupId.equals(currentUser.getClassNumber())) {
+            throw new NotFoundException("group not found");
+        }
+
         Feed feed = feedRepository.save(
                 Feed.builder()
                         .user(currentUser)
+                        .groupId(groupId)
                         .starCounts(0)
                         .place(place)
                         .build()
