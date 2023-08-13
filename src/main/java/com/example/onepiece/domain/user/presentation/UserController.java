@@ -1,7 +1,6 @@
 package com.example.onepiece.domain.user.presentation;
 
 import com.example.onepiece.domain.user.presentation.dto.request.*;
-import com.example.onepiece.domain.user.presentation.dto.response.QuerySchoolNumberResponse;
 import com.example.onepiece.domain.user.presentation.dto.response.QueryUserInfoResponse;
 import com.example.onepiece.domain.user.service.*;
 import com.example.onepiece.global.security.jwt.dto.TokenResponse;
@@ -33,7 +32,6 @@ public class UserController {
     private final UserUpdateService userUpdateService;
     private final UserProfileImageUploadService profileImageUploadService;
     private final StudentIdDuplicationService studentIdDuplicationService;
-    private final QuerySchoolNumberService querySchoolNumberService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
@@ -77,10 +75,5 @@ public class UserController {
     @PostMapping("/image/upload")
     public void upload(@RequestPart(required = false, value = "image") MultipartFile image) {
         profileImageUploadService.userProfileImageUpload(image);
-    }
-    
-    @GetMapping("/group")
-    public QuerySchoolNumberResponse schoolNumberQuery() {
-        return querySchoolNumberService.querySchoolNumber();
     }
 }
