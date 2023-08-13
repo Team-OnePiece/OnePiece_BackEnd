@@ -24,13 +24,13 @@ public class Tag extends BaseIdEntity {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "board_id")
-    private Feed board;
+    @JoinColumn(name = "feed_id")
+    private Feed feed;
 
     @Builder
-    public Tag(String tag, User user, Feed board) {
+    public Tag(String tag, User user, Feed feed) {
         this.tag = tag;
         this.user = user;
-        this.board = board;
+        this.feed = feed;
     }
 }

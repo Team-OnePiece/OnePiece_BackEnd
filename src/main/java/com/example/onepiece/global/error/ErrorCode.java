@@ -20,13 +20,13 @@ public enum ErrorCode {
     IMAGE_UPLOAD_FAILED(400, "Image Upload Failed"),
     IMAGE_VALUE_NOT_FOUND(404, "Image Value Not Found"),
 
-    BOARD_NOT_FOUND(404, "Board Not Found"),
-    BOARD_WRITER_MISMATCH(403, "Board Writer Mismatch"),
+    FEED_NOT_FOUND(404, "Feed Not Found"),
+    FEED_WRITER_MISMATCH(403, "Feed Writer Mismatch"),
 
     TAG_GENERATION_COUNT_EXCEEDED(400, "Tag Generation Count Exceeded"),
 
-    STAR_EXIST(409, "Like Exist"),
-    REMOVE_STAR_EXIST(409, "Remove Like Exist");
+    STAR_EXIST(409, "Star Exist"),
+    REMOVE_STAR_EXIST(409, "Remove Star Exist");
 
     private final Integer httpStatus;
     private final String message;

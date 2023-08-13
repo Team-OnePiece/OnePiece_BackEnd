@@ -1,6 +1,6 @@
 package com.example.onepiece.domain.user.domain;
 
-import com.example.onepiece.domain.board.domain.Board;
+import com.example.onepiece.domain.feed.domain.Feed;
 import com.example.onepiece.global.entity.BaseIdEntity;
 import lombok.*;
 
@@ -34,7 +34,7 @@ public class User extends BaseIdEntity {
     private String profileImageUrl = "";
 
     @OneToMany(mappedBy = "user")
-    private List<Board> boards = new ArrayList<>();
+    private List<Feed> feeds = new ArrayList<>();
 
     @Builder
     public User(String accountId, String password, String nickname, Integer grade, Integer classNumber, Integer number) {
