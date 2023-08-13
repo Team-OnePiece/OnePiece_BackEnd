@@ -23,9 +23,7 @@ import java.util.List;
 public class BoardController {
 
     private final BoardCreateService boardCreateService;
-  
     private final BoardModifyService boardModifyService;
-  
     private final QueryBoardService queryBoardService;
     private final BoardImageUploadService boardImageUploadService;
 
@@ -47,7 +45,7 @@ public class BoardController {
     }
 
     @PatchMapping("/{boardId}")
-    public String modifyBoard(@PathVariable(value = "boardId") Long boardId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        return boardModifyService.modifyBoard(boardId, place, image);
+    public void modifyBoard(@PathVariable(value = "boardId") Long boardId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+        boardModifyService.modifyBoard(boardId, place, image);
     }
 }
