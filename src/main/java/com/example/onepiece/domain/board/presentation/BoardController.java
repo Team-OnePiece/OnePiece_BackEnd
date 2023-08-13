@@ -37,7 +37,7 @@ public class BoardController {
         return queryBoardService.findAllBoards();
     }
 
-    @DeleteMapping("/delete/{boardId}")
+    @DeleteMapping("/{boardId}")
     public void deleteBoard(@PathVariable Long boardId) {
         deleteBoardService.deleteBoard(boardId);
     }
