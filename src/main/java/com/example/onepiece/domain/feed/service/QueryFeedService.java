@@ -34,6 +34,7 @@ public class QueryFeedService {
                 .id(board.getId())
                 .boardImageUrl(board.getBoardImageUrl())
                 .place(board.getPlace())
+                .starCount(board.getStarCounts())
                 .createAt(board.getCreatedAt())
                 .nickname(board.getUser().getNickname())
                 .grade(board.getUser().getGrade())

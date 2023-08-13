@@ -20,4 +20,5 @@ public class QueryFeedResponse {
     private Integer grade;
     private Integer classNumber;
     private Integer number;
+    private Integer starCount;
 }
