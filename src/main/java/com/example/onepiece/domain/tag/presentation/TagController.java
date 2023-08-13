@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/tag")
@@ -32,7 +31,7 @@ public class TagController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/remove/{tagId}")
+    @DeleteMapping("/{tagId}")
     public void deleteTag(@PathVariable Long tagId) {
         tagDeleteService.tagDelete(tagId);
     }
