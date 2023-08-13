@@ -6,6 +6,7 @@ import com.example.onepiece.domain.star.service.CreateStarService;
 import com.example.onepiece.domain.star.service.RemoveStarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +22,13 @@ public class StarController {
     private final RemoveStarService removeStarService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{feedId}/star")
+    @PostMapping("/{feedId}")
     public StarResponse star(@PathVariable("feedId") Long feedId){
         return createStarService.createStar(feedId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/{feedId}/delete-star")
+    @DeleteMapping("/{feedId}")
     public StarResponse deleteStar(@PathVariable("feedId") Long feedId){
         return removeStarService.deleteStar(feedId);
     }
