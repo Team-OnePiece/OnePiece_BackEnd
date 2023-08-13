@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
@@ -25,18 +24,11 @@ public class BoardController {
     private final BoardCreateService boardCreateService;
     private final BoardModifyService boardModifyService;
     private final QueryBoardService queryBoardService;
-    private final BoardImageUploadService boardImageUploadService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public BoardCreateResponse writeBoard(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
         return boardCreateService.writeBoard(place, image);
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/image/upload/{boardId}")
-    public void boardImageUpload(@PathVariable(value = "boardId") Long boardId, @RequestPart(required = false, value = "image") MultipartFile image) {
-        boardImageUploadService.uploadBoardImage(image, boardId);
     }
 
     @GetMapping("/all")
