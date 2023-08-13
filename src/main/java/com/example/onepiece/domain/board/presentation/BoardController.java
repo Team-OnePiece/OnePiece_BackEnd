@@ -1,8 +1,8 @@
 package com.example.onepiece.domain.board.presentation;
 
-import com.example.onepiece.domain.board.presentation.dto.response.BoardCreateResponse;
+import com.example.onepiece.domain.board.presentation.dto.response.CreateBoardResponse;
 import com.example.onepiece.domain.board.presentation.dto.response.QueryBoardResponse;
-import com.example.onepiece.domain.board.service.BoardCreateService;
+import com.example.onepiece.domain.board.service.CreateBoardService;
 import com.example.onepiece.domain.board.service.QueryBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,12 +16,12 @@ import java.util.List;
 @RequestMapping("/board")
 public class BoardController {
 
-    private final BoardCreateService boardCreateService;
+    private final CreateBoardService boardCreateService;
     private final QueryBoardService queryBoardService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public BoardCreateResponse boardCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+    public CreateBoardResponse boardCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
         return boardCreateService.createBoard(place, image);
     }
 
