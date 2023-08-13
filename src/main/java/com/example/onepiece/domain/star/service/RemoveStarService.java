@@ -1,7 +1,7 @@
 package com.example.onepiece.domain.star.service;
 
-import com.example.onepiece.domain.board.domain.Board;
-import com.example.onepiece.domain.board.facade.BoardFacade;
+import com.example.onepiece.domain.feed.domain.Feed;
+import com.example.onepiece.domain.feed.facade.FeedFacade;
 import com.example.onepiece.domain.star.domain.repository.StarRepository;
 import com.example.onepiece.domain.star.exception.RemoveStarExistException;
 import com.example.onepiece.domain.star.facade.StarFacade;
@@ -18,14 +18,14 @@ import javax.transaction.Transactional;
 public class RemoveStarService {
 
     private final UserFacade userFacade;
-    private final BoardFacade boardFacade;
+    private final FeedFacade boardFacade;
     private final StarFacade starFacade;
     private final StarRepository starRepository;
 
     @Transactional
     public StarResponse deleteStar(Long boardId) {
         User user = userFacade.getCurrentUser();
-        Board board = boardFacade.getBoard(boardId);
+        Feed board = boardFacade.getBoard(boardId);
 
         if (!starFacade.hasUserGivenStarToBoard(user, board)) {
             throw RemoveStarExistException.EXCEPTION;
@@ -35,7 +35,7 @@ public class RemoveStarService {
         return removeStar(user, board);
     }
 
-    private StarResponse removeStar(User user, Board board) {
+    private StarResponse removeStar(User user, Feed board) {
         starRepository.deleteByUserAndBoard(user, board);
 
         return new StarResponse(board.getStarCounts(),

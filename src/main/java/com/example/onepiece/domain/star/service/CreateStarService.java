@@ -1,8 +1,8 @@
 package com.example.onepiece.domain.star.service;
 
 
-import com.example.onepiece.domain.board.domain.Board;
-import com.example.onepiece.domain.board.facade.BoardFacade;
+import com.example.onepiece.domain.feed.domain.Feed;
+import com.example.onepiece.domain.feed.facade.FeedFacade;
 import com.example.onepiece.domain.star.domain.Star;
 import com.example.onepiece.domain.star.domain.repository.StarRepository;
 import com.example.onepiece.domain.star.exception.StarExistException;
@@ -20,13 +20,13 @@ public class CreateStarService {
 
     private final StarRepository starRepository;
     private final UserFacade userFacade;
-    private final BoardFacade boardFacade;
+    private final FeedFacade boardFacade;
     private final StarFacade starFacade;
 
     @Transactional
     public StarResponse createStar(Long boardId) {
         User user = userFacade.getCurrentUser();
-        Board board = boardFacade.getBoard(boardId);
+        Feed board = boardFacade.getBoard(boardId);
 
         if (starFacade.hasUserGivenStarToBoard(user, board)) {
             throw StarExistException.EXCEPTION;
@@ -36,7 +36,7 @@ public class CreateStarService {
         return addStar(user, board);
     }
 
-    private StarResponse addStar(User user, Board board) {
+    private StarResponse addStar(User user, Feed board) {
         starRepository.save(Star.builder()
             .user(user)
             .board(board)

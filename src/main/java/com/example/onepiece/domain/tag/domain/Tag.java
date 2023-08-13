@@ -1,6 +1,6 @@
 package com.example.onepiece.domain.tag.domain;
 
-import com.example.onepiece.domain.board.domain.Board;
+import com.example.onepiece.domain.feed.domain.Feed;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.global.entity.BaseIdEntity;
 import lombok.AccessLevel;
@@ -25,10 +25,10 @@ public class Tag extends BaseIdEntity {
 
     @ManyToOne
     @JoinColumn(name = "board_id")
-    private Board board;
+    private Feed board;
 
     @Builder
-    public Tag(String tag, User user, Board board) {
+    public Tag(String tag, User user, Feed board) {
         this.tag = tag;
         this.user = user;
         this.board = board;
