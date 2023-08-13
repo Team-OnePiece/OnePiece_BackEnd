@@ -25,7 +25,6 @@ public class QueryBoardService {
                 .map(this::queryBoardResponse)
                 .collect(Collectors.toList());
     }
-}
 
     private QueryBoardResponse queryBoardResponse(Board board) {
         return QueryBoardResponse.builder()

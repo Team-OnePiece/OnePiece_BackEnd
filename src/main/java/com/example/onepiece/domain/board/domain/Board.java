@@ -57,9 +57,9 @@ public class Board extends BaseIdEntity {
     }
 
 
-    public void modifyPlaceAndBoardImageUrl(String boardImageUrl, String place) {
-        this.boardImageUrl = boardImageUrl;
+    public void modifyPlaceAndBoardImageUrl(String place, String boardImageUrl) {
         this.place = place;
+        this.boardImageUrl = boardImageUrl;
     }
   
     public void addStarCount() {
