@@ -1,11 +1,11 @@
-package com.example.onepiece.domain.board.presentation.dto.response;
+package com.example.onepiece.domain.feed.presentation.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class CreateBoardResponse {
+public class CreateFeedResponse {
 
     private Long id;
 }

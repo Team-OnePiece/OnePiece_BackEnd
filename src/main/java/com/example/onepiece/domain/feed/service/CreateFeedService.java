@@ -1,9 +1,9 @@
-package com.example.onepiece.domain.board.service;
+package com.example.onepiece.domain.feed.service;
 
 
-import com.example.onepiece.domain.board.domain.Board;
-import com.example.onepiece.domain.board.domain.repository.BoardRepository;
-import com.example.onepiece.domain.board.presentation.dto.response.CreateBoardResponse;
+import com.example.onepiece.domain.feed.domain.Feed;
+import com.example.onepiece.domain.feed.domain.repository.FeedRepository;
+import com.example.onepiece.domain.feed.presentation.dto.response.CreateFeedResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.infra.s3.service.S3Facade;
@@ -14,18 +14,18 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
-public class CreateBoardService {
+public class CreateFeedService {
 
-    private final BoardRepository boardRepository;
+    private final FeedRepository feedRepository;
     private final UserFacade userFacade;
     private final S3Facade s3Facade;
 
     @Transactional
-    public CreateBoardResponse createBoard(String place, MultipartFile boardImage) {
+    public CreateFeedResponse createBoard(String place, MultipartFile boardImage) {
 
         User currentUser = userFacade.getCurrentUser();
-        Board board = boardRepository.save(
-                Board.builder()
+        Feed board = feedRepository.save(
+                Feed.builder()
                         .user(currentUser)
                         .starCounts(0)
                         .place(place)
@@ -35,7 +35,7 @@ public class CreateBoardService {
         String boardImageUrl = s3Facade.uploadImage(boardImage);
         board.imageUpload(boardImageUrl);
 
-        return new CreateBoardResponse(board.getId());
+        return new CreateFeedResponse(board.getId());
     }
 
 }

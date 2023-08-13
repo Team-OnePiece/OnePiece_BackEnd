@@ -1,8 +1,8 @@
-package com.example.onepiece.domain.board.service;
+package com.example.onepiece.domain.feed.service;
 
-import com.example.onepiece.domain.board.domain.Board;
-import com.example.onepiece.domain.board.exception.BoardWriterMismatchException;
-import com.example.onepiece.domain.board.facade.BoardFacade;
+import com.example.onepiece.domain.feed.domain.Feed;
+import com.example.onepiece.domain.feed.exception.FeedWriterMismatchException;
+import com.example.onepiece.domain.feed.facade.FeedFacade;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.infra.s3.service.S3Facade;
@@ -13,19 +13,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
-public class ModifyBoardService {
+public class ModifyFeedService {
 
-    private final BoardFacade boardFacade;
+    private final FeedFacade feedFacade;
     private final UserFacade userFacade;
     private final S3Facade s3Facade;
 
     @Transactional
     public void modifyBoard(Long boardId, String place, MultipartFile boardImage) {
         User currentUser = userFacade.getCurrentUser();
-        Board board = boardFacade.getBoard(boardId);
+        Feed board = feedFacade.getBoard(boardId);
 
         if (!currentUser.equals(board.getUser())) {
-            throw BoardWriterMismatchException.EXCEPTION;
+            throw FeedWriterMismatchException.EXCEPTION;
         }
 
         String boardImageUrl = s3Facade.uploadImage(boardImage);

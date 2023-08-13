@@ -1,7 +1,5 @@
-package com.example.onepiece.domain.board.presentation.dto.response;
+package com.example.onepiece.domain.feed.presentation.dto.response;
 
-import com.example.onepiece.domain.board.domain.Board;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Builder
-public class QueryBoardResponse {
+public class QueryFeedResponse {
 
     private Long id;
     private String place;

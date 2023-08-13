@@ -1,4 +1,4 @@
-package com.example.onepiece.domain.board.domain;
+package com.example.onepiece.domain.feed.domain;
 
 import com.example.onepiece.domain.tag.domain.Tag;
 import com.example.onepiece.domain.user.domain.User;
@@ -19,18 +19,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Board extends BaseIdEntity {
+public class Feed extends BaseIdEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "feed", cascade = CascadeType.REMOVE)
     private List<Tag> tags = new ArrayList<>();
 
     @Column(nullable = false, length = 10)
@@ -45,7 +44,7 @@ public class Board extends BaseIdEntity {
     private Integer starCounts;
 
     @Builder
-    public Board(User user, String place, Integer starCounts) {
+    public Feed(User user, String place, Integer starCounts) {
         this.user = user;
         this.place = place;
         this.starCounts = starCounts;

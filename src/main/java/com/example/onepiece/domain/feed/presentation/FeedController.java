@@ -1,11 +1,11 @@
-package com.example.onepiece.domain.board.presentation;
+package com.example.onepiece.domain.feed.presentation;
 
-import com.example.onepiece.domain.board.presentation.dto.response.CreateBoardResponse;
-import com.example.onepiece.domain.board.presentation.dto.response.QueryBoardResponse;
-import com.example.onepiece.domain.board.service.DeleteBoardService;
-import com.example.onepiece.domain.board.service.CreateBoardService;
-import com.example.onepiece.domain.board.service.ModifyBoardService;
-import com.example.onepiece.domain.board.service.QueryBoardService;
+import com.example.onepiece.domain.feed.presentation.dto.response.CreateFeedResponse;
+import com.example.onepiece.domain.feed.presentation.dto.response.QueryFeedResponse;
+import com.example.onepiece.domain.feed.service.DeleteFeedService;
+import com.example.onepiece.domain.feed.service.CreateFeedService;
+import com.example.onepiece.domain.feed.service.ModifyFeedService;
+import com.example.onepiece.domain.feed.service.QueryFeedService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,31 +25,31 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/board")
-public class BoardController {
+public class FeedController {
 
-    private final CreateBoardService boardCreateService;
-    private final ModifyBoardService boardModifyService;
-    private final QueryBoardService queryBoardService;
-    private final DeleteBoardService deleteBoardService;
+    private final CreateFeedService createFeedService;
+    private final ModifyFeedService modifyFeedService;
+    private final QueryFeedService queryFeedService;
+    private final DeleteFeedService deleteFeedService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public CreateBoardResponse boardCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        return boardCreateService.createBoard(place, image);
+    public CreateFeedResponse boardCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+        return createFeedService.createBoard(place, image);
     }
 
     @GetMapping("/all")
-    public List<QueryBoardResponse> findBoardAll() {
-        return queryBoardService.findAllBoards();
+    public List<QueryFeedResponse> findBoardAll() {
+        return queryFeedService.findAllBoards();
     }
 
     @PatchMapping("/{boardId}")
     public void boardDelete(@PathVariable(value = "boardId") Long boardId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        boardModifyService.modifyBoard(boardId, place, image);
+        modifyFeedService.modifyBoard(boardId, place, image);
     }
 
     @DeleteMapping("/{boardId}")
     public void boardDelete(@PathVariable(value = "boardId") Long boardId) {
-        deleteBoardService.deleteBoard(boardId);
+        deleteFeedService.deleteBoard(boardId);
     }
 }
