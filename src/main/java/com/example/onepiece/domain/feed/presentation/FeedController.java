@@ -24,7 +24,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/board")
+@RequestMapping("/feed")
 public class FeedController {
 
     private final CreateFeedService createFeedService;
