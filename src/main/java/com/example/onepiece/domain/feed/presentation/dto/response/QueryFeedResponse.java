@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 public class QueryFeedResponse {
 
-    private Long feedId;
+    private Long id;
     private String place;
     private String boardImageUrl;
     private LocalDate createAt;
