@@ -25,25 +25,7 @@ public class QueryFeedService {
 
         return feedRepository.findAll()
                 .stream()
-                .map(this::queryFeedResponse)
+                .map(QueryFeedResponse::queryFeedResponse)
                 .collect(Collectors.toList());
     }
-
-    private QueryFeedResponse queryFeedResponse(Feed feed) {
-        return QueryFeedResponse.builder()
-                .id(feed.getId())
-                .boardImageUrl(feed.getBoardImageUrl())
-                .place(feed.getPlace())
-                .starCount(feed.getStarCounts())
-                .createAt(feed.getCreatedAt())
-                .nickname(feed.getUser().getNickname())
-                .grade(feed.getUser().getGrade())
-                .classNumber(feed.getUser().getClassNumber())
-                .number(feed.getUser().getNumber())
-                .profileImageUrl(feed.getUser().getProfileImageUrl())
-                .tags(feed.getTags().stream().map(Tag::getTag).collect(Collectors.toList()))
-                .build();
-
-    }
 }
-
