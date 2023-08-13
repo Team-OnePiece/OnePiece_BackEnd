@@ -24,7 +24,7 @@ public class CreateFeedService {
     public CreateFeedResponse createBoard(String place, MultipartFile feedImage) {
 
         User currentUser = userFacade.getCurrentUser();
-        Feed board = feedRepository.save(
+        Feed feed = feedRepository.save(
                 Feed.builder()
                         .user(currentUser)
                         .starCounts(0)
@@ -33,9 +33,9 @@ public class CreateFeedService {
         );
 
         String feedImageUrl = s3Facade.uploadImage(feedImage);
-        board.imageUpload(feedImageUrl);
+        feed.imageUpload(feedImageUrl);
 
-        return new CreateFeedResponse(board.getId());
+        return new CreateFeedResponse(feed.getId());
     }
 
 }
