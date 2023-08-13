@@ -22,10 +22,10 @@ public class TagCreateService {
     private final FeedFacade feedFacade;
 
     @Transactional
-    public TagIdResponse tagCreate(TagCreateRequest request, Long boardId) {
+    public TagIdResponse tagCreate(TagCreateRequest request, Long feedId) {
 
         User user = userFacade.getCurrentUser();
-        Feed feed = feedFacade.getBoard(boardId);
+        Feed feed = feedFacade.getBoard(feedId);
 
         if (feed.getTags().size() >= 6) {
             throw TagGenerationCountExceededException.EXCEPTION;

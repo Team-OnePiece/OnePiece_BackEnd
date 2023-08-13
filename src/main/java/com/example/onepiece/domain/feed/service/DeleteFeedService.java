@@ -19,14 +19,14 @@ public class DeleteFeedService {
     private final UserFacade userFacade;
 
     @Transactional
-    public void deleteBoard(Long boardId) {
+    public void deleteBoard(Long feedId) {
         User currentUser = userFacade.getCurrentUser();
-        Feed board = feedFacade.getBoard(boardId);
+        Feed board = feedFacade.getBoard(feedId);
 
         if (!currentUser.equals(board.getUser())) {
             throw FeedWriterMismatchException.EXCEPTION;
         }
         
-        feedRepository.deleteById(boardId);
+        feedRepository.deleteById(feedId);
     }
 }

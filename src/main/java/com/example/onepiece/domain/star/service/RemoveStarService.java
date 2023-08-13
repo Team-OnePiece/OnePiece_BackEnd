@@ -23,9 +23,9 @@ public class RemoveStarService {
     private final StarRepository starRepository;
 
     @Transactional
-    public StarResponse deleteStar(Long boardId) {
+    public StarResponse deleteStar(Long feedId) {
         User user = userFacade.getCurrentUser();
-        Feed board = boardFacade.getBoard(boardId);
+        Feed board = boardFacade.getBoard(feedId);
 
         if (!starFacade.hasUserGivenStarToBoard(user, board)) {
             throw RemoveStarExistException.EXCEPTION;
@@ -35,10 +35,10 @@ public class RemoveStarService {
         return removeStar(user, board);
     }
 
-    private StarResponse removeStar(User user, Feed board) {
-        starRepository.deleteByUserAndBoard(user, board);
+    private StarResponse removeStar(User user, Feed feed) {
+        starRepository.deleteByUserAndBoard(user, feed);
 
-        return new StarResponse(board.getStarCounts(),
-                starFacade.hasUserGivenStarToBoard(user, board));
+        return new StarResponse(feed.getStarCounts(),
+                starFacade.hasUserGivenStarToBoard(user, feed));
     }
 }

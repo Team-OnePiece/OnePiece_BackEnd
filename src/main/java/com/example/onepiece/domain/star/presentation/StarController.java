@@ -21,14 +21,14 @@ public class StarController {
     private final RemoveStarService removeStarService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{boardId}/star")
-    public StarResponse star(@PathVariable("boardId") Long boardId){
-        return createStarService.createStar(boardId);
+    @PostMapping("/{feedId}/star")
+    public StarResponse star(@PathVariable("feedId") Long feedId){
+        return createStarService.createStar(feedId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/{boardId}/delete-star")
-    public StarResponse deleteStar(@PathVariable("boardId") Long boardId){
-        return removeStarService.deleteStar(boardId);
+    @PostMapping("/{feedId}/delete-star")
+    public StarResponse deleteStar(@PathVariable("feedId") Long feedId){
+        return removeStarService.deleteStar(feedId);
     }
 }

@@ -25,14 +25,14 @@ public class TagController {
     private final TagDeleteService tagDeleteService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{boardId}")
-    public TagIdResponse createTag(@RequestBody @Valid TagCreateRequest request, @PathVariable(value = "boardId") Long boardId) {
-      return tagCreateService.tagCreate(request, boardId);
+    @PostMapping("/{feedId}")
+    public TagIdResponse createTag(@RequestBody @Valid TagCreateRequest request, @PathVariable(value = "feedId") Long feedId) {
+      return tagCreateService.tagCreate(request, feedId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{tagId}")
-    public void deleteTag(@PathVariable Long tagId) {
-        tagDeleteService.tagDelete(tagId);
+    @DeleteMapping("/{feedId}")
+    public void deleteTag(@PathVariable Long feedId) {
+        tagDeleteService.tagDelete(feedId);
     }
 }

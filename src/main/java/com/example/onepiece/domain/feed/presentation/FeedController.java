@@ -43,13 +43,13 @@ public class FeedController {
         return queryFeedService.findAllBoards();
     }
 
-    @PatchMapping("/{boardId}")
-    public void boardDelete(@PathVariable(value = "boardId") Long boardId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        modifyFeedService.modifyBoard(boardId, place, image);
+    @PatchMapping("/{feedId}")
+    public void boardDelete(@PathVariable(value = "feedId") Long feedId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+        modifyFeedService.modifyBoard(feedId, place, image);
     }
 
-    @DeleteMapping("/{boardId}")
-    public void boardDelete(@PathVariable(value = "boardId") Long boardId) {
-        deleteFeedService.deleteBoard(boardId);
+    @DeleteMapping("/{feedId}")
+    public void boardDelete(@PathVariable(value = "feedId") Long feedId) {
+        deleteFeedService.deleteBoard(feedId);
     }
 }

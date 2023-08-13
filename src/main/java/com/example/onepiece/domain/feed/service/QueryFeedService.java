@@ -29,19 +29,19 @@ public class QueryFeedService {
                 .collect(Collectors.toList());
     }
 
-    private QueryFeedResponse queryFeedResponse(Feed board) {
+    private QueryFeedResponse queryFeedResponse(Feed feed) {
         return QueryFeedResponse.builder()
-                .id(board.getId())
-                .boardImageUrl(board.getBoardImageUrl())
-                .place(board.getPlace())
-                .starCount(board.getStarCounts())
-                .createAt(board.getCreatedAt())
-                .nickname(board.getUser().getNickname())
-                .grade(board.getUser().getGrade())
-                .classNumber(board.getUser().getClassNumber())
-                .number(board.getUser().getNumber())
-                .profileImageUrl(board.getUser().getProfileImageUrl())
-                .tags(board.getTags().stream().map(Tag::getTag).collect(Collectors.toList()))
+                .id(feed.getId())
+                .boardImageUrl(feed.getBoardImageUrl())
+                .place(feed.getPlace())
+                .starCount(feed.getStarCounts())
+                .createAt(feed.getCreatedAt())
+                .nickname(feed.getUser().getNickname())
+                .grade(feed.getUser().getGrade())
+                .classNumber(feed.getUser().getClassNumber())
+                .number(feed.getUser().getNumber())
+                .profileImageUrl(feed.getUser().getProfileImageUrl())
+                .tags(feed.getTags().stream().map(Tag::getTag).collect(Collectors.toList()))
                 .build();
 
     }

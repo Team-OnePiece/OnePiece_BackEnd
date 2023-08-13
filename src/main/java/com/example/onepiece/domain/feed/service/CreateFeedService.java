@@ -21,7 +21,7 @@ public class CreateFeedService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public CreateFeedResponse createBoard(String place, MultipartFile boardImage) {
+    public CreateFeedResponse createBoard(String place, MultipartFile feedImage) {
 
         User currentUser = userFacade.getCurrentUser();
         Feed board = feedRepository.save(
@@ -32,8 +32,8 @@ public class CreateFeedService {
                         .build()
         );
 
-        String boardImageUrl = s3Facade.uploadImage(boardImage);
-        board.imageUpload(boardImageUrl);
+        String feedImageUrl = s3Facade.uploadImage(feedImage);
+        board.imageUpload(feedImageUrl);
 
         return new CreateFeedResponse(board.getId());
     }

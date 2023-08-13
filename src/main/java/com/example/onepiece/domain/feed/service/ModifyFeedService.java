@@ -20,15 +20,15 @@ public class ModifyFeedService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public void modifyBoard(Long boardId, String place, MultipartFile boardImage) {
+    public void modifyBoard(Long feedId, String place, MultipartFile feedImage) {
         User currentUser = userFacade.getCurrentUser();
-        Feed board = feedFacade.getBoard(boardId);
+        Feed board = feedFacade.getBoard(feedId);
 
         if (!currentUser.equals(board.getUser())) {
             throw FeedWriterMismatchException.EXCEPTION;
         }
 
-        String boardImageUrl = s3Facade.uploadImage(boardImage);
-        board.modifyPlaceAndBoardImageUrl(place, boardImageUrl);
+        String feedImageUrl = s3Facade.uploadImage(feedImage);
+        board.modifyPlaceAndBoardImageUrl(place, feedImageUrl);
     }
 }
