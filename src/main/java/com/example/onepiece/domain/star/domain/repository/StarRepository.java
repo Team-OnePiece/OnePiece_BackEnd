@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StarRepository extends JpaRepository<Star, Long> {
 
-    Boolean existsByUserAndBoard(User user, Feed board);
-    void deleteByUserAndBoard(User user, Feed board);
+    Boolean existsByUserAndFeed(User user, Feed feed);
+    void deleteByUserAndFeed(User user, Feed feed);
 }

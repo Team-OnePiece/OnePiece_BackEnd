@@ -20,26 +20,26 @@ public class CreateStarService {
 
     private final StarRepository starRepository;
     private final UserFacade userFacade;
-    private final FeedFacade boardFacade;
+    private final FeedFacade feedFacade;
     private final StarFacade starFacade;
 
     @Transactional
     public StarResponse createStar(Long feedId) {
         User user = userFacade.getCurrentUser();
-        Feed board = boardFacade.getBoard(feedId);
+        Feed feed = feedFacade.getBoard(feedId);
 
-        if (starFacade.hasUserGivenStarToBoard(user, board)) {
+        if (starFacade.hasUserGivenStarToBoard(user, feed)) {
             throw StarExistException.EXCEPTION;
         }
 
-        board.addStarCount();
-        return addStar(user, board);
+        feed.addStarCount();
+        return addStar(user, feed);
     }
 
     private StarResponse addStar(User user, Feed feed) {
         starRepository.save(Star.builder()
             .user(user)
-            .board(feed)
+            .feed(feed)
             .build());
 
         return new StarResponse(feed.getStarCounts(),
