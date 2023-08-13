@@ -21,7 +21,6 @@ public class ModifyBoardService {
 
     @Transactional
     public void modifyBoard(Long boardId, String place, MultipartFile boardImage) {
-
         User currentUser = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
