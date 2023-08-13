@@ -20,7 +20,6 @@ public class DeleteBoardService {
 
     @Transactional
     public void deleteBoard(Long boardId) {
-
         User currentUser = userFacade.getCurrentUser();
         Board board = boardFacade.getBoard(boardId);
 
