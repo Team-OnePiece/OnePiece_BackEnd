@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.nio.channels.MulticastChannel;
-
 @Service
 @RequiredArgsConstructor
 public class BoardCreateService {
@@ -23,7 +21,7 @@ public class BoardCreateService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public BoardCreateResponse writeBoard(String place, MultipartFile boardImage) {
+    public BoardCreateResponse createBoard(String place, MultipartFile boardImage) {
 
         User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(
