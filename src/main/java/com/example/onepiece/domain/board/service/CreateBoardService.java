@@ -21,7 +21,7 @@ public class CreateBoardService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public CreateBoardResponse writeBoard(String place, MultipartFile boardImage) {
+    public CreateBoardResponse createBoard(String place, MultipartFile boardImage) {
 
         User currentUser = userFacade.getCurrentUser();
         Board board = boardRepository.save(

@@ -4,6 +4,7 @@ import com.example.onepiece.domain.board.presentation.dto.response.CreateBoardRe
 import com.example.onepiece.domain.board.presentation.dto.response.QueryBoardResponse;
 import com.example.onepiece.domain.board.service.CreateBoardService;
 import com.example.onepiece.domain.board.service.ModifyBoardService;
+import com.example.onepiece.domain.board.service.QueryBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +26,8 @@ public class BoardController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public CreateBoardResponse writeBoard(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        return boardCreateService.writeBoard(place, image);
+    public CreateBoardResponse boardCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+        return boardCreateService.createBoard(place, image);
     }
 
     @GetMapping("/all")
