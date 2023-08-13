@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
-public class BoardModifyService {
+public class ModifyBoardService {
 
     private final BoardFacade boardFacade;
     private final UserFacade userFacade;
