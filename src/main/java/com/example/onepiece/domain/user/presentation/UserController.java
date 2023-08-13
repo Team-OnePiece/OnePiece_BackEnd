@@ -71,7 +71,7 @@ public class UserController {
         profileImageUploadService.userProfileImageUpload(image);
     }
     
-    @GetMapping("/group/info")
+    @GetMapping("/group")
     public QuerySchoolNumberResponse schoolNumberQuery() {
         return querySchoolNumberService.querySchoolNumber();
     }
