@@ -9,4 +9,3 @@ public class CreateBoardResponse {
 
     private Long id;
 }
-
