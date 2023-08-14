@@ -5,7 +5,7 @@ import com.example.onepiece.domain.feed.presentation.dto.response.QueryFeedRespo
 import com.example.onepiece.domain.feed.service.DeleteFeedService;
 import com.example.onepiece.domain.feed.service.CreateFeedService;
 import com.example.onepiece.domain.feed.service.ModifyFeedService;
-import com.example.onepiece.domain.feed.service.QueryFeedService;
+import com.example.onepiece.domain.feed.service.QueryGroupFeedService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,27 +29,27 @@ public class FeedController {
 
     private final CreateFeedService createFeedService;
     private final ModifyFeedService modifyFeedService;
-    private final QueryFeedService queryFeedService;
+    private final QueryGroupFeedService queryGroupFeedService;
     private final DeleteFeedService deleteFeedService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{groupId}")
-    public CreateFeedResponse boardCreate(@RequestParam(value = "place") String place, @PathVariable(value = "groupId") Integer groupId , @RequestPart(required = false, value = "image") MultipartFile image) {
+    public CreateFeedResponse feedCreate(@RequestParam(value = "place") String place, @PathVariable(value = "groupId") Integer groupId , @RequestPart(required = false, value = "image") MultipartFile image) {
         return createFeedService.createBoard(place, groupId,image);
     }
 
-    @GetMapping("/all")
-    public List<QueryFeedResponse> findBoardAll() {
-        return queryFeedService.findAllBoards();
+    @GetMapping("/{groupId}")
+    public List<QueryFeedResponse> feedGroupQuery(@PathVariable(value = "groupId") Integer groupId) {
+        return queryGroupFeedService.findAllBoards(groupId);
     }
 
     @PatchMapping("/{feedId}")
-    public void boardDelete(@PathVariable(value = "feedId") Long feedId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
-        modifyFeedService.modifyBoard(feedId, place, image);
+    public void feedModify(@PathVariable(value = "feedId") Long feedId, @RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+        modifyFeedService.modifyFeed(feedId, place, image);
     }
 
     @DeleteMapping("/{feedId}")
-    public void boardDelete(@PathVariable(value = "feedId") Long feedId) {
-        deleteFeedService.deleteBoard(feedId);
+    public void feedDelete(@PathVariable(value = "feedId") Long feedId) {
+        deleteFeedService.deleteFeed(feedId);
     }
 }

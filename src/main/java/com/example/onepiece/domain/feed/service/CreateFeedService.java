@@ -22,7 +22,7 @@ public class CreateFeedService {
     private final S3Facade s3Facade;
 
     @Transactional
-    public CreateFeedResponse createBoard(String place, Integer groupId, MultipartFile feedImage) {
+    public CreateFeedResponse createFeed(String place, Integer groupId, MultipartFile feedImage) {
 
         User currentUser = userFacade.getCurrentUser();
 
