@@ -10,9 +10,10 @@ import com.example.onepiece.domain.star.facade.StarFacade;
 import com.example.onepiece.domain.star.presentation.dto.response.StarResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
-import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -38,11 +39,11 @@ public class CreateStarService {
 
     private StarResponse addStar(User user, Feed feed) {
         starRepository.save(Star.builder()
-            .user(user)
-            .feed(feed)
-            .build());
+                .user(user)
+                .feed(feed)
+                .build());
 
         return new StarResponse(feed.getStarCounts(),
-            starFacade.hasUserGivenStarToBoard(user, feed));
+                starFacade.hasUserGivenStarToBoard(user, feed));
     }
 }
