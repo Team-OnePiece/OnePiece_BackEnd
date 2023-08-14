@@ -8,5 +8,4 @@ import lombok.Getter;
 public class CreateFeedResponse {
 
     private Long id;
-    private Integer groupId;
 }

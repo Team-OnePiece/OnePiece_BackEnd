@@ -42,7 +42,7 @@ public class CreateFeedService {
         String feedImageUrl = s3Facade.uploadImage(feedImage);
         feed.imageUpload(feedImageUrl);
 
-        return new CreateFeedResponse(feed.getId(), feed.getGroupId());
+        return new CreateFeedResponse(feed.getId());
     }
 
 }
