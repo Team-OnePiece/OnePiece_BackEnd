@@ -26,8 +26,8 @@ public class CreateFeedService {
 
         User currentUser = userFacade.getCurrentUser();
 
-        if (!groupId.equals(currentUser.getGrade()) || groupId.equals(currentUser.getClassNumber())) {
-            throw new NotFoundException("group not found");
+        if (!groupId.equals(currentUser.getGrade()) && !groupId.equals(currentUser.getClassNumber())) {
+            throw new IllegalArgumentException("group not found");
         }
 
         Feed feed = feedRepository.save(

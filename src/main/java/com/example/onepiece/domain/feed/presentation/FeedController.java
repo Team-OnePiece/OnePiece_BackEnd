@@ -35,7 +35,7 @@ public class FeedController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{groupId}")
     public CreateFeedResponse boardCreate(@RequestParam(value = "place") String place, @PathVariable(value = "groupId") Integer groupId , @RequestPart(required = false, value = "image") MultipartFile image) {
-        return createFeedService.createBoard(place, groupId ,image);
+        return createFeedService.createBoard(place, groupId,image);
     }
 
     @GetMapping("/all")
