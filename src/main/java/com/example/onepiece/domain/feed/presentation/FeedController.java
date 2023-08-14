@@ -48,6 +48,7 @@ public class FeedController {
         modifyFeedService.modifyFeed(feedId, place, image);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{feedId}")
     public void feedDelete(@PathVariable(value = "feedId") Long feedId) {
         deleteFeedService.deleteFeed(feedId);
