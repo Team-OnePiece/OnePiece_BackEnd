@@ -31,12 +31,10 @@ public class CreateFeedService {
             throw GroupNotFoundException.EXCEPTION;
         }
 
-        Integer calculatedClassNumber = (currentUser.getGrade() * 10) + currentUser.getClassNumber();
-
         Feed feed = feedRepository.save(
                 Feed.builder()
                         .user(currentUser)
-                        .groupId(calculatedClassNumber)
+                        .groupId(groupId)
                         .starCounts(0)
                         .place(place)
                         .build()
