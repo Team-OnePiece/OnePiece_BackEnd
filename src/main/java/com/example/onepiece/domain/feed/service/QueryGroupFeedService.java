@@ -15,11 +15,7 @@ import java.util.stream.Collectors;
 public class QueryGroupFeedService {
 
     private final FeedRepository feedRepository;
-    private final UserFacade userFacade;
-
     public List<QueryFeedResponse> queryGroupFeed(Integer groupId) {
-
-        User user = userFacade.getCurrentUser();
 
        return feedRepository.findByGroupId(groupId)
                 .stream()
