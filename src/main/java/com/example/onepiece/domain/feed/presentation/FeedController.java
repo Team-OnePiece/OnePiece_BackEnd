@@ -35,12 +35,12 @@ public class FeedController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{groupId}")
     public CreateFeedResponse feedCreate(@RequestParam(value = "place") String place, @PathVariable(value = "groupId") Integer groupId , @RequestPart(required = false, value = "image") MultipartFile image) {
-        return createFeedService.createBoard(place, groupId,image);
+        return createFeedService.createFeed(place, groupId,image);
     }
 
     @GetMapping("/{groupId}")
     public List<QueryFeedResponse> feedGroupQuery(@PathVariable(value = "groupId") Integer groupId) {
-        return queryGroupFeedService.findAllBoards(groupId);
+        return queryGroupFeedService.queryGroupFeed(groupId);
     }
 
     @PatchMapping("/{feedId}")
