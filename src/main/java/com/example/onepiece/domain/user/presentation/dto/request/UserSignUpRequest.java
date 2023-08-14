@@ -28,7 +28,7 @@ public class UserSignUpRequest {
     private Integer grade;
 
     @NotNull
-    @Min(1) @Max(4)
+    @Min(1) @Max(33)
     private Integer classNumber;
 
     @NotNull
