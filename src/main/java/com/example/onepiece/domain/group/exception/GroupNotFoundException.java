@@ -7,7 +7,7 @@ public class GroupNotFoundException extends CustomException {
 
     public static final CustomException EXCEPTION = new GroupNotFoundException();
 
-    private GroupNotFoundException {
+    private GroupNotFoundException() {
         super(ErrorCode.GROUP_NOT_FOUND);
     }
 }
