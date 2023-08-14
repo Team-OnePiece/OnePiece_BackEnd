@@ -5,6 +5,7 @@ import com.amazonaws.services.kms.model.NotFoundException;
 import com.example.onepiece.domain.feed.domain.Feed;
 import com.example.onepiece.domain.feed.domain.repository.FeedRepository;
 import com.example.onepiece.domain.feed.presentation.dto.response.CreateFeedResponse;
+import com.example.onepiece.domain.group.exception.GroupNotFoundException;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import com.example.onepiece.infra.s3.service.S3Facade;
@@ -27,7 +28,7 @@ public class CreateFeedService {
         User currentUser = userFacade.getCurrentUser();
 
         if (!groupId.equals(currentUser.getGrade()) && !groupId.equals(currentUser.getClassNumber())) {
-            throw new IllegalArgumentException("group not found");
+            throw GroupNotFoundException.EXCEPTION;
         }
 
         Feed feed = feedRepository.save(
