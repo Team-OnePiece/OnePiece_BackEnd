@@ -24,12 +24,12 @@ public class FeedController {
     private final DeleteFeedService deleteFeedService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping()
+    @PostMapping
     public CreateFeedResponse feedCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
         return createFeedService.createFeed(place,image);
     }
 
-    @GetMapping()
+    @GetMapping
     public List<QueryFeedResponse> feedGroupQuery() {
         return queryFeedService.queryGroupFeed();
     }
