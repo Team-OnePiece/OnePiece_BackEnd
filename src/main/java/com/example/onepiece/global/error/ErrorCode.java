@@ -26,9 +26,7 @@ public enum ErrorCode {
     TAG_GENERATION_COUNT_EXCEEDED(400, "Tag Generation Count Exceeded"),
 
     STAR_EXIST(409, "Star Exist"),
-    REMOVE_STAR_EXIST(409, "Remove Star Exist"),
-
-    GROUP_NOT_FOUND(404, "Group Not Found");
+    REMOVE_STAR_EXIST(409, "Remove Star Exist");
 
     private final Integer httpStatus;
     private final String message;

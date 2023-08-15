@@ -5,7 +5,7 @@ import com.example.onepiece.domain.feed.presentation.dto.response.QueryFeedRespo
 import com.example.onepiece.domain.feed.service.DeleteFeedService;
 import com.example.onepiece.domain.feed.service.CreateFeedService;
 import com.example.onepiece.domain.feed.service.ModifyFeedService;
-import com.example.onepiece.domain.feed.service.QueryGroupFeedService;
+import com.example.onepiece.domain.feed.service.QueryFeedService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,18 +20,18 @@ public class FeedController {
 
     private final CreateFeedService createFeedService;
     private final ModifyFeedService modifyFeedService;
-    private final QueryGroupFeedService queryGroupFeedService;
+    private final QueryFeedService queryFeedService;
     private final DeleteFeedService deleteFeedService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{groupId}")
-    public CreateFeedResponse feedCreate(@RequestParam(value = "place") String place, @PathVariable(value = "groupId") Integer groupId , @RequestPart(required = false, value = "image") MultipartFile image) {
-        return createFeedService.createFeed(place, groupId,image);
+    @PostMapping()
+    public CreateFeedResponse feedCreate(@RequestParam(value = "place") String place, @RequestPart(required = false, value = "image") MultipartFile image) {
+        return createFeedService.createFeed(place,image);
     }
 
-    @GetMapping("/{groupId}")
-    public List<QueryFeedResponse> feedGroupQuery(@PathVariable(value = "groupId") Integer groupId) {
-        return queryGroupFeedService.queryGroupFeed(groupId);
+    @GetMapping()
+    public List<QueryFeedResponse> feedGroupQuery() {
+        return queryFeedService.queryGroupFeed();
     }
 
     @PatchMapping("/{feedId}")

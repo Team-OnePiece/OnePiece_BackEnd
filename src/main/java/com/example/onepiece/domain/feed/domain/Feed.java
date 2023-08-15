@@ -43,15 +43,11 @@ public class Feed extends BaseIdEntity {
     @NotNull
     private Integer starCounts;
 
-    @NotNull
-    private Integer groupId;
-
     @Builder
     public Feed(User user, String place, Integer starCounts, Integer groupId) {
         this.user = user;
         this.place = place;
         this.starCounts = starCounts;
-        this.groupId = groupId;
         this.createdAt = LocalDate.now();
     }
 
