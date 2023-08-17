@@ -34,7 +34,6 @@ public class RemoveStarService {
         starRepository.deleteByUserAndFeed(user, feed);
 
         feed.minusStarCount();
-
         return new StarResponse(feed.getStarCounts());
     }
 }

@@ -39,6 +39,7 @@ public class CreateStarService {
                         .feed(feed)
                         .build());
 
+        feed.addStarCount();
         return new StarResponse(feed.getStarCounts());
     }
 }
