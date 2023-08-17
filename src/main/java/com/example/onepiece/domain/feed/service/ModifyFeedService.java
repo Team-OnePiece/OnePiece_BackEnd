@@ -22,7 +22,7 @@ public class ModifyFeedService {
     @Transactional
     public void modifyFeed(Long feedId, String place, MultipartFile feedImage) {
         User currentUser = userFacade.getCurrentUser();
-        Feed feed = feedFacade.getBoard(feedId);
+        Feed feed = feedFacade.getFeed(feedId);
 
         if (!currentUser.equals(feed.getUser())) {
             throw FeedWriterMismatchException.EXCEPTION;

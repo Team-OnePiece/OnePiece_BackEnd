@@ -12,8 +12,8 @@ public class FeedFacade {
 
     private final FeedRepository feedRepository;
 
-    public Feed getBoard(Long boardId) {
-        return feedRepository.findById(boardId)
+    public Feed getFeed(Long feedId) {
+        return feedRepository.findById(feedId)
                 .orElseThrow(() -> FeedNotFoundException.EXCEPTION);
     }
 }

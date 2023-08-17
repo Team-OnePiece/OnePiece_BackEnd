@@ -25,7 +25,7 @@ public class TagCreateService {
     public TagIdResponse tagCreate(TagCreateRequest request, Long feedId) {
 
         User user = userFacade.getCurrentUser();
-        Feed feed = feedFacade.getBoard(feedId);
+        Feed feed = feedFacade.getFeed(feedId);
 
         if (feed.getTags().size() >= 6) {
             throw TagGenerationCountExceededException.EXCEPTION;

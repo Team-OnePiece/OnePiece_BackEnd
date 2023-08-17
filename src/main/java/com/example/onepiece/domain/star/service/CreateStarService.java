@@ -27,7 +27,7 @@ public class CreateStarService {
     @Transactional
     public StarResponse createStar(Long feedId) {
         User user = userFacade.getCurrentUser();
-        Feed feed = feedFacade.getBoard(feedId);
+        Feed feed = feedFacade.getFeed(feedId);
 
         if (starFacade.hasUserGivenStarToBoard(user, feed)) {
             throw StarExistException.EXCEPTION;

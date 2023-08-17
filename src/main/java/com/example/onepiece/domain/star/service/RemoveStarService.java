@@ -25,7 +25,7 @@ public class RemoveStarService {
     @Transactional
     public StarResponse deleteStar(Long feedId) {
         User user = userFacade.getCurrentUser();
-        Feed feed = boardFacade.getBoard(feedId);
+        Feed feed = boardFacade.getFeed(feedId);
 
         if (!starFacade.hasUserGivenStarToBoard(user, feed)) {
             throw RemoveStarExistException.EXCEPTION;

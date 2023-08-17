@@ -21,7 +21,7 @@ public class DeleteFeedService {
     @Transactional
     public void deleteFeed(Long feedId) {
         User currentUser = userFacade.getCurrentUser();
-        Feed board = feedFacade.getBoard(feedId);
+        Feed board = feedFacade.getFeed(feedId);
 
         if (!currentUser.equals(board.getUser())) {
             throw FeedWriterMismatchException.EXCEPTION;
