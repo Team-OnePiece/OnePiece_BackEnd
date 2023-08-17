@@ -5,6 +5,7 @@ import com.example.onepiece.domain.feed.facade.FeedFacade;
 import com.example.onepiece.domain.star.domain.repository.StarRepository;
 import com.example.onepiece.domain.star.exception.RemoveStarExistException;
 import com.example.onepiece.domain.star.facade.StarFacade;
+import com.example.onepiece.domain.star.presentation.dto.StarResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class RemoveStarService {
     private final StarRepository starRepository;
 
     @Transactional
-    public Integer deleteStar(Long feedId) {
+    public StarResponse deleteStar(Long feedId) {
         User user = userFacade.getCurrentUser();
         Feed feed = boardFacade.getBoard(feedId);
 
@@ -34,9 +35,11 @@ public class RemoveStarService {
         return removeStar(user, feed);
     }
 
-    private Integer removeStar(User user, Feed feed) {
+    private StarResponse removeStar(User user, Feed feed) {
         starRepository.deleteByUserAndFeed(user, feed);
 
-        return feed.getStarCounts();
+        return StarResponse.builder()
+                .starCount(feed.getStarCounts())
+                .build();
     }
 }
