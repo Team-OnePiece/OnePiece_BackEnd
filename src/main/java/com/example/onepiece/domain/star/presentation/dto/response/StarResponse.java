@@ -8,5 +8,4 @@ import lombok.Getter;
 public class StarResponse {
 
     private Integer starCounts;
-    private boolean star;
 }
