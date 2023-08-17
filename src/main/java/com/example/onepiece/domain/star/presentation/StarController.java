@@ -23,7 +23,7 @@ public class StarController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/{feedId}")
+    @PostMapping("/delete/{feedId}")
     public StarResponse deleteStar(@PathVariable("feedId") Long feedId) {
         return removeStarService.deleteStar(feedId);
     }
