@@ -1,10 +1,9 @@
 package com.example.onepiece.domain.star.presentation.dto;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
-@Builder
+@AllArgsConstructor
 public class StarResponse {
 
     private Integer starCount;

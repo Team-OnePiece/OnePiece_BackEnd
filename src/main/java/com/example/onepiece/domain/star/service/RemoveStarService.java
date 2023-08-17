@@ -38,8 +38,6 @@ public class RemoveStarService {
     private StarResponse removeStar(User user, Feed feed) {
         starRepository.deleteByUserAndFeed(user, feed);
 
-        return StarResponse.builder()
-                .starCount(feed.getStarCounts())
-                .build();
+        return new StarResponse(feed.getStarCounts());
     }
 }
