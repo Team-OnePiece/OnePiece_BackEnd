@@ -38,7 +38,6 @@ public class RemoveStarService {
     private StarResponse removeStar(User user, Feed feed) {
         starRepository.deleteByUserAndFeed(user, feed);
 
-        return new StarResponse(feed.getStarCounts(),
-                starFacade.hasUserGivenStarToBoard(user, feed));
+        return new StarResponse(feed.getStarCounts());
     }
 }

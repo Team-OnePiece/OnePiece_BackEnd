@@ -43,7 +43,6 @@ public class CreateStarService {
                 .feed(feed)
                 .build());
 
-        return new StarResponse(feed.getStarCounts(),
-                starFacade.hasUserGivenStarToBoard(user, feed));
+        return new StarResponse(feed.getStarCounts());
     }
 }
