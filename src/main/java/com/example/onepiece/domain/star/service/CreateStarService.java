@@ -7,7 +7,6 @@ import com.example.onepiece.domain.star.domain.Star;
 import com.example.onepiece.domain.star.domain.repository.StarRepository;
 import com.example.onepiece.domain.star.exception.StarExistException;
 import com.example.onepiece.domain.star.facade.StarFacade;
-import com.example.onepiece.domain.star.presentation.dto.response.StarResponse;
 import com.example.onepiece.domain.user.domain.User;
 import com.example.onepiece.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +24,7 @@ public class CreateStarService {
     private final StarFacade starFacade;
 
     @Transactional
-    public StarResponse createStar(Long feedId) {
+    public Integer createStar(Long feedId) {
         User user = userFacade.getCurrentUser();
         Feed feed = feedFacade.getBoard(feedId);
 
@@ -37,12 +36,12 @@ public class CreateStarService {
         return addStar(user, feed);
     }
 
-    private StarResponse addStar(User user, Feed feed) {
+    private Integer addStar(User user, Feed feed) {
         starRepository.save(Star.builder()
                 .user(user)
                 .feed(feed)
                 .build());
 
-        return new StarResponse(feed.getStarCounts());
+        return feed.getStarCounts();
     }
 }
