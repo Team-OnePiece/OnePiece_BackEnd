@@ -6,5 +6,5 @@ import lombok.*;
 @AllArgsConstructor
 public class StarResponse {
 
-    private Integer starCount;
+    private Integer starCounts;
 }

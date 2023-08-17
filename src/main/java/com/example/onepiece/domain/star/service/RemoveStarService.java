@@ -31,12 +31,9 @@ public class RemoveStarService {
             throw RemoveStarExistException.EXCEPTION;
         }
 
-        feed.minusStarCount();
-        return removeStar(user, feed);
-    }
-
-    private StarResponse removeStar(User user, Feed feed) {
         starRepository.deleteByUserAndFeed(user, feed);
+
+        feed.minusStarCount();
 
         return new StarResponse(feed.getStarCounts());
     }

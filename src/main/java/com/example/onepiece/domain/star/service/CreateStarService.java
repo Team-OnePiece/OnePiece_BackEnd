@@ -33,15 +33,11 @@ public class CreateStarService {
             throw StarExistException.EXCEPTION;
         }
 
-        feed.addStarCount();
-        return addStar(user, feed);
-    }
-
-    private StarResponse addStar(User user, Feed feed) {
-        starRepository.save(Star.builder()
-                .user(user)
-                .feed(feed)
-                .build());
+        starRepository.save(
+                Star.builder()
+                        .user(user)
+                        .feed(feed)
+                        .build());
 
         return new StarResponse(feed.getStarCounts());
     }
